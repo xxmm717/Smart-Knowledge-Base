@@ -30,7 +30,7 @@ class ImportConfig:
 
     # ==================== MinerU ====================
     minerU_api_token: str = field(
-        default_factory=lambda: os.getenv("MINERU_API_KEY", "")
+        default_factory=lambda: os.getenv("MINERU_API_TOKEN", "")
     )
     minerU_base_url: str = field(
         default_factory=lambda: os.getenv("MINERU_BASE_URL", "")

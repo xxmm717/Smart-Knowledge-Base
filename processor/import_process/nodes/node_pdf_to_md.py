@@ -1,4 +1,6 @@
+﻿import shutil
 import time
+import zipfile
 from pathlib import Path
 
 import logger
@@ -26,16 +28,21 @@ class NodePdfToMd(BaseNode):
          :return: 更新后的状态对象
          """
         # 1.校验pdf路径和输出目录
-        pdf_path_ojb,output_dir_ojb = self.step_1_validate_path(state)
+        pdf_path_ojb,output_dir_ojb = self._step_1_validate_path(state)
 
         # 2.上传pdf到MinerU并轮询解析结果
-        zip_url = self.step_2_upload_and_poll(pdf_path_ojb)
+        zip_url = self._step_2_upload_and_poll(pdf_path_ojb)
 
         # 3.下载zip并提取md文件
+        md_path = self._step_3_download_and_extract(zip_url,output_dir_ojb,pdf_path_ojb.stem)
 
         # 4.读取md内容
+        with open(md_path, 'rb',encoding="utf-8") as f:
+            md_content = f.read()
 
-        #5，更新state状态
+        # 5.更新state状态
+        state["md_path"] = str(md_path)
+        state["md_content"] = md_content
 
         return state
 
@@ -87,7 +94,7 @@ class NodePdfToMd(BaseNode):
 
         # 2.从MinerU获取上传链接
         token = cfg.minerU_api_token
-        url = cfg.minerU_base_url
+        url = f"{cfg.minerU_base_url}/file-urls/batch"
         header = {
             "Content-Type": "application/json",
             "Authorization": f"Bearer {token}"
@@ -107,7 +114,7 @@ class NodePdfToMd(BaseNode):
         else:
             result = response.json()
             if result["code"] == 0:
-                singed_url  = result["data"]["file_url"][0]
+                singed_url  = result["data"]["file_urls"][0]
                 batch_id = result["data"]["batch_id"]
                 self.logger.info(f"【获取上传链接】成功：上传链接已生成，batch_id：{batch_id}")
             else:
@@ -173,7 +180,7 @@ class NodePdfToMd(BaseNode):
                 self.logger.info(f"【任务轮询】处理中... 已耗时{int(elapsed_time)}s，状态：{data_state}， batch_id：{batch_id}")
                 time.sleep(poll_interval)
 
-    #  下载与解压 (Download & Extract)
+    # 下载与解压 (Download & Extract)
     def _step_3_download_and_extract(self,zip_url:str,output_dir_obj:Path,pdf_stem:str)-> str:
         """
        步骤3：下载MinerU解析结果ZIP包并解压，提取目标MD文件
@@ -183,11 +190,37 @@ class NodePdfToMd(BaseNode):
        异常：RuntimeError(下载失败)、FileNotFoundError(无MD文件)
        """
         # 1.下载ZIP包并校验
+        self.logger.info(f"【ZIP下载】开始下载ZIP包：{zip_url} ...")
+        response = requests.get(zip_url)
+        if response.status_code != 200:
+            raise RuntimeError(f"【ZIP下载】ZIP包下载失败：状态码：{response.status_code}，响应结果：{response}")
+
+        #拼接ZIP包保存路径并保存
+        zip_save_path = output_dir_obj / f"{pdf_stem}_result.zip"
+        with open(zip_save_path, 'wb') as f:
+            f.write(response.content)
+        self.logger.info(f"【ZIP下载】ZIP包下载成功：保存路径：{zip_save_path}")
 
         # 2.清空解压目录
+        extract_target_dir = output_dir_obj / pdf_stem
+        shutil.rmtree(extract_target_dir, ignore_errors=True)
+        self.logger.info(f"【ZIP解压】已清空旧的解压目录：{extract_target_dir}")
 
         # 3.创建解压目录
+        extract_target_dir.mkdir(parents=True, exist_ok=True)
 
         # 4.解压
+        self.logger.info(f"【ZIP解压】开始解压ZIP包：{output_dir_obj} ...")
+        with zipfile.ZipFile(zip_save_path, "r") as zip_ref:
+            zip_ref.extractall(extract_target_dir)
+        self.logger.info(f"【ZIP解压】ZIP解压完成，解压目录：{extract_target_dir}")
 
         # 5.重命名
+        self.logger.info(f"【MD重命名】找到MinerU生成的full.md文件")
+        target_md_file = extract_target_dir / "full.md"
+        self.logger.info(f"【MD重命名】开始将full.md文件进行重命名")
+        new_md_path = target_md_file.with_name(f"{pdf_stem}.md")
+        target_md_file.rename(new_md_path)
+        self.logger.info(f"【MD重命名】重命名成功，文件名：{pdf_stem}.md")
+
+        return str(new_md_path.absolute())
