@@ -1,0 +1,101 @@
+2026-07-24 17:39:21.183 | INFO     | node_md_img.py      :_step_5_backup_new_md_file:258  - 处理后MD文件已保存，新文件路径：output\test\test_new.md
+2026-07-24 17:39:22.117 | INFO     | node_md_img.py      :_step_5_backup_new_md_file:258  - 处理后MD文件已保存，新文件路径：output\test\test_new.md
+2026-07-24 17:39:37.094 | INFO     | node_md_img.py      :_step_5_backup_new_md_file:258  - 处理后MD文件已保存，新文件路径：output\test\test_new.md
+2026-07-24 17:39:37.947 | INFO     | node_md_img.py      :_step_5_backup_new_md_file:258  - 处理后MD文件已保存，新文件路径：output\test\test_new.md
+2026-07-24 17:39:37.962 | ERROR    | node_md_img.py      :_summarize_image:315  - 图片摘要生成失败（系统异常）：output\test\images\06474f326a73aa174281952c2d7a262f50b5a813a0a0523744c4cc52374ef0fd.jpg，错误信息：name 'lm_config' is not defined
+2026-07-24 17:39:37.979 | ERROR    | node_md_img.py      :_summarize_image:315  - 图片摘要生成失败（系统异常）：output\test\images\08e8c1c7f9c7f47a615d8449dea68240baed840efe2f63d2a292dceb249bef98.jpg，错误信息：name 'lm_config' is not defined
+2026-07-24 17:39:37.995 | ERROR    | node_md_img.py      :_summarize_image:315  - 图片摘要生成失败（系统异常）：output\test\images\16288d553bf867b279adb856534213ef37a0d17bdec59c9c4abf824878cd7e56.jpg，错误信息：name 'lm_config' is not defined
+2026-07-24 17:39:38.012 | ERROR    | node_md_img.py      :_summarize_image:315  - 图片摘要生成失败（系统异常）：output\test\images\2436b496658837dfc940d48d8565fa9a9135932ebf6e2c2a25e9fff4f674dd39.jpg，错误信息：name 'lm_config' is not defined
+2026-07-24 17:40:48.778 | INFO     | node_md_img.py      :_step_5_backup_new_md_file:258  - 处理后MD文件已保存，新文件路径：output\test\test_new.md
+2026-07-24 17:40:49.522 | INFO     | node_md_img.py      :_step_5_backup_new_md_file:258  - 处理后MD文件已保存，新文件路径：output\test\test_new.md
+2026-07-24 17:40:49.534 | INFO     | llm_client.py       :get_llm_client :142  - [LLM客户端] 开始初始化新实例：模型=qwen3-vl-32b-thinking，JSON模式=False
+2026-07-24 17:40:55.279 | INFO     | llm_client.py       :get_llm_client :169  - [LLM客户端] 实例初始化成功并缓存：模型=qwen3-vl-32b-thinking，JSON模式=False
+2026-07-24 17:41:12.974 | INFO     | node_md_img.py      :_summarize_image:310  - 图片摘要生成成功：output\test\images\06474f326a73aa174281952c2d7a262f50b5a813a0a0523744c4cc52374ef0fd.jpg，摘要：DCC拨号配置：拨号控制列表及拨号串设置说明（28字）
+2026-07-24 17:42:11.111 | INFO     | node_md_img.py      :_summarize_image:310  - 图片摘要生成成功：output\test\images\08e8c1c7f9c7f47a615d8449dea68240baed840efe2f63d2a292dceb249bef98.jpg，摘要：运营商无线控制器IP配置及业务VLAN创建说明（18字）
+2026-07-24 17:42:28.244 | INFO     | node_md_img.py      :_summarize_image:310  - 图片摘要生成成功：output\test\images\16288d553bf867b279adb856534213ef37a0d17bdec59c9c4abf824878cd7e56.jpg，摘要：LA2608通过3G/4G网络连接H3C无线控制器的配置示意图
+2026-07-24 17:42:37.321 | INFO     | node_md_img.py      :_summarize_image:310  - 图片摘要生成成功：output\test\images\2436b496658837dfc940d48d8565fa9a9135932ebf6e2c2a25e9fff4f674dd39.jpg，摘要：LA2608通过3G/4G连接无线控制器AC，为Host A/B/C提供WIFI服务（28字）
+2026-07-24 17:43:24.500 | INFO     | node_md_img.py      :_step_5_backup_new_md_file:258  - 处理后MD文件已保存，新文件路径：output\test\test_new.md
+2026-07-24 17:43:25.469 | INFO     | node_md_img.py      :_step_5_backup_new_md_file:258  - 处理后MD文件已保存，新文件路径：output\test\test_new.md
+2026-07-24 17:43:25.486 | INFO     | llm_client.py       :get_llm_client :142  - [LLM客户端] 开始初始化新实例：模型=qwen3-vl-32b-thinking，JSON模式=False
+2026-07-24 17:43:30.121 | INFO     | llm_client.py       :get_llm_client :169  - [LLM客户端] 实例初始化成功并缓存：模型=qwen3-vl-32b-thinking，JSON模式=False
+2026-07-24 17:44:01.424 | INFO     | node_md_img.py      :_summarize_image:310  - 图片摘要生成成功：output\test\images\06474f326a73aa174281952c2d7a262f50b5a813a0a0523744c4cc52374ef0fd.jpg，摘要：配置拨号访问组控制列表及DCC拨号，dialer number需运营商提供拨号串。
+2026-07-24 17:44:40.127 | INFO     | node_md_img.py      :_summarize_image:310  - 图片摘要生成成功：output\test\images\08e8c1c7f9c7f47a615d8449dea68240baed840efe2f63d2a292dceb249bef98.jpg，摘要：运营商无线控制器配置：指定IP 60.191.99.143及创建业务VLAN 2
+2026-07-24 17:45:00.495 | INFO     | node_md_img.py      :_summarize_image:310  - 图片摘要生成成功：output\test\images\16288d553bf867b279adb856534213ef37a0d17bdec59c9c4abf824878cd7e56.jpg，摘要：H3C LA2608无线网关通过3G/4G连接H3C无线控制器，仅支持H3C互通，配置需SIM卡。
+2026-07-24 17:45:18.659 | INFO     | node_md_img.py      :_summarize_image:310  - 图片摘要生成成功：output\test\images\2436b496658837dfc940d48d8565fa9a9135932ebf6e2c2a25e9fff4f674dd39.jpg，摘要：LA2608通过3G/4G连接无线控制器AC，为多终端提供无线服务拓扑图
+2026-07-24 17:45:46.564 | INFO     | llm_client.py       :get_llm_client :142  - [LLM客户端] 开始初始化新实例：模型=qwen3-vl-32b-thinking，JSON模式=False
+2026-07-24 17:45:48.897 | INFO     | llm_client.py       :get_llm_client :169  - [LLM客户端] 实例初始化成功并缓存：模型=qwen3-vl-32b-thinking，JSON模式=False
+2026-07-24 17:46:36.848 | INFO     | node_md_img.py      :_summarize_image:310  - 图片摘要生成成功：output\test\images\06474f326a73aa174281952c2d7a262f50b5a813a0a0523744c4cc52374ef0fd.jpg，摘要：DCC拨号配置：拨号控制列表及dialer number需运营商提供拨号串。
+2026-07-24 17:47:31.437 | INFO     | node_md_img.py      :_summarize_image:310  - 图片摘要生成成功：output\test\images\08e8c1c7f9c7f47a615d8449dea68240baed840efe2f63d2a292dceb249bef98.jpg，摘要：运营商无线控制器配置：指定IP及创建业务VLAN
+2026-07-24 17:47:48.913 | INFO     | node_md_img.py      :_summarize_image:310  - 图片摘要生成成功：output\test\images\16288d553bf867b279adb856534213ef37a0d17bdec59c9c4abf824878cd7e56.jpg，摘要：LA2608通过3G/4G网络连接H3C无线控制器的配置示意图
+2026-07-24 17:47:57.498 | INFO     | node_md_img.py      :_summarize_image:310  - 图片摘要生成成功：output\test\images\2436b496658837dfc940d48d8565fa9a9135932ebf6e2c2a25e9fff4f674dd39.jpg，摘要：LA2608通过3G/4G连接无线控制器AC，为Host A/B/C提供WIFI无线服务拓扑图
+2026-07-24 17:48:26.651 | INFO     | node_md_img.py      :_step_5_backup_new_md_file:258  - 处理后MD文件已保存，新文件路径：output\test\test_new.md
+2026-07-24 17:48:27.730 | INFO     | node_md_img.py      :_step_5_backup_new_md_file:258  - 处理后MD文件已保存，新文件路径：output\test\test_new.md
+2026-07-24 17:48:27.743 | INFO     | llm_client.py       :get_llm_client :142  - [LLM客户端] 开始初始化新实例：模型=qwen3-vl-32b-thinking，JSON模式=False
+2026-07-24 17:48:29.627 | INFO     | llm_client.py       :get_llm_client :169  - [LLM客户端] 实例初始化成功并缓存：模型=qwen3-vl-32b-thinking，JSON模式=False
+2026-07-24 17:48:40.144 | INFO     | node_md_img.py      :_summarize_image:310  - 图片摘要生成成功：output\test\images\06474f326a73aa174281952c2d7a262f50b5a813a0a0523744c4cc52374ef0fd.jpg，摘要：DCC拨号配置：设置拨号控制列表与拨号串，需运营商提供拨号串信息。
+2026-07-24 17:49:11.069 | INFO     | node_md_img.py      :_summarize_image:310  - 图片摘要生成成功：output\test\images\08e8c1c7f9c7f47a615d8449dea68240baed840efe2f63d2a292dceb249bef98.jpg，摘要：配置运营商无线控制器：指定IP地址及创建业务VLAN
+2026-07-24 17:49:29.879 | INFO     | node_md_img.py      :_summarize_image:310  - 图片摘要生成成功：output\test\images\16288d553bf867b279adb856534213ef37a0d17bdec59c9c4abf824878cd7e56.jpg，摘要：H3C LA2608通过3G/4G及SIM卡连接H3C无线控制器配置示意图（仅支持H3C）
+2026-07-24 17:49:42.251 | INFO     | node_md_img.py      :_summarize_image:310  - 图片摘要生成成功：output\test\images\2436b496658837dfc940d48d8565fa9a9135932ebf6e2c2a25e9fff4f674dd39.jpg，摘要：LA2608通过3G/4G连接无线控制器AC，为终端设备提供WIFI服务拓扑图
+2026-07-24 17:56:15.473 | INFO     | node_md_img.py      :_step_5_backup_new_md_file:258  - 处理后MD文件已保存，新文件路径：output\test\test_new.md
+2026-07-24 17:56:16.209 | INFO     | node_md_img.py      :_step_5_backup_new_md_file:258  - 处理后MD文件已保存，新文件路径：output\test\test_new.md
+2026-07-24 17:56:16.220 | INFO     | llm_client.py       :get_llm_client :142  - [LLM客户端] 开始初始化新实例：模型=qwen3-vl-32b-thinking，JSON模式=False
+2026-07-24 17:56:17.957 | INFO     | llm_client.py       :get_llm_client :169  - [LLM客户端] 实例初始化成功并缓存：模型=qwen3-vl-32b-thinking，JSON模式=False
+2026-07-24 17:56:25.551 | INFO     | node_md_img.py      :_summarize_image:310  - 图片摘要生成成功：output\test\images\06474f326a73aa174281952c2d7a262f50b5a813a0a0523744c4cc52374ef0fd.jpg，摘要：DCC拨号配置：拨号控制列表及拨号串设置说明（LA2608设备）
+2026-07-24 17:57:21.695 | INFO     | node_md_img.py      :_summarize_image:310  - 图片摘要生成成功：output\test\images\08e8c1c7f9c7f47a615d8449dea68240baed840efe2f63d2a292dceb249bef98.jpg，摘要：运营商无线控制器配置：指定IP地址与创建业务VLAN
+2026-07-24 17:57:31.158 | INFO     | node_md_img.py      :_summarize_image:310  - 图片摘要生成成功：output\test\images\16288d553bf867b279adb856534213ef37a0d17bdec59c9c4abf824878cd7e56.jpg，摘要：LA2608通过3G/4G网络连接H3C无线控制器的配置示意图
+2026-07-24 17:57:39.403 | INFO     | node_md_img.py      :_summarize_image:310  - 图片摘要生成成功：output\test\images\2436b496658837dfc940d48d8565fa9a9135932ebf6e2c2a25e9fff4f674dd39.jpg，摘要：LA2608通过3G/4G连接无线控制器AC，为终端提供无线服务。
+2026-07-24 17:57:55.137 | INFO     | node_md_img.py      :_step_5_backup_new_md_file:258  - 处理后MD文件已保存，新文件路径：output\test\test_new.md
+2026-07-24 17:57:55.959 | INFO     | node_md_img.py      :_step_5_backup_new_md_file:258  - 处理后MD文件已保存，新文件路径：output\test\test_new.md
+2026-07-24 17:57:55.972 | INFO     | llm_client.py       :get_llm_client :142  - [LLM客户端] 开始初始化新实例：模型=qwen3-vl-32b-thinking，JSON模式=False
+2026-07-24 17:57:57.874 | INFO     | llm_client.py       :get_llm_client :169  - [LLM客户端] 实例初始化成功并缓存：模型=qwen3-vl-32b-thinking，JSON模式=False
+2026-07-24 17:58:19.405 | INFO     | node_md_img.py      :_summarize_image:310  - 图片摘要生成成功：output\test\images\06474f326a73aa174281952c2d7a262f50b5a813a0a0523744c4cc52374ef0fd.jpg，摘要：DCC拨号配置：拨号控制列表及拨号串设置命令说明
+2026-07-24 17:58:48.787 | INFO     | node_md_img.py      :_summarize_image:310  - 图片摘要生成成功：output\test\images\08e8c1c7f9c7f47a615d8449dea68240baed840efe2f63d2a292dceb249bef98.jpg，摘要：配置运营商无线控制器IP地址及业务VLAN说明
+2026-07-24 17:59:04.770 | INFO     | node_md_img.py      :_summarize_image:310  - 图片摘要生成成功：output\test\images\16288d553bf867b279adb856534213ef37a0d17bdec59c9c4abf824878cd7e56.jpg，摘要：LA2608通过3G/4G网络连接H3C无线控制器，仅支持H3C互通。
+2026-07-24 17:59:13.977 | INFO     | node_md_img.py      :_summarize_image:310  - 图片摘要生成成功：output\test\images\2436b496658837dfc940d48d8565fa9a9135932ebf6e2c2a25e9fff4f674dd39.jpg，摘要：LA2608通过3G/4G连接无线控制器AC，为Host A/B/C等终端提供WIFI服务
+2026-07-24 17:59:13.988 | ERROR    | node_md_img.py      :_clean_minio_directory:358  - MinIO目录清理失败：/upload-images/test，错误信息：'MinIOConfig' object has no attribute 'minio_bucket_name'
+2026-07-24 17:59:13.997 | INFO     | node_md_img.py      :_upload_to_minio:392  - 开始上传图片至MinIO：本地路径=output\test\images\06474f326a73aa174281952c2d7a262f50b5a813a0a0523744c4cc52374ef0fd.jpg，MinIO对象名=/upload-images/test/06474f326a73aa174281952c2d7a262f50b5a813a0a0523744c4cc52374ef0fd.jpg
+2026-07-24 17:59:14.038 | INFO     | node_md_img.py      :_upload_to_minio:415  - 图片上传成功，访问URL：http://192.168.246.128:9010/knowledge-base-files/upload-images/test/06474f326a73aa174281952c2d7a262f50b5a813a0a0523744c4cc52374ef0fd.jpg
+2026-07-24 17:59:14.049 | INFO     | node_md_img.py      :_upload_to_minio:392  - 开始上传图片至MinIO：本地路径=output\test\images\08e8c1c7f9c7f47a615d8449dea68240baed840efe2f63d2a292dceb249bef98.jpg，MinIO对象名=/upload-images/test/08e8c1c7f9c7f47a615d8449dea68240baed840efe2f63d2a292dceb249bef98.jpg
+2026-07-24 17:59:14.062 | INFO     | node_md_img.py      :_upload_to_minio:415  - 图片上传成功，访问URL：http://192.168.246.128:9010/knowledge-base-files/upload-images/test/08e8c1c7f9c7f47a615d8449dea68240baed840efe2f63d2a292dceb249bef98.jpg
+2026-07-24 17:59:14.073 | INFO     | node_md_img.py      :_upload_to_minio:392  - 开始上传图片至MinIO：本地路径=output\test\images\16288d553bf867b279adb856534213ef37a0d17bdec59c9c4abf824878cd7e56.jpg，MinIO对象名=/upload-images/test/16288d553bf867b279adb856534213ef37a0d17bdec59c9c4abf824878cd7e56.jpg
+2026-07-24 17:59:14.086 | INFO     | node_md_img.py      :_upload_to_minio:415  - 图片上传成功，访问URL：http://192.168.246.128:9010/knowledge-base-files/upload-images/test/16288d553bf867b279adb856534213ef37a0d17bdec59c9c4abf824878cd7e56.jpg
+2026-07-24 17:59:14.096 | INFO     | node_md_img.py      :_upload_to_minio:392  - 开始上传图片至MinIO：本地路径=output\test\images\2436b496658837dfc940d48d8565fa9a9135932ebf6e2c2a25e9fff4f674dd39.jpg，MinIO对象名=/upload-images/test/2436b496658837dfc940d48d8565fa9a9135932ebf6e2c2a25e9fff4f674dd39.jpg
+2026-07-24 17:59:14.109 | INFO     | node_md_img.py      :_upload_to_minio:415  - 图片上传成功，访问URL：http://192.168.246.128:9010/knowledge-base-files/upload-images/test/2436b496658837dfc940d48d8565fa9a9135932ebf6e2c2a25e9fff4f674dd39.jpg
+2026-07-24 17:59:14.120 | INFO     | node_md_img.py      :_upload_images_batch:380  - 图片批量上传完成，成功上传4/4张图片
+2026-07-24 17:59:14.130 | INFO     | node_md_img.py      :_merge_summary_and_url:433  - 图片摘要与URL合并完成，有效图片信息4条
+2026-07-24 17:59:14.139 | INFO     | node_md_img.py      :_process_md_file:458  - MD文件图片引用替换完成，共替换4处图片引用
+2026-07-24 17:59:59.564 | INFO     | node_md_img.py      :_summarize_image:310  - 图片摘要生成成功：output\test\images\06474f326a73aa174281952c2d7a262f50b5a813a0a0523744c4cc52374ef0fd.jpg，摘要：DCC拨号配置：拨号控制列表与拨号串设置说明
+2026-07-24 18:00:38.674 | INFO     | node_md_img.py      :_summarize_image:310  - 图片摘要生成成功：output\test\images\08e8c1c7f9c7f47a615d8449dea68240baed840efe2f63d2a292dceb249bef98.jpg，摘要：运营商无线控制器配置：指定IP地址及创建业务VLAN步骤
+2026-07-24 18:00:56.193 | INFO     | node_md_img.py      :_summarize_image:310  - 图片摘要生成成功：output\test\images\16288d553bf867b279adb856534213ef37a0d17bdec59c9c4abf824878cd7e56.jpg，摘要：LA2608通过3G/4G网络连接H3C无线控制器配置示意图
+2026-07-24 18:01:05.234 | INFO     | node_md_img.py      :_summarize_image:310  - 图片摘要生成成功：output\test\images\2436b496658837dfc940d48d8565fa9a9135932ebf6e2c2a25e9fff4f674dd39.jpg，摘要：LA2608通过3G/4G连接无线控制器，为Host A/B/C提供WiFi服务
+2026-07-24 18:01:05.244 | ERROR    | node_md_img.py      :_clean_minio_directory:358  - MinIO目录清理失败：/upload-images/test，错误信息：'MinIOConfig' object has no attribute 'minio_bucket_name'
+2026-07-24 18:01:05.253 | INFO     | node_md_img.py      :_upload_to_minio:392  - 开始上传图片至MinIO：本地路径=output\test\images\06474f326a73aa174281952c2d7a262f50b5a813a0a0523744c4cc52374ef0fd.jpg，MinIO对象名=/upload-images/test/06474f326a73aa174281952c2d7a262f50b5a813a0a0523744c4cc52374ef0fd.jpg
+2026-07-24 18:01:05.290 | INFO     | node_md_img.py      :_upload_to_minio:415  - 图片上传成功，访问URL：http://192.168.246.128:9010/knowledge-base-files/upload-images/test/06474f326a73aa174281952c2d7a262f50b5a813a0a0523744c4cc52374ef0fd.jpg
+2026-07-24 18:01:05.301 | INFO     | node_md_img.py      :_upload_to_minio:392  - 开始上传图片至MinIO：本地路径=output\test\images\08e8c1c7f9c7f47a615d8449dea68240baed840efe2f63d2a292dceb249bef98.jpg，MinIO对象名=/upload-images/test/08e8c1c7f9c7f47a615d8449dea68240baed840efe2f63d2a292dceb249bef98.jpg
+2026-07-24 18:01:05.318 | INFO     | node_md_img.py      :_upload_to_minio:415  - 图片上传成功，访问URL：http://192.168.246.128:9010/knowledge-base-files/upload-images/test/08e8c1c7f9c7f47a615d8449dea68240baed840efe2f63d2a292dceb249bef98.jpg
+2026-07-24 18:01:05.328 | INFO     | node_md_img.py      :_upload_to_minio:392  - 开始上传图片至MinIO：本地路径=output\test\images\16288d553bf867b279adb856534213ef37a0d17bdec59c9c4abf824878cd7e56.jpg，MinIO对象名=/upload-images/test/16288d553bf867b279adb856534213ef37a0d17bdec59c9c4abf824878cd7e56.jpg
+2026-07-24 18:01:05.342 | INFO     | node_md_img.py      :_upload_to_minio:415  - 图片上传成功，访问URL：http://192.168.246.128:9010/knowledge-base-files/upload-images/test/16288d553bf867b279adb856534213ef37a0d17bdec59c9c4abf824878cd7e56.jpg
+2026-07-24 18:01:05.352 | INFO     | node_md_img.py      :_upload_to_minio:392  - 开始上传图片至MinIO：本地路径=output\test\images\2436b496658837dfc940d48d8565fa9a9135932ebf6e2c2a25e9fff4f674dd39.jpg，MinIO对象名=/upload-images/test/2436b496658837dfc940d48d8565fa9a9135932ebf6e2c2a25e9fff4f674dd39.jpg
+2026-07-24 18:01:05.367 | INFO     | node_md_img.py      :_upload_to_minio:415  - 图片上传成功，访问URL：http://192.168.246.128:9010/knowledge-base-files/upload-images/test/2436b496658837dfc940d48d8565fa9a9135932ebf6e2c2a25e9fff4f674dd39.jpg
+2026-07-24 18:01:05.380 | INFO     | node_md_img.py      :_upload_images_batch:380  - 图片批量上传完成，成功上传4/4张图片
+2026-07-24 18:01:05.389 | INFO     | node_md_img.py      :_merge_summary_and_url:433  - 图片摘要与URL合并完成，有效图片信息4条
+2026-07-24 18:01:05.400 | INFO     | node_md_img.py      :_process_md_file:458  - MD文件图片引用替换完成，共替换4处图片引用
+2026-07-24 18:01:05.409 | INFO     | node_md_img.py      :_step_5_backup_new_md_file:258  - 处理后MD文件已保存，新文件路径：output\test\test_new.md
+2026-07-24 18:04:03.266 | INFO     | llm_client.py       :get_llm_client :142  - [LLM客户端] 开始初始化新实例：模型=qwen3-vl-32b-thinking，JSON模式=False
+2026-07-24 18:04:05.811 | INFO     | llm_client.py       :get_llm_client :169  - [LLM客户端] 实例初始化成功并缓存：模型=qwen3-vl-32b-thinking，JSON模式=False
+2026-07-24 18:05:12.238 | INFO     | node_md_img.py      :_summarize_image:310  - 图片摘要生成成功：output\test\images\06474f326a73aa174281952c2d7a262f50b5a813a0a0523744c4cc52374ef0fd.jpg，摘要：DCC拨号配置：拨号控制列表及拨号串设置示例
+2026-07-24 18:05:32.302 | INFO     | node_md_img.py      :_summarize_image:310  - 图片摘要生成成功：output\test\images\08e8c1c7f9c7f47a615d8449dea68240baed840efe2f63d2a292dceb249bef98.jpg，摘要：运营商无线控制器配置：IP地址指定与业务VLAN创建示例（28字）
+2026-07-24 18:05:41.927 | INFO     | node_md_img.py      :_summarize_image:310  - 图片摘要生成成功：output\test\images\16288d553bf867b279adb856534213ef37a0d17bdec59c9c4abf824878cd7e56.jpg，摘要：LA2608通过3G/4G连接H3C无线控制器，仅支持H3C，配置需SIM卡。
+2026-07-24 18:05:51.262 | INFO     | node_md_img.py      :_summarize_image:310  - 图片摘要生成成功：output\test\images\2436b496658837dfc940d48d8565fa9a9135932ebf6e2c2a25e9fff4f674dd39.jpg，摘要：LA2608通过3G/4G连接无线控制器AC，为Host A/B/C提供WIFI服务拓扑图
+2026-07-24 18:05:51.293 | INFO     | node_md_img.py      :_upload_to_minio:392  - 开始上传图片至MinIO：本地路径=output\test\images\06474f326a73aa174281952c2d7a262f50b5a813a0a0523744c4cc52374ef0fd.jpg，MinIO对象名=/upload-images/test/06474f326a73aa174281952c2d7a262f50b5a813a0a0523744c4cc52374ef0fd.jpg
+2026-07-24 18:05:51.300 | INFO     | node_md_img.py      :_upload_to_minio:415  - 图片上传成功，访问URL：http://192.168.246.128:9010/knowledge-base-files/upload-images/test/06474f326a73aa174281952c2d7a262f50b5a813a0a0523744c4cc52374ef0fd.jpg
+2026-07-24 18:05:51.301 | INFO     | node_md_img.py      :_upload_to_minio:392  - 开始上传图片至MinIO：本地路径=output\test\images\08e8c1c7f9c7f47a615d8449dea68240baed840efe2f63d2a292dceb249bef98.jpg，MinIO对象名=/upload-images/test/08e8c1c7f9c7f47a615d8449dea68240baed840efe2f63d2a292dceb249bef98.jpg
+2026-07-24 18:05:51.308 | INFO     | node_md_img.py      :_upload_to_minio:415  - 图片上传成功，访问URL：http://192.168.246.128:9010/knowledge-base-files/upload-images/test/08e8c1c7f9c7f47a615d8449dea68240baed840efe2f63d2a292dceb249bef98.jpg
+2026-07-24 18:05:51.309 | INFO     | node_md_img.py      :_upload_to_minio:392  - 开始上传图片至MinIO：本地路径=output\test\images\16288d553bf867b279adb856534213ef37a0d17bdec59c9c4abf824878cd7e56.jpg，MinIO对象名=/upload-images/test/16288d553bf867b279adb856534213ef37a0d17bdec59c9c4abf824878cd7e56.jpg
+2026-07-24 18:05:51.315 | INFO     | node_md_img.py      :_upload_to_minio:415  - 图片上传成功，访问URL：http://192.168.246.128:9010/knowledge-base-files/upload-images/test/16288d553bf867b279adb856534213ef37a0d17bdec59c9c4abf824878cd7e56.jpg
+2026-07-24 18:05:51.316 | INFO     | node_md_img.py      :_upload_to_minio:392  - 开始上传图片至MinIO：本地路径=output\test\images\2436b496658837dfc940d48d8565fa9a9135932ebf6e2c2a25e9fff4f674dd39.jpg，MinIO对象名=/upload-images/test/2436b496658837dfc940d48d8565fa9a9135932ebf6e2c2a25e9fff4f674dd39.jpg
+2026-07-24 18:05:51.324 | INFO     | node_md_img.py      :_upload_to_minio:415  - 图片上传成功，访问URL：http://192.168.246.128:9010/knowledge-base-files/upload-images/test/2436b496658837dfc940d48d8565fa9a9135932ebf6e2c2a25e9fff4f674dd39.jpg
+2026-07-24 18:05:51.325 | INFO     | node_md_img.py      :_upload_images_batch:380  - 图片批量上传完成，成功上传4/4张图片
+2026-07-24 18:05:51.326 | INFO     | node_md_img.py      :_merge_summary_and_url:433  - 图片摘要与URL合并完成，有效图片信息4条
+2026-07-24 18:05:51.327 | INFO     | node_md_img.py      :_process_md_file:458  - MD文件图片引用替换完成，共替换4处图片引用
+2026-07-24 18:05:51.330 | INFO     | node_md_img.py      :_step_5_backup_new_md_file:258  - 处理后MD文件已保存，新文件路径：output/test/test_new.md

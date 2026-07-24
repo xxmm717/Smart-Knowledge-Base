@@ -1,11 +1,10 @@
-import logging
 import os
 from os.path import splitext
 
 from processor.import_process import logger
-from processor.import_process.base import BaseNode, setup_logging
-from processor.import_process.exceptions import FileProcessingError
-from processor.import_process.state import ImportGraphState, create_default_state
+from processor.import_process.core.base import BaseNode, setup_logging
+from processor.import_process.core.exceptions import FileProcessingError
+from processor.import_process.core.state import ImportGraphState, create_default_state
 
 
 class NodeEntry(BaseNode):

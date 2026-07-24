@@ -12,6 +12,7 @@ dependencies = [
     "langchain-text-splitters>=1.1.2",
     "langgraph>=1.2.9",
     "logger>=1.4",
+    "loguru>=0.7.3",
     "minio>=7.2.20",
     "myapplication>=0.1.0",
     "numpy>=2.5.1",

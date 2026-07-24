@@ -8,7 +8,7 @@ from abc import ABC, abstractmethod
 from typing import TypeVar, Optional
 import logging
 
-from .config import ImportConfig, get_config
+from processor.config.config import ImportConfig, get_config
 from .exceptions import ImportProcessError
 
 T = TypeVar("T")  # 泛型状态类型

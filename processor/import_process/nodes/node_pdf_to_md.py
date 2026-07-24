@@ -3,12 +3,11 @@ import time
 import zipfile
 from pathlib import Path
 
-import logger
 import requests
 
-from processor.import_process.config import get_config
-from processor.import_process.base import BaseNode
-from processor.import_process.state import ImportGraphState
+from processor.config.config import get_config
+from processor.import_process.core.base import BaseNode
+from processor.import_process.core.state import ImportGraphState
 
 
 class NodePdfToMd(BaseNode):

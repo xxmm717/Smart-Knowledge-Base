@@ -1,4 +1,4 @@
-from langgraph.constants import START,END
+from langgraph.constants import END
 from langgraph.graph import StateGraph
 
 from processor.import_process.nodes.node_bge_embedding import NodeBgeEmbedding
@@ -8,7 +8,7 @@ from processor.import_process.nodes.node_import_milvus import NodeImportMilvus
 from processor.import_process.nodes.node_item_name_recognition import NodeItemNameRecognition
 from processor.import_process.nodes.node_md_img import NodeMdImg
 from processor.import_process.nodes.node_pdf_to_md import NodePdfToMd
-from processor.import_process.state import ImportGraphState,create_default_state
+from processor.import_process.core.state import ImportGraphState,create_default_state
 
 # 1.创建状态图
 workflow = StateGraph(ImportGraphState)

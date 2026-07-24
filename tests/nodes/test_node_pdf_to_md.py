@@ -15,7 +15,7 @@ from unittest.mock import patch, MagicMock, mock_open
 
 import pytest
 
-from processor.import_process.state import create_default_state
+from processor.import_process.core.state import create_default_state
 
 
 def make_mock_zip(md_content: str = "# Mock\n\nHello World") -> bytes:

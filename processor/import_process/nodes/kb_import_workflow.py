@@ -13,7 +13,7 @@ from processor.import_process.nodes.node_import_milvus import NodeImportMilvus
 from processor.import_process.nodes.node_item_name_recognition import NodeItemNameRecognition
 from processor.import_process.nodes.node_md_img import NodeMdImg
 from processor.import_process.nodes.node_pdf_to_md import NodePdfToMd
-from processor.import_process.state import ImportGraphState, create_default_state
+from processor.import_process.core.state import ImportGraphState, create_default_state
 
 load_dotenv()
 

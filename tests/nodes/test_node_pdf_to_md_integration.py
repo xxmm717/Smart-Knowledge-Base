@@ -1,11 +1,10 @@
-﻿import os
-import requests
+﻿import requests
 from pathlib import Path
 
 from dotenv import load_dotenv
 load_dotenv()
 
-from processor.import_process.config import get_config
+from processor.config.config import get_config
 from processor.import_process.nodes.node_pdf_to_md import NodePdfToMd
 
 import pytest

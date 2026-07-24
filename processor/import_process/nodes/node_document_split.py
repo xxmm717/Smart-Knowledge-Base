@@ -1,5 +1,5 @@
-from processor.import_process.base import BaseNode
-from processor.import_process.state import ImportGraphState
+from processor.import_process.core.base import BaseNode
+from processor.import_process.core.state import ImportGraphState
 
 
 class NodeDocumentSplit(BaseNode):
