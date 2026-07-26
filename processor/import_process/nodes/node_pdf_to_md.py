@@ -4,6 +4,7 @@ import zipfile
 from pathlib import Path
 
 import requests
+from requests.exceptions import RequestException
 
 from processor.config.config import get_config
 from processor.import_process.core.base import BaseNode
@@ -36,7 +37,8 @@ class NodePdfToMd(BaseNode):
         md_path = self._step_3_download_and_extract(zip_url,output_dir_ojb,pdf_path_ojb.stem)
 
         # 4.读取md内容
-        with open(md_path, 'rb',encoding="utf-8") as f:
+        # Markdown是文本文件，使用文本模式读取，保证传给后续节点的是str而不是bytes。
+        with open(md_path, "r", encoding="utf-8") as f:
             md_content = f.read()
 
         # 5.更新state状态
@@ -188,17 +190,48 @@ class NodePdfToMd(BaseNode):
        返回：最终MD文件的字符串格式绝对路径
        异常：RuntimeError(下载失败)、FileNotFoundError(无MD文件)
        """
-        # 1.下载ZIP包并校验
-        self.logger.info(f"【ZIP下载】开始下载ZIP包：{zip_url} ...")
-        response = requests.get(zip_url)
-        if response.status_code != 200:
-            raise RuntimeError(f"【ZIP下载】ZIP包下载失败：状态码：{response.status_code}，响应结果：{response}")
-
-        #拼接ZIP包保存路径并保存
+        # 1.下载ZIP包并校验。使用流式下载和重试，避免代理连接中断导致response.content读取不完整。
         zip_save_path = output_dir_obj / f"{pdf_stem}_result.zip"
-        with open(zip_save_path, 'wb') as f:
-            f.write(response.content)
-        self.logger.info(f"【ZIP下载】ZIP包下载成功：保存路径：{zip_save_path}")
+        self.logger.info(f"【ZIP下载】开始下载ZIP包：{zip_url} ...")
+        download_error = None
+        for attempt in range(1, 4):
+            try:
+                response = requests.get(
+                    zip_url,
+                    stream=True,
+                    timeout=(20, 300),
+                )
+                if response.status_code != 200:
+                    raise RuntimeError(
+                        f"HTTP状态码：{response.status_code}，响应结果：{response}"
+                    )
+
+                with open(zip_save_path, "wb") as f:
+                    for data in response.iter_content(chunk_size=1024 * 1024):
+                        if data:
+                            f.write(data)
+                response.close()
+
+                # 下载完成后先验证ZIP结构，避免把不完整文件交给解压步骤。
+                if not zipfile.is_zipfile(zip_save_path):
+                    raise RuntimeError("下载文件不是有效的ZIP文件，可能是连接中断")
+
+                self.logger.info(
+                    f"【ZIP下载】ZIP包下载成功：保存路径：{zip_save_path}，尝试次数：{attempt}"
+                )
+                break
+            except (RequestException, RuntimeError, zipfile.BadZipFile) as e:
+                download_error = e
+                if zip_save_path.exists():
+                    zip_save_path.unlink()
+                if attempt == 3:
+                    raise RuntimeError(
+                        f"【ZIP下载】重试3次后仍失败：{download_error}"
+                    ) from download_error
+                self.logger.warning(
+                    f"【ZIP下载】第{attempt}次下载失败，2秒后重试：{download_error}"
+                )
+                time.sleep(2)
 
         # 2.清空解压目录
         extract_target_dir = output_dir_obj / pdf_stem

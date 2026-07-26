@@ -40,7 +40,7 @@ class ImportGraphState(TypedDict, total=False):
 
     import_file_path: str  # 导入文件路径
 
-    file_dir: str  # 导入(出)文件目录
+    local_dir: str  # 导入(出)文件目录
 
     pdf_path: str  # PDF 文件路径
 
@@ -71,7 +71,7 @@ GRAPH_DEFAULT_STATE: ImportGraphState = {
 
     "is_md_read_enabled": False,
 
-    "file_dir": "",
+    "local_dir": "",
 
     "import_file_path": "",
 

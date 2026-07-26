@@ -1,7 +1,7 @@
 import os
 from os.path import splitext
 
-from processor.import_process import logger
+from processor.common.logger import logger
 from processor.import_process.core.base import BaseNode, setup_logging
 from processor.import_process.core.exceptions import FileProcessingError
 from processor.import_process.core.state import ImportGraphState, create_default_state
@@ -20,7 +20,7 @@ class NodeEntry(BaseNode):
         必要参数：
         - 必须包含 task_id(任务ID)
         - import_file_path(原始文件路径)
-        - file_dir(输出文件的放置路径)
+        - local_dir(输出文件的放置路径)
         更新参数：
         - is_pdf_read_enabled/is_md_read_enabled
         - pdf_path/md_path
@@ -31,12 +31,12 @@ class NodeEntry(BaseNode):
         """
         # 1.获取文件路径与非空校验
         import_file_path = state.get("import_file_path","").strip()
-        file_dir = state.get("file_dir","").strip()
+        local_dir = state.get("local_dir","").strip()
 
         if not import_file_path:
             raise ValueError("缺失参数：import_file_path")
-        if not file_dir:
-            raise ValueError("缺失参数：file_dir")
+        if not local_dir:
+            raise ValueError("缺失参数：local_dir")
 
         # 新增：检查文件是否存在
         if not os.path.isfile(import_file_path):
@@ -73,7 +73,7 @@ if __name__ == "__main__":
     node_state = create_default_state(
         task_id="task_001",
         import_file_path="d:/Code Demo/zhanggui_zhiku/doc/test.pdf",
-        file_dir="d:/Code Demo/zhanggui_zhiku/output"
+        local_dir="d:/Code Demo/zhanggui_zhiku/output"
     )
     # node_state_final = node_entry.process(node_state) #没有增强的版本
     node_state_final = node_entry(node_state)  # 增强的版本

@@ -211,6 +211,7 @@ class TestStep3DownloadAndExtract:
         zip_bytes = make_mock_zip(md_content=mock_content)
         dl_resp = MagicMock(status_code=200)
         dl_resp.content = zip_bytes
+        dl_resp.iter_content.return_value = [zip_bytes]
         mock_req.get.return_value = dl_resp
         md_path_str = node._step_3_download_and_extract(
             "https://dl.mineru/result.zip", tmp_path, "test_manual"
@@ -219,7 +220,11 @@ class TestStep3DownloadAndExtract:
         assert md_path.name == "test_manual.md"
         assert md_path.read_text(encoding="utf-8") == mock_content
         assert (tmp_path / "test_manual_result.zip").exists()
-        mock_req.get.assert_called_once_with("https://dl.mineru/result.zip")
+        mock_req.get.assert_called_once_with(
+            "https://dl.mineru/result.zip",
+            stream=True,
+            timeout=(20, 300),
+        )
 
 
 class TestProcess:
