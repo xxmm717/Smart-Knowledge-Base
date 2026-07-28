@@ -6,9 +6,12 @@ __pycache__/
 # IDE
 .idea/
 
-# Environment
+# 环境变量
 .env
 
-# Generated output
+# 文档目录
 doc/
 output/
+
+#本地下载模型
+models

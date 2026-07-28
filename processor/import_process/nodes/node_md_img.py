@@ -17,7 +17,7 @@ from processor.config.minio_config import minio_config
 from processor.import_process.core.base import BaseNode
 from processor.import_process.core.state import ImportGraphState
 from processor.utils.client.minio_utils import minio_client
-from processor.utils.llm import llm_client
+from processor.utils.lm import llm_client
 from processor.utils.prompt.load_prompt import load_prompt
 from processor.utils.rate_limit_utils import apply_api_rate_limit
 

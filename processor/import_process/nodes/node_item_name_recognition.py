@@ -1,3 +1,4 @@
+from processor.common.logger import logger
 from processor.import_process.core.base import BaseNode
 from processor.import_process.core.state import ImportGraphState
 
@@ -12,13 +13,5 @@ class NodeItemNameRecognition(BaseNode):
     name: str = "node_item_name_recognition"
 
     def process(self, state: ImportGraphState) -> ImportGraphState:
-        """
-        节点逻辑
-        :param state: 工作流状态对象
-        :return: 更新后的状态对象
-        """
-
-        # TODO
-        logger.info(f"【{self.name}】节点逻辑")
 
         return state
