@@ -17,7 +17,7 @@ import pytest
 try:
     from processor.import_process.nodes.node_md_img import NodeMdImg
     from processor.import_process.core.state import create_default_state
-    from processor.utils.client.minio_utils import minio_client
+    from processor.utils.client.minio_client import minio_client
     from processor.config.llm_config import llm_config
     IMPORT_OK = True
 except Exception as e:
@@ -159,7 +159,7 @@ class TestStep4UploadAndReplace:
     """_step_4_upload_and_replace — MinIO 上传 + MD 替换"""
 
     def test_upload_and_replace(self, node, md_state):
-        from processor.utils.client.minio_utils import minio_client
+        from processor.utils.client.minio_client import minio_client
         content, _, img_dir = node._step_1_get_content(md_state)
         targets = node._step_2_get_scan_images(content, img_dir)
         from processor.import_process.nodes.node_md_img import NodeMdImg

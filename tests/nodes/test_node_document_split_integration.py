@@ -29,7 +29,7 @@ from processor.import_process.nodes.node_document_split import (
 )
 from processor.import_process.nodes.node_md_img import NodeMdImg
 from processor.import_process.nodes.node_pdf_to_md import NodePdfToMd
-from processor.utils.client.minio_utils import minio_client
+from processor.utils.client.minio_client import minio_client
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]

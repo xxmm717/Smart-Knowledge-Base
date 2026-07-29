@@ -1,0 +1,410 @@
+2026-07-28 20:38:32.228 | WARNING  | node_item_name_recognition.py:step_1_get_inputs:119  - state中无有效file_title，已从第一个切片中提取兜底标题
+2026-07-28 20:38:32.957 | INFO     | node_item_name_recognition.py:step_1_get_inputs:130  - 步骤1：输入校验完成，获取到6个有效文本切片
+2026-07-28 20:38:32.978 | WARNING  | node_item_name_recognition.py:step_1_get_inputs:127  - state中chunks为空或非列表类型，无法进行商品名称识别
+2026-07-28 20:38:33.005 | INFO     | node_item_name_recognition.py:step_2_build_context:193  - 步骤2：上下文构建完成，最终长度586字符
+2026-07-28 20:38:33.042 | INFO     | node_item_name_recognition.py:step_2_build_context:193  - 步骤2：上下文构建完成，最终长度18字符
+2026-07-28 20:38:33.069 | INFO     | node_item_name_recognition.py:step_3_call_llm:214  - 开始执行步骤3：调用大模型识别商品名称
+2026-07-28 20:38:33.096 | INFO     | node_item_name_recognition.py:step_3_call_llm:252  - 步骤3：大模型识别商品名称成功，结果为：HAK180烫金机
+2026-07-28 20:38:33.127 | INFO     | node_item_name_recognition.py:step_3_call_llm:214  - 开始执行步骤3：调用大模型识别商品名称
+2026-07-28 20:38:33.154 | WARNING  | node_item_name_recognition.py:step_3_call_llm:249  - 大模型返回空内容，使用文件标题作为商品名称兜底
+2026-07-28 20:38:33.192 | INFO     | node_item_name_recognition.py:step_3_call_llm:214  - 开始执行步骤3：调用大模型识别商品名称
+2026-07-28 20:38:33.226 | ERROR    | node_item_name_recognition.py:step_3_call_llm:256  - 步骤3：大模型调用失败，原因：LLM unavailable
+2026-07-28 20:38:33.260 | INFO     | node_item_name_recognition.py:step_3_call_llm:214  - 开始执行步骤3：调用大模型识别商品名称
+2026-07-28 20:38:33.298 | WARNING  | node_item_name_recognition.py:step_3_call_llm:218  - 上下文为空，跳过大模型调用，直接使用文件标题作为商品名称
+2026-07-28 20:38:33.340 | INFO     | node_item_name_recognition.py:step_4_update_chunks:281  - 步骤4：商品名称回填完成，共为6个切片添加item_name字段，值为：HAK180烫金机
+2026-07-28 20:38:33.375 | INFO     | node_item_name_recognition.py:step_5_generate_vectors:296  - 开始执行步骤5：为商品名称[HAK180烫金机]生成BGE-M3双向量
+2026-07-28 20:38:33.409 | WARNING  | node_item_name_recognition.py:step_5_generate_vectors:315  - 步骤5：向量生成工具返回空结果，无法提取双向量
+2026-07-28 20:38:33.460 | INFO     | node_item_name_recognition.py:step_5_generate_vectors:296  - 开始执行步骤5：为商品名称[]生成BGE-M3双向量
+2026-07-28 20:38:33.497 | WARNING  | node_item_name_recognition.py:step_5_generate_vectors:300  - 商品名称为空，跳过向量生成，返回空向量
+2026-07-28 20:38:33.536 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:350  - 开始执行步骤6：将商品名称[HAK180烫金机]保存到Milvus集合[item_names]
+2026-07-28 20:38:33.655 | INFO     | node_item_name_recognition.py:step_1_get_inputs:130  - 步骤1：输入校验完成，获取到6个有效文本切片
+2026-07-28 20:38:33.690 | INFO     | node_item_name_recognition.py:step_2_build_context:193  - 步骤2：上下文构建完成，最终长度586字符
+2026-07-28 20:38:33.726 | INFO     | node_item_name_recognition.py:step_4_update_chunks:281  - 步骤4：商品名称回填完成，共为6个切片添加item_name字段，值为：HAK180烫金机
+2026-07-28 20:38:33.761 | INFO     | node_item_name_recognition.py:process        :84   - >>> 核心节点执行完成：【商品名称识别】node_item_name_recognition，识别结果：HAK180烫金机，已存入Milvus
+2026-07-28 20:38:33.797 | INFO     | node_item_name_recognition.py:step_1_get_inputs:130  - 步骤1：输入校验完成，获取到6个有效文本切片
+2026-07-28 20:38:33.834 | INFO     | node_item_name_recognition.py:step_2_build_context:193  - 步骤2：上下文构建完成，最终长度586字符
+2026-07-28 20:38:33.866 | ERROR    | node_item_name_recognition.py:process        :88   - >>> 核心节点执行失败：【商品名称识别】node_item_name_recognition，错误信息：unexpected
+2026-07-28 20:38:39.927 | WARNING  | node_item_name_recognition.py:step_1_get_inputs:119  - state中无有效file_title，已从第一个切片中提取兜底标题
+2026-07-28 20:38:40.795 | INFO     | node_item_name_recognition.py:step_1_get_inputs:130  - 步骤1：输入校验完成，获取到6个有效文本切片
+2026-07-28 20:38:40.829 | WARNING  | node_item_name_recognition.py:step_1_get_inputs:127  - state中chunks为空或非列表类型，无法进行商品名称识别
+2026-07-28 20:38:40.856 | INFO     | node_item_name_recognition.py:step_2_build_context:193  - 步骤2：上下文构建完成，最终长度586字符
+2026-07-28 20:38:40.903 | INFO     | node_item_name_recognition.py:step_2_build_context:193  - 步骤2：上下文构建完成，最终长度18字符
+2026-07-28 20:38:40.938 | INFO     | node_item_name_recognition.py:step_3_call_llm:214  - 开始执行步骤3：调用大模型识别商品名称
+2026-07-28 20:38:40.964 | INFO     | node_item_name_recognition.py:step_3_call_llm:252  - 步骤3：大模型识别商品名称成功，结果为：HAK180烫金机
+2026-07-28 20:38:41.000 | INFO     | node_item_name_recognition.py:step_3_call_llm:214  - 开始执行步骤3：调用大模型识别商品名称
+2026-07-28 20:38:41.026 | WARNING  | node_item_name_recognition.py:step_3_call_llm:249  - 大模型返回空内容，使用文件标题作为商品名称兜底
+2026-07-28 20:38:41.056 | INFO     | node_item_name_recognition.py:step_3_call_llm:214  - 开始执行步骤3：调用大模型识别商品名称
+2026-07-28 20:38:41.081 | ERROR    | node_item_name_recognition.py:step_3_call_llm:256  - 步骤3：大模型调用失败，原因：LLM unavailable
+2026-07-28 20:38:41.111 | INFO     | node_item_name_recognition.py:step_3_call_llm:214  - 开始执行步骤3：调用大模型识别商品名称
+2026-07-28 20:38:41.139 | WARNING  | node_item_name_recognition.py:step_3_call_llm:218  - 上下文为空，跳过大模型调用，直接使用文件标题作为商品名称
+2026-07-28 20:38:41.172 | INFO     | node_item_name_recognition.py:step_4_update_chunks:281  - 步骤4：商品名称回填完成，共为6个切片添加item_name字段，值为：HAK180烫金机
+2026-07-28 20:38:41.202 | INFO     | node_item_name_recognition.py:step_5_generate_vectors:296  - 开始执行步骤5：为商品名称[HAK180烫金机]生成BGE-M3双向量
+2026-07-28 20:38:41.232 | WARNING  | node_item_name_recognition.py:step_5_generate_vectors:315  - 步骤5：向量生成工具返回空结果，无法提取双向量
+2026-07-28 20:38:41.266 | INFO     | node_item_name_recognition.py:step_5_generate_vectors:296  - 开始执行步骤5：为商品名称[]生成BGE-M3双向量
+2026-07-28 20:38:41.289 | WARNING  | node_item_name_recognition.py:step_5_generate_vectors:300  - 商品名称为空，跳过向量生成，返回空向量
+2026-07-28 20:38:41.311 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:350  - 开始执行步骤6：将商品名称[HAK180烫金机]保存到Milvus集合[item_names]
+2026-07-28 20:38:41.383 | INFO     | node_item_name_recognition.py:step_1_get_inputs:130  - 步骤1：输入校验完成，获取到6个有效文本切片
+2026-07-28 20:38:41.410 | INFO     | node_item_name_recognition.py:step_2_build_context:193  - 步骤2：上下文构建完成，最终长度586字符
+2026-07-28 20:38:41.434 | INFO     | node_item_name_recognition.py:step_4_update_chunks:281  - 步骤4：商品名称回填完成，共为6个切片添加item_name字段，值为：HAK180烫金机
+2026-07-28 20:38:41.456 | INFO     | node_item_name_recognition.py:process        :84   - >>> 核心节点执行完成：【商品名称识别】node_item_name_recognition，识别结果：HAK180烫金机，已存入Milvus
+2026-07-28 20:38:41.484 | INFO     | node_item_name_recognition.py:step_1_get_inputs:130  - 步骤1：输入校验完成，获取到6个有效文本切片
+2026-07-28 20:38:41.508 | INFO     | node_item_name_recognition.py:step_2_build_context:193  - 步骤2：上下文构建完成，最终长度586字符
+2026-07-28 20:38:41.534 | ERROR    | node_item_name_recognition.py:process        :88   - >>> 核心节点执行失败：【商品名称识别】node_item_name_recognition，错误信息：unexpected
+2026-07-28 20:40:33.295 | WARNING  | node_item_name_recognition.py:step_1_get_inputs:119  - state中无有效file_title，已从第一个切片中提取兜底标题
+2026-07-28 20:40:33.927 | INFO     | node_item_name_recognition.py:step_1_get_inputs:130  - 步骤1：输入校验完成，获取到6个有效文本切片
+2026-07-28 20:40:33.951 | WARNING  | node_item_name_recognition.py:step_1_get_inputs:127  - state中chunks为空或非列表类型，无法进行商品名称识别
+2026-07-28 20:40:33.970 | INFO     | node_item_name_recognition.py:step_2_build_context:193  - 步骤2：上下文构建完成，最终长度586字符
+2026-07-28 20:40:34.008 | INFO     | node_item_name_recognition.py:step_2_build_context:193  - 步骤2：上下文构建完成，最终长度18字符
+2026-07-28 20:40:34.032 | INFO     | node_item_name_recognition.py:step_3_call_llm:214  - 开始执行步骤3：调用大模型识别商品名称
+2026-07-28 20:40:34.055 | INFO     | node_item_name_recognition.py:step_3_call_llm:252  - 步骤3：大模型识别商品名称成功，结果为：HAK180烫金机
+2026-07-28 20:40:34.081 | INFO     | node_item_name_recognition.py:step_3_call_llm:214  - 开始执行步骤3：调用大模型识别商品名称
+2026-07-28 20:40:34.106 | WARNING  | node_item_name_recognition.py:step_3_call_llm:249  - 大模型返回空内容，使用文件标题作为商品名称兜底
+2026-07-28 20:40:34.125 | INFO     | node_item_name_recognition.py:step_3_call_llm:214  - 开始执行步骤3：调用大模型识别商品名称
+2026-07-28 20:40:34.148 | ERROR    | node_item_name_recognition.py:step_3_call_llm:256  - 步骤3：大模型调用失败，原因：LLM unavailable
+2026-07-28 20:40:34.181 | INFO     | node_item_name_recognition.py:step_3_call_llm:214  - 开始执行步骤3：调用大模型识别商品名称
+2026-07-28 20:40:34.205 | WARNING  | node_item_name_recognition.py:step_3_call_llm:218  - 上下文为空，跳过大模型调用，直接使用文件标题作为商品名称
+2026-07-28 20:40:34.235 | INFO     | node_item_name_recognition.py:step_4_update_chunks:281  - 步骤4：商品名称回填完成，共为6个切片添加item_name字段，值为：HAK180烫金机
+2026-07-28 20:40:34.264 | INFO     | node_item_name_recognition.py:step_5_generate_vectors:296  - 开始执行步骤5：为商品名称[HAK180烫金机]生成BGE-M3双向量
+2026-07-28 20:40:34.288 | WARNING  | node_item_name_recognition.py:step_5_generate_vectors:315  - 步骤5：向量生成工具返回空结果，无法提取双向量
+2026-07-28 20:40:34.318 | INFO     | node_item_name_recognition.py:step_5_generate_vectors:296  - 开始执行步骤5：为商品名称[]生成BGE-M3双向量
+2026-07-28 20:40:34.341 | WARNING  | node_item_name_recognition.py:step_5_generate_vectors:300  - 商品名称为空，跳过向量生成，返回空向量
+2026-07-28 20:40:34.363 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:350  - 开始执行步骤6：将商品名称[HAK180烫金机]保存到Milvus集合[item_names]
+2026-07-28 20:40:34.429 | INFO     | node_item_name_recognition.py:step_1_get_inputs:130  - 步骤1：输入校验完成，获取到6个有效文本切片
+2026-07-28 20:40:34.454 | INFO     | node_item_name_recognition.py:step_2_build_context:193  - 步骤2：上下文构建完成，最终长度586字符
+2026-07-28 20:40:34.476 | INFO     | node_item_name_recognition.py:step_4_update_chunks:281  - 步骤4：商品名称回填完成，共为6个切片添加item_name字段，值为：HAK180烫金机
+2026-07-28 20:40:34.505 | INFO     | node_item_name_recognition.py:process        :84   - >>> 核心节点执行完成：【商品名称识别】node_item_name_recognition，识别结果：HAK180烫金机，已存入Milvus
+2026-07-28 20:40:34.537 | INFO     | node_item_name_recognition.py:step_1_get_inputs:130  - 步骤1：输入校验完成，获取到6个有效文本切片
+2026-07-28 20:40:34.563 | INFO     | node_item_name_recognition.py:step_2_build_context:193  - 步骤2：上下文构建完成，最终长度586字符
+2026-07-28 20:40:34.583 | ERROR    | node_item_name_recognition.py:process        :88   - >>> 核心节点执行失败：【商品名称识别】node_item_name_recognition，错误信息：unexpected
+2026-07-28 20:44:33.967 | ERROR    | milvus_client.py    :get_milvus_client:30   - Milvus客户端连接异常：'MilvusConfig' object has no attribute 'milvus_pass'
+2026-07-28 20:45:25.937 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:350  - 开始执行步骤6：将商品名称[HAK180烫金机]保存到Milvus集合[kb_item_names]
+2026-07-28 20:45:26.710 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:361  - Milvus集合[kb_item_names]不存在，开始创建Schema和索引
+2026-07-28 20:45:26.723 | ERROR    | node_item_name_recognition.py:step_6_save_to_milvus:460  - 步骤6：数据存入Milvus失败，原因：CollectionSchema.add_field() missing 1 required positional argument: 'field_name'
+2026-07-28 20:45:58.370 | WARNING  | node_item_name_recognition.py:step_1_get_inputs:119  - state中无有效file_title，已从第一个切片中提取兜底标题
+2026-07-28 20:45:59.116 | INFO     | node_item_name_recognition.py:step_1_get_inputs:130  - 步骤1：输入校验完成，获取到6个有效文本切片
+2026-07-28 20:45:59.130 | INFO     | node_item_name_recognition.py:step_2_build_context:193  - 步骤2：上下文构建完成，最终长度586字符
+2026-07-28 20:45:59.143 | INFO     | node_item_name_recognition.py:step_3_call_llm:214  - 开始执行步骤3：调用大模型识别商品名称
+2026-07-28 20:45:59.160 | INFO     | llm_client.py       :get_llm_client :45   - [LLM客户端] 开始初始化新实例：模型=qwen3.7-plus，JSON模式=False
+2026-07-28 20:46:04.226 | INFO     | llm_client.py       :get_llm_client :72   - [LLM客户端] 实例初始化成功并缓存：模型=qwen3.7-plus，JSON模式=False
+2026-07-28 20:46:06.149 | INFO     | node_item_name_recognition.py:step_3_call_llm:252  - 步骤3：大模型识别商品名称成功，结果为：兄弟HAK180烫金机
+2026-07-28 20:46:35.688 | INFO     | embedding_utils.py  :generate_embedding:66   - 开始为1条文本生成混合向量嵌入
+2026-07-28 20:46:36.420 | INFO     | embedding_utils.py  :get_bge_m3_ef  :29   - 开始初始化BGE-M3模型
+2026-07-28 20:46:36.894 | ERROR    | embedding_utils.py  :get_bge_m3_ef  :50   - BGE-M3模型初始化失败：Could not import module 'TrainingArguments'. Are this object's requirements defined correctly?
+2026-07-28 20:46:36.920 | ERROR    | embedding_utils.py  :generate_embedding:117  - 文本向量生成失败：Could not import module 'TrainingArguments'. Are this object's requirements defined correctly?
+2026-07-28 20:47:41.139 | INFO     | node_item_name_recognition.py:step_1_get_inputs:130  - 步骤1：输入校验完成，获取到6个有效文本切片
+2026-07-28 20:47:41.872 | INFO     | node_item_name_recognition.py:step_2_build_context:193  - 步骤2：上下文构建完成，最终长度586字符
+2026-07-28 20:47:41.886 | INFO     | node_item_name_recognition.py:step_3_call_llm:214  - 开始执行步骤3：调用大模型识别商品名称
+2026-07-28 20:47:41.901 | INFO     | llm_client.py       :get_llm_client :45   - [LLM客户端] 开始初始化新实例：模型=qwen3.7-plus，JSON模式=False
+2026-07-28 20:47:44.548 | INFO     | llm_client.py       :get_llm_client :72   - [LLM客户端] 实例初始化成功并缓存：模型=qwen3.7-plus，JSON模式=False
+2026-07-28 20:47:46.232 | INFO     | node_item_name_recognition.py:step_3_call_llm:252  - 步骤3：大模型识别商品名称成功，结果为：BrotherHAK180烫金机
+2026-07-28 20:47:46.251 | INFO     | node_item_name_recognition.py:step_4_update_chunks:281  - 步骤4：商品名称回填完成，共为6个切片添加item_name字段，值为：BrotherHAK180烫金机
+2026-07-28 20:47:46.266 | INFO     | node_item_name_recognition.py:step_5_generate_vectors:296  - 开始执行步骤5：为商品名称[BrotherHAK180烫金机]生成BGE-M3双向量
+2026-07-28 20:47:46.281 | INFO     | embedding_utils.py  :generate_embedding:66   - 开始为1条文本生成混合向量嵌入
+2026-07-28 20:47:46.301 | INFO     | embedding_utils.py  :get_bge_m3_ef  :29   - 开始初始化BGE-M3模型
+2026-07-28 20:47:46.685 | ERROR    | embedding_utils.py  :get_bge_m3_ef  :50   - BGE-M3模型初始化失败：Could not import module 'TrainingArguments'. Are this object's requirements defined correctly?
+2026-07-28 20:47:46.713 | ERROR    | embedding_utils.py  :generate_embedding:117  - 文本向量生成失败：Could not import module 'TrainingArguments'. Are this object's requirements defined correctly?
+2026-07-28 20:47:46.728 | ERROR    | node_item_name_recognition.py:step_5_generate_vectors:319  - 步骤5：向量生成失败，原因：Could not import module 'TrainingArguments'. Are this object's requirements defined correctly?
+2026-07-28 20:47:46.744 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:350  - 开始执行步骤6：将商品名称[BrotherHAK180烫金机]保存到Milvus集合[kb_item_names]
+2026-07-28 20:47:46.763 | ERROR    | milvus_client.py    :get_milvus_client:30   - Milvus客户端连接异常：'MilvusConfig' object has no attribute 'milvus_pass'
+2026-07-28 20:47:46.787 | ERROR    | node_item_name_recognition.py:step_6_save_to_milvus:356  - 无法获取Milvus客户端（连接失败），跳过数据保存
+2026-07-28 20:47:46.811 | INFO     | node_item_name_recognition.py:process        :84   - >>> 核心节点执行完成：【商品名称识别】node_item_name_recognition，识别结果：BrotherHAK180烫金机，已存入Milvus
+2026-07-28 21:04:42.507 | WARNING  | node_item_name_recognition.py:step_1_get_inputs:119  - state中无有效file_title，已从第一个切片中提取兜底标题
+2026-07-28 21:04:43.084 | INFO     | node_item_name_recognition.py:step_1_get_inputs:130  - 步骤1：输入校验完成，获取到6个有效文本切片
+2026-07-28 21:04:43.103 | WARNING  | node_item_name_recognition.py:step_1_get_inputs:127  - state中chunks为空或非列表类型，无法进行商品名称识别
+2026-07-28 21:04:43.123 | INFO     | node_item_name_recognition.py:step_2_build_context:186  - 上下文总字符数即将超限（2500），已停止拼接后续切片
+2026-07-28 21:04:43.140 | INFO     | node_item_name_recognition.py:step_2_build_context:193  - 步骤2：上下文构建完成，最终长度2500字符
+2026-07-28 21:04:43.156 | INFO     | node_item_name_recognition.py:step_2_build_context:193  - 步骤2：上下文构建完成，最终长度58字符
+2026-07-28 21:04:43.179 | INFO     | node_item_name_recognition.py:step_3_call_llm:214  - 开始执行步骤3：调用大模型识别商品名称
+2026-07-28 21:04:43.198 | INFO     | node_item_name_recognition.py:step_3_call_llm:252  - 步骤3：大模型识别商品名称成功，结果为：HAK180烫金机
+2026-07-28 21:04:43.216 | INFO     | node_item_name_recognition.py:step_3_call_llm:214  - 开始执行步骤3：调用大模型识别商品名称
+2026-07-28 21:04:43.237 | WARNING  | node_item_name_recognition.py:step_3_call_llm:249  - 大模型返回空内容，使用文件标题作为商品名称兜底
+2026-07-28 21:04:43.259 | INFO     | node_item_name_recognition.py:step_3_call_llm:214  - 开始执行步骤3：调用大模型识别商品名称
+2026-07-28 21:04:43.279 | ERROR    | node_item_name_recognition.py:step_3_call_llm:256  - 步骤3：大模型调用失败，原因：LLM unavailable
+2026-07-28 21:04:43.297 | INFO     | node_item_name_recognition.py:step_3_call_llm:214  - 开始执行步骤3：调用大模型识别商品名称
+2026-07-28 21:04:43.324 | WARNING  | node_item_name_recognition.py:step_3_call_llm:218  - 上下文为空，跳过大模型调用，直接使用文件标题作为商品名称
+2026-07-28 21:04:43.350 | INFO     | node_item_name_recognition.py:step_4_update_chunks:281  - 步骤4：商品名称回填完成，共为6个切片添加item_name字段，值为：HAK180烫金机
+2026-07-28 21:04:43.382 | INFO     | node_item_name_recognition.py:step_5_generate_vectors:296  - 开始执行步骤5：为商品名称[HAK180烫金机]生成BGE-M3双向量
+2026-07-28 21:04:43.407 | INFO     | node_item_name_recognition.py:step_5_generate_vectors:313  - 步骤5：BGE-M3稠密+稀疏向量生成成功
+2026-07-28 21:04:43.433 | INFO     | node_item_name_recognition.py:step_5_generate_vectors:296  - 开始执行步骤5：为商品名称[]生成BGE-M3双向量
+2026-07-28 21:04:43.456 | WARNING  | node_item_name_recognition.py:step_5_generate_vectors:300  - 商品名称为空，跳过向量生成，返回空向量
+2026-07-28 21:04:43.481 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:350  - 开始执行步骤6：将商品名称[HAK180烫金机]保存到Milvus集合[item_names]
+2026-07-28 21:04:43.503 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:436  - Milvus幂等性处理完成，已删除集合中[HAK180烫金机]的历史数据
+2026-07-28 21:04:43.527 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:454  - 步骤6：商品名称[HAK180烫金机]成功存入Milvus集合[item_names]，数据：['file_title', 'item_name', 'dense_vector', 'sparse_vector']
+2026-07-28 21:04:43.594 | INFO     | node_item_name_recognition.py:step_1_get_inputs:130  - 步骤1：输入校验完成，获取到6个有效文本切片
+2026-07-28 21:04:43.616 | INFO     | node_item_name_recognition.py:step_2_build_context:186  - 上下文总字符数即将超限（2500），已停止拼接后续切片
+2026-07-28 21:04:43.641 | INFO     | node_item_name_recognition.py:step_2_build_context:193  - 步骤2：上下文构建完成，最终长度2500字符
+2026-07-28 21:04:43.664 | INFO     | node_item_name_recognition.py:step_4_update_chunks:281  - 步骤4：商品名称回填完成，共为6个切片添加item_name字段，值为：HAK180烫金机
+2026-07-28 21:04:43.689 | INFO     | node_item_name_recognition.py:process        :84   - >>> 核心节点执行完成：【商品名称识别】node_item_name_recognition，识别结果：HAK180烫金机，已存入Milvus
+2026-07-28 21:04:43.715 | INFO     | node_item_name_recognition.py:step_1_get_inputs:130  - 步骤1：输入校验完成，获取到6个有效文本切片
+2026-07-28 21:04:43.742 | INFO     | node_item_name_recognition.py:step_2_build_context:186  - 上下文总字符数即将超限（2500），已停止拼接后续切片
+2026-07-28 21:04:43.767 | INFO     | node_item_name_recognition.py:step_2_build_context:193  - 步骤2：上下文构建完成，最终长度2500字符
+2026-07-28 21:04:43.792 | ERROR    | node_item_name_recognition.py:process        :88   - >>> 核心节点执行失败：【商品名称识别】node_item_name_recognition，错误信息：unexpected
+2026-07-28 21:06:13.654 | INFO     | milvus_client.py    :get_milvus_client:31   - Milvus客户端连接成功
+2026-07-28 21:06:29.292 | WARNING  | node_item_name_recognition.py:step_1_get_inputs:134  - state中无有效file_title，已从第一个切片中提取兜底标题
+2026-07-28 21:06:29.829 | INFO     | node_item_name_recognition.py:step_1_get_inputs:145  - 步骤1：输入校验完成，获取到6个有效文本切片
+2026-07-28 21:06:29.849 | WARNING  | node_item_name_recognition.py:step_1_get_inputs:142  - state中chunks为空或非列表类型，无法进行商品名称识别
+2026-07-28 21:06:29.875 | INFO     | node_item_name_recognition.py:step_2_build_context:201  - 上下文总字符数即将超限（2500），已停止拼接后续切片
+2026-07-28 21:06:29.898 | INFO     | node_item_name_recognition.py:step_2_build_context:208  - 步骤2：上下文构建完成，最终长度2500字符
+2026-07-28 21:06:29.926 | INFO     | node_item_name_recognition.py:step_2_build_context:208  - 步骤2：上下文构建完成，最终长度58字符
+2026-07-28 21:06:29.952 | INFO     | node_item_name_recognition.py:step_3_call_llm:229  - 开始执行步骤3：调用大模型识别商品名称
+2026-07-28 21:06:29.978 | INFO     | node_item_name_recognition.py:step_3_call_llm:267  - 步骤3：大模型识别商品名称成功，结果为：HAK180烫金机
+2026-07-28 21:06:30.007 | INFO     | node_item_name_recognition.py:step_3_call_llm:229  - 开始执行步骤3：调用大模型识别商品名称
+2026-07-28 21:06:30.031 | WARNING  | node_item_name_recognition.py:step_3_call_llm:264  - 大模型返回空内容，使用文件标题作为商品名称兜底
+2026-07-28 21:06:30.050 | INFO     | node_item_name_recognition.py:step_3_call_llm:229  - 开始执行步骤3：调用大模型识别商品名称
+2026-07-28 21:06:30.077 | ERROR    | node_item_name_recognition.py:step_3_call_llm:271  - 步骤3：大模型调用失败，原因：LLM unavailable
+2026-07-28 21:06:30.107 | INFO     | node_item_name_recognition.py:step_3_call_llm:229  - 开始执行步骤3：调用大模型识别商品名称
+2026-07-28 21:06:30.129 | WARNING  | node_item_name_recognition.py:step_3_call_llm:233  - 上下文为空，跳过大模型调用，直接使用文件标题作为商品名称
+2026-07-28 21:06:30.156 | INFO     | node_item_name_recognition.py:step_4_update_chunks:296  - 步骤4：商品名称回填完成，共为6个切片添加item_name字段，值为：HAK180烫金机
+2026-07-28 21:06:30.185 | INFO     | node_item_name_recognition.py:step_5_generate_vectors:311  - 开始执行步骤5：为商品名称[HAK180烫金机]生成BGE-M3双向量
+2026-07-28 21:06:30.209 | INFO     | node_item_name_recognition.py:step_5_generate_vectors:328  - 步骤5：BGE-M3稠密+稀疏向量生成成功
+2026-07-28 21:06:30.232 | INFO     | node_item_name_recognition.py:step_5_generate_vectors:311  - 开始执行步骤5：为商品名称[]生成BGE-M3双向量
+2026-07-28 21:06:30.258 | WARNING  | node_item_name_recognition.py:step_5_generate_vectors:315  - 商品名称为空，跳过向量生成，返回空向量
+2026-07-28 21:06:30.284 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:373  - 开始执行步骤6：将商品名称[HAK180烫金机]保存到Milvus集合[item_names]
+2026-07-28 21:06:30.311 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:459  - Milvus幂等性处理完成，已删除集合中[HAK180烫金机]的历史数据
+2026-07-28 21:06:30.338 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:477  - 步骤6：商品名称[HAK180烫金机]成功存入Milvus集合[item_names]，数据：['file_title', 'item_name', 'dense_vector', 'sparse_vector']
+2026-07-28 21:06:30.373 | INFO     | node_item_name_recognition.py:step_1_get_inputs:145  - 步骤1：输入校验完成，获取到6个有效文本切片
+2026-07-28 21:06:30.399 | INFO     | node_item_name_recognition.py:step_2_build_context:201  - 上下文总字符数即将超限（2500），已停止拼接后续切片
+2026-07-28 21:06:30.424 | INFO     | node_item_name_recognition.py:step_2_build_context:208  - 步骤2：上下文构建完成，最终长度2500字符
+2026-07-28 21:06:30.453 | INFO     | node_item_name_recognition.py:step_4_update_chunks:296  - 步骤4：商品名称回填完成，共为6个切片添加item_name字段，值为：HAK180烫金机
+2026-07-28 21:06:30.478 | INFO     | node_item_name_recognition.py:process        :91   - >>> 核心节点执行完成：【商品名称识别】node_item_name_recognition，识别结果：HAK180烫金机，已存入Milvus
+2026-07-28 21:06:30.511 | INFO     | node_item_name_recognition.py:step_1_get_inputs:145  - 步骤1：输入校验完成，获取到6个有效文本切片
+2026-07-28 21:06:30.534 | INFO     | node_item_name_recognition.py:step_2_build_context:201  - 上下文总字符数即将超限（2500），已停止拼接后续切片
+2026-07-28 21:06:30.559 | INFO     | node_item_name_recognition.py:step_2_build_context:208  - 步骤2：上下文构建完成，最终长度2500字符
+2026-07-28 21:06:30.586 | ERROR    | node_item_name_recognition.py:process        :103  - >>> 核心节点执行失败：【商品名称识别】node_item_name_recognition，错误信息：unexpected
+2026-07-28 21:07:10.374 | INFO     | milvus_client.py    :get_milvus_client:31   - Milvus客户端连接成功
+2026-07-28 21:07:10.970 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:373  - 开始执行步骤6：将商品名称[HAK180???-???????]保存到Milvus集合[codex_item_name_test_adf2123da3]
+2026-07-28 21:07:10.977 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:384  - Milvus集合[codex_item_name_test_adf2123da3]不存在，开始创建Schema和索引
+2026-07-28 21:07:13.799 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:448  - Milvus集合[codex_item_name_test_adf2123da3]创建成功，包含Schema和向量索引
+2026-07-28 21:07:13.840 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:459  - Milvus幂等性处理完成，已删除集合中[HAK180???-???????]的历史数据
+2026-07-28 21:07:14.172 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:477  - 步骤6：商品名称[HAK180???-???????]成功存入Milvus集合[codex_item_name_test_adf2123da3]，数据：['file_title', 'item_name', 'dense_vector', 'sparse_vector']
+2026-07-28 21:07:51.454 | INFO     | milvus_client.py    :get_milvus_client:31   - Milvus客户端连接成功
+2026-07-28 21:07:52.017 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:373  - 开始执行步骤6：将商品名称[HAK180-auto-create-test]保存到Milvus集合[codex_item_name_test_5fe66a30d4]
+2026-07-28 21:07:52.024 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:384  - Milvus集合[codex_item_name_test_5fe66a30d4]不存在，开始创建Schema和索引
+2026-07-28 21:07:54.769 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:448  - Milvus集合[codex_item_name_test_5fe66a30d4]创建成功，包含Schema和向量索引
+2026-07-28 21:07:54.970 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:459  - Milvus幂等性处理完成，已删除集合中[HAK180-auto-create-test]的历史数据
+2026-07-28 21:07:55.323 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:477  - 步骤6：商品名称[HAK180-auto-create-test]成功存入Milvus集合[codex_item_name_test_5fe66a30d4]，数据：['file_title', 'item_name', 'dense_vector', 'sparse_vector']
+2026-07-28 21:08:31.801 | INFO     | milvus_client.py    :get_milvus_client:31   - Milvus客户端连接成功
+2026-07-28 21:37:31.031 | INFO     | embedding_utils.py  :generate_embedding:66   - 开始为1条文本生成混合向量嵌入
+2026-07-28 21:37:31.656 | INFO     | embedding_utils.py  :get_bge_m3_ef  :29   - 开始初始化BGE-M3模型
+2026-07-28 21:37:39.825 | ERROR    | embedding_utils.py  :get_bge_m3_ef  :50   - BGE-M3模型初始化失败：Repo id must be in the form 'repo_name' or 'namespace/repo_name': 'D:/Code Demo/zhanggui_zhiku/models/BAAI/bge-m3'. Use `repo_type` argument if needed.
+2026-07-28 21:37:40.342 | ERROR    | embedding_utils.py  :generate_embedding:117  - 文本向量生成失败：Repo id must be in the form 'repo_name' or 'namespace/repo_name': 'D:/Code Demo/zhanggui_zhiku/models/BAAI/bge-m3'. Use `repo_type` argument if needed.
+2026-07-28 21:39:49.507 | INFO     | embedding_utils.py  :generate_embedding:66   - 开始为1条文本生成混合向量嵌入
+2026-07-28 21:39:50.083 | INFO     | embedding_utils.py  :get_bge_m3_ef  :29   - 开始初始化BGE-M3模型
+2026-07-28 21:39:58.609 | SUCCESS  | embedding_utils.py  :get_bge_m3_ef  :47   - BGE-M3模型初始化成功，已开启原生L2归一化
+2026-07-28 21:39:59.937 | SUCCESS  | embedding_utils.py  :generate_embedding:113  - 1条文本向量生成完成，格式已适配工业级使用
+2026-07-28 21:42:48.326 | INFO     | embedding_utils.py  :generate_embedding:66   - 开始为1条文本生成混合向量嵌入
+2026-07-28 21:42:49.532 | INFO     | embedding_utils.py  :get_bge_m3_ef  :29   - 开始初始化BGE-M3模型
+2026-07-28 21:42:54.202 | SUCCESS  | embedding_utils.py  :get_bge_m3_ef  :47   - BGE-M3模型初始化成功，已开启原生L2归一化
+2026-07-28 21:42:55.857 | SUCCESS  | embedding_utils.py  :generate_embedding:113  - 1条文本向量生成完成，格式已适配工业级使用
+2026-07-28 21:42:58.684 | WARNING  | node_item_name_recognition.py:step_1_get_inputs:134  - state中无有效file_title，已从第一个切片中提取兜底标题
+2026-07-28 21:42:59.796 | INFO     | node_item_name_recognition.py:step_1_get_inputs:145  - 步骤1：输入校验完成，获取到6个有效文本切片
+2026-07-28 21:42:59.826 | WARNING  | node_item_name_recognition.py:step_1_get_inputs:142  - state中chunks为空或非列表类型，无法进行商品名称识别
+2026-07-28 21:42:59.854 | INFO     | node_item_name_recognition.py:step_2_build_context:201  - 上下文总字符数即将超限（2500），已停止拼接后续切片
+2026-07-28 21:42:59.883 | INFO     | node_item_name_recognition.py:step_2_build_context:208  - 步骤2：上下文构建完成，最终长度2500字符
+2026-07-28 21:42:59.917 | INFO     | node_item_name_recognition.py:step_2_build_context:208  - 步骤2：上下文构建完成，最终长度58字符
+2026-07-28 21:42:59.949 | INFO     | node_item_name_recognition.py:step_3_call_llm:229  - 开始执行步骤3：调用大模型识别商品名称
+2026-07-28 21:42:59.982 | INFO     | node_item_name_recognition.py:step_3_call_llm:267  - 步骤3：大模型识别商品名称成功，结果为：HAK180烫金机
+2026-07-28 21:43:00.017 | INFO     | node_item_name_recognition.py:step_3_call_llm:229  - 开始执行步骤3：调用大模型识别商品名称
+2026-07-28 21:43:00.046 | WARNING  | node_item_name_recognition.py:step_3_call_llm:264  - 大模型返回空内容，使用文件标题作为商品名称兜底
+2026-07-28 21:43:00.076 | INFO     | node_item_name_recognition.py:step_3_call_llm:229  - 开始执行步骤3：调用大模型识别商品名称
+2026-07-28 21:43:00.105 | ERROR    | node_item_name_recognition.py:step_3_call_llm:271  - 步骤3：大模型调用失败，原因：LLM unavailable
+2026-07-28 21:43:00.132 | INFO     | node_item_name_recognition.py:step_3_call_llm:229  - 开始执行步骤3：调用大模型识别商品名称
+2026-07-28 21:43:00.165 | WARNING  | node_item_name_recognition.py:step_3_call_llm:233  - 上下文为空，跳过大模型调用，直接使用文件标题作为商品名称
+2026-07-28 21:43:00.194 | INFO     | node_item_name_recognition.py:step_4_update_chunks:296  - 步骤4：商品名称回填完成，共为6个切片添加item_name字段，值为：HAK180烫金机
+2026-07-28 21:43:00.222 | INFO     | node_item_name_recognition.py:step_5_generate_vectors:311  - 开始执行步骤5：为商品名称[HAK180烫金机]生成BGE-M3双向量
+2026-07-28 21:43:00.244 | INFO     | node_item_name_recognition.py:step_5_generate_vectors:328  - 步骤5：BGE-M3稠密+稀疏向量生成成功
+2026-07-28 21:43:00.274 | INFO     | node_item_name_recognition.py:step_5_generate_vectors:311  - 开始执行步骤5：为商品名称[]生成BGE-M3双向量
+2026-07-28 21:43:00.297 | WARNING  | node_item_name_recognition.py:step_5_generate_vectors:315  - 商品名称为空，跳过向量生成，返回空向量
+2026-07-28 21:43:00.319 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:373  - 开始执行步骤6：将商品名称[HAK180烫金机]保存到Milvus集合[item_names]
+2026-07-28 21:43:00.350 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:459  - Milvus幂等性处理完成，已删除集合中[HAK180烫金机]的历史数据
+2026-07-28 21:43:00.375 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:477  - 步骤6：商品名称[HAK180烫金机]成功存入Milvus集合[item_names]，数据：['file_title', 'item_name', 'dense_vector', 'sparse_vector']
+2026-07-28 21:43:00.397 | INFO     | node_item_name_recognition.py:step_1_get_inputs:145  - 步骤1：输入校验完成，获取到6个有效文本切片
+2026-07-28 21:43:00.419 | INFO     | node_item_name_recognition.py:step_2_build_context:201  - 上下文总字符数即将超限（2500），已停止拼接后续切片
+2026-07-28 21:43:00.440 | INFO     | node_item_name_recognition.py:step_2_build_context:208  - 步骤2：上下文构建完成，最终长度2500字符
+2026-07-28 21:43:00.459 | INFO     | node_item_name_recognition.py:step_4_update_chunks:296  - 步骤4：商品名称回填完成，共为6个切片添加item_name字段，值为：HAK180烫金机
+2026-07-28 21:43:00.488 | INFO     | node_item_name_recognition.py:process        :91   - >>> 核心节点执行完成：【商品名称识别】node_item_name_recognition，识别结果：HAK180烫金机，已存入Milvus
+2026-07-28 21:43:00.517 | INFO     | node_item_name_recognition.py:step_1_get_inputs:145  - 步骤1：输入校验完成，获取到6个有效文本切片
+2026-07-28 21:43:00.542 | INFO     | node_item_name_recognition.py:step_2_build_context:201  - 上下文总字符数即将超限（2500），已停止拼接后续切片
+2026-07-28 21:43:00.566 | INFO     | node_item_name_recognition.py:step_2_build_context:208  - 步骤2：上下文构建完成，最终长度2500字符
+2026-07-28 21:43:00.598 | ERROR    | node_item_name_recognition.py:process        :103  - >>> 核心节点执行失败：【商品名称识别】node_item_name_recognition，错误信息：unexpected
+2026-07-28 21:54:24.731 | WARNING  | node_item_name_recognition.py:step_1_get_inputs:134  - state中无有效file_title，已从第一个切片中提取兜底标题
+2026-07-28 21:54:25.772 | INFO     | node_item_name_recognition.py:step_1_get_inputs:145  - 步骤1：输入校验完成，获取到6个有效文本切片
+2026-07-28 21:54:25.790 | WARNING  | node_item_name_recognition.py:step_1_get_inputs:142  - state中chunks为空或非列表类型，无法进行商品名称识别
+2026-07-28 21:54:25.812 | INFO     | node_item_name_recognition.py:step_2_build_context:201  - 上下文总字符数即将超限（2500），已停止拼接后续切片
+2026-07-28 21:54:25.829 | INFO     | node_item_name_recognition.py:step_2_build_context:208  - 步骤2：上下文构建完成，最终长度2500字符
+2026-07-28 21:54:25.855 | INFO     | node_item_name_recognition.py:step_2_build_context:208  - 步骤2：上下文构建完成，最终长度58字符
+2026-07-28 21:54:25.879 | INFO     | node_item_name_recognition.py:step_3_call_llm:229  - 开始执行步骤3：调用大模型识别商品名称
+2026-07-28 21:54:25.898 | INFO     | node_item_name_recognition.py:step_3_call_llm:267  - 步骤3：大模型识别商品名称成功，结果为：HAK180烫金机
+2026-07-28 21:54:25.925 | INFO     | node_item_name_recognition.py:step_3_call_llm:229  - 开始执行步骤3：调用大模型识别商品名称
+2026-07-28 21:54:25.946 | WARNING  | node_item_name_recognition.py:step_3_call_llm:264  - 大模型返回空内容，使用文件标题作为商品名称兜底
+2026-07-28 21:54:25.964 | INFO     | node_item_name_recognition.py:step_3_call_llm:229  - 开始执行步骤3：调用大模型识别商品名称
+2026-07-28 21:54:25.985 | ERROR    | node_item_name_recognition.py:step_3_call_llm:271  - 步骤3：大模型调用失败，原因：LLM unavailable
+2026-07-28 21:54:26.014 | INFO     | node_item_name_recognition.py:step_3_call_llm:229  - 开始执行步骤3：调用大模型识别商品名称
+2026-07-28 21:54:26.037 | WARNING  | node_item_name_recognition.py:step_3_call_llm:233  - 上下文为空，跳过大模型调用，直接使用文件标题作为商品名称
+2026-07-28 21:54:26.061 | INFO     | node_item_name_recognition.py:step_4_update_chunks:296  - 步骤4：商品名称回填完成，共为6个切片添加item_name字段，值为：HAK180烫金机
+2026-07-28 21:54:26.088 | INFO     | node_item_name_recognition.py:step_5_generate_vectors:311  - 开始执行步骤5：为商品名称[HAK180烫金机]生成BGE-M3双向量
+2026-07-28 21:54:26.111 | INFO     | node_item_name_recognition.py:step_5_generate_vectors:328  - 步骤5：BGE-M3稠密+稀疏向量生成成功
+2026-07-28 21:54:26.134 | INFO     | node_item_name_recognition.py:step_5_generate_vectors:311  - 开始执行步骤5：为商品名称[]生成BGE-M3双向量
+2026-07-28 21:54:26.158 | WARNING  | node_item_name_recognition.py:step_5_generate_vectors:315  - 商品名称为空，跳过向量生成，返回空向量
+2026-07-28 21:54:26.182 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:373  - 开始执行步骤6：将商品名称[HAK180烫金机]保存到Milvus集合[item_names]
+2026-07-28 21:54:26.202 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:459  - Milvus幂等性处理完成，已删除集合中[HAK180烫金机]的历史数据
+2026-07-28 21:54:26.219 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:477  - 步骤6：商品名称[HAK180烫金机]成功存入Milvus集合[item_names]，数据：['file_title', 'item_name', 'dense_vector', 'sparse_vector']
+2026-07-28 21:54:26.249 | INFO     | node_item_name_recognition.py:step_1_get_inputs:145  - 步骤1：输入校验完成，获取到6个有效文本切片
+2026-07-28 21:54:26.267 | INFO     | node_item_name_recognition.py:step_2_build_context:201  - 上下文总字符数即将超限（2500），已停止拼接后续切片
+2026-07-28 21:54:26.288 | INFO     | node_item_name_recognition.py:step_2_build_context:208  - 步骤2：上下文构建完成，最终长度2500字符
+2026-07-28 21:54:26.314 | INFO     | node_item_name_recognition.py:step_4_update_chunks:296  - 步骤4：商品名称回填完成，共为6个切片添加item_name字段，值为：HAK180烫金机
+2026-07-28 21:54:26.334 | INFO     | node_item_name_recognition.py:process        :91   - >>> 核心节点执行完成：【商品名称识别】node_item_name_recognition，识别结果：HAK180烫金机，已存入Milvus
+2026-07-28 21:54:26.354 | INFO     | node_item_name_recognition.py:step_1_get_inputs:145  - 步骤1：输入校验完成，获取到6个有效文本切片
+2026-07-28 21:54:26.371 | INFO     | node_item_name_recognition.py:step_2_build_context:201  - 上下文总字符数即将超限（2500），已停止拼接后续切片
+2026-07-28 21:54:26.386 | INFO     | node_item_name_recognition.py:step_2_build_context:208  - 步骤2：上下文构建完成，最终长度2500字符
+2026-07-28 21:54:26.402 | ERROR    | node_item_name_recognition.py:process        :103  - >>> 核心节点执行失败：【商品名称识别】node_item_name_recognition，错误信息：unexpected
+2026-07-28 21:56:01.101 | INFO     | node_item_name_recognition.py:step_1_get_inputs:145  - 步骤1：输入校验完成，获取到6个有效文本切片
+2026-07-28 21:56:01.105 | INFO     | node_item_name_recognition.py:step_2_build_context:201  - 上下文总字符数即将超限（2500），已停止拼接后续切片
+2026-07-28 21:56:01.107 | INFO     | node_item_name_recognition.py:step_2_build_context:208  - 步骤2：上下文构建完成，最终长度2500字符
+2026-07-28 21:56:01.108 | INFO     | node_item_name_recognition.py:step_3_call_llm:229  - 开始执行步骤3：调用大模型识别商品名称
+2026-07-28 21:56:01.111 | INFO     | llm_client.py       :get_llm_client :45   - [LLM客户端] 开始初始化新实例：模型=qwen3.7-plus，JSON模式=False
+2026-07-28 21:56:03.720 | INFO     | llm_client.py       :get_llm_client :72   - [LLM客户端] 实例初始化成功并缓存：模型=qwen3.7-plus，JSON模式=False
+2026-07-28 21:56:04.857 | INFO     | node_item_name_recognition.py:step_3_call_llm:267  - 步骤3：大模型识别商品名称成功，结果为：BrotherHAK180烫金机
+2026-07-28 21:56:04.859 | INFO     | node_item_name_recognition.py:step_4_update_chunks:296  - 步骤4：商品名称回填完成，共为6个切片添加item_name字段，值为：BrotherHAK180烫金机
+2026-07-28 21:56:04.860 | INFO     | node_item_name_recognition.py:step_5_generate_vectors:311  - 开始执行步骤5：为商品名称[BrotherHAK180烫金机]生成BGE-M3双向量
+2026-07-28 21:56:04.861 | INFO     | embedding_utils.py  :generate_embedding:66   - 开始为1条文本生成混合向量嵌入
+2026-07-28 21:56:04.865 | INFO     | embedding_utils.py  :get_bge_m3_ef  :29   - 开始初始化BGE-M3模型
+2026-07-28 21:56:04.992 | ERROR    | embedding_utils.py  :get_bge_m3_ef  :50   - BGE-M3模型初始化失败：Repo id must be in the form 'repo_name' or 'namespace/repo_name': 'D:/Code Demo/zhanggui_zhiku/models/BAAI/bge-m3'. Use `repo_type` argument if needed.
+2026-07-28 21:56:04.994 | ERROR    | embedding_utils.py  :generate_embedding:117  - 文本向量生成失败：Repo id must be in the form 'repo_name' or 'namespace/repo_name': 'D:/Code Demo/zhanggui_zhiku/models/BAAI/bge-m3'. Use `repo_type` argument if needed.
+2026-07-28 21:56:04.996 | ERROR    | node_item_name_recognition.py:step_5_generate_vectors:334  - 步骤5：向量生成失败，原因：Repo id must be in the form 'repo_name' or 'namespace/repo_name': 'D:/Code Demo/zhanggui_zhiku/models/BAAI/bge-m3'. Use `repo_type` argument if needed.
+2026-07-28 21:56:05.281 | INFO     | milvus_client.py    :get_milvus_client:31   - Milvus客户端连接成功
+2026-07-28 21:56:05.288 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:373  - 开始执行步骤6：将商品名称[BrotherHAK180烫金机]保存到Milvus集合[kb_item_names]
+2026-07-28 21:56:05.297 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:384  - Milvus集合[kb_item_names]不存在，开始创建Schema和索引
+2026-07-28 21:56:08.222 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:448  - Milvus集合[kb_item_names]创建成功，包含Schema和向量索引
+2026-07-28 21:56:08.387 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:459  - Milvus幂等性处理完成，已删除集合中[BrotherHAK180烫金机]的历史数据
+2026-07-28 21:56:08.404 | ERROR    | node_item_name_recognition.py:step_6_save_to_milvus:481  - 步骤6：数据存入Milvus失败，原因：<DataNotMatchException: (code=1, message=Insert missed an field `dense_vector` to collection without set nullable==true or set default_value)>
+2026-07-28 21:56:09.187 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:373  - 开始执行步骤6：将商品名称[BrotherHAK180烫金机]保存到Milvus集合[kb_item_names]
+2026-07-28 21:56:09.388 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:459  - Milvus幂等性处理完成，已删除集合中[BrotherHAK180烫金机]的历史数据
+2026-07-28 21:56:09.396 | ERROR    | node_item_name_recognition.py:step_6_save_to_milvus:481  - 步骤6：数据存入Milvus失败，原因：<DataNotMatchException: (code=1, message=Insert missed an field `dense_vector` to collection without set nullable==true or set default_value)>
+2026-07-28 21:58:36.212 | INFO     | embedding_utils.py  :generate_embedding:66   - 开始为1条文本生成混合向量嵌入
+2026-07-28 21:58:36.798 | INFO     | embedding_utils.py  :get_bge_m3_ef  :29   - 开始初始化BGE-M3模型
+2026-07-28 21:58:42.053 | SUCCESS  | embedding_utils.py  :get_bge_m3_ef  :47   - BGE-M3模型初始化成功，已开启原生L2归一化
+2026-07-28 21:58:43.268 | SUCCESS  | embedding_utils.py  :generate_embedding:113  - 1条文本向量生成完成，格式已适配工业级使用
+2026-07-28 21:59:25.864 | INFO     | node_item_name_recognition.py:step_5_generate_vectors:311  - 开始执行步骤5：为商品名称[BrotherHAK180烫金机]生成BGE-M3双向量
+2026-07-28 21:59:25.868 | INFO     | embedding_utils.py  :generate_embedding:66   - 开始为1条文本生成混合向量嵌入
+2026-07-28 21:59:27.022 | INFO     | embedding_utils.py  :get_bge_m3_ef  :29   - 开始初始化BGE-M3模型
+2026-07-28 21:59:30.079 | SUCCESS  | embedding_utils.py  :get_bge_m3_ef  :47   - BGE-M3模型初始化成功，已开启原生L2归一化
+2026-07-28 21:59:30.799 | SUCCESS  | embedding_utils.py  :generate_embedding:113  - 1条文本向量生成完成，格式已适配工业级使用
+2026-07-28 21:59:30.801 | INFO     | node_item_name_recognition.py:step_5_generate_vectors:328  - 步骤5：BGE-M3稠密+稀疏向量生成成功
+2026-07-28 21:59:30.828 | INFO     | milvus_client.py    :get_milvus_client:31   - Milvus客户端连接成功
+2026-07-28 21:59:30.831 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:373  - 开始执行步骤6：将商品名称[BrotherHAK180烫金机]保存到Milvus集合[kb_item_names]
+2026-07-28 21:59:30.984 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:459  - Milvus幂等性处理完成，已删除集合中[BrotherHAK180烫金机]的历史数据
+2026-07-28 21:59:31.412 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:477  - 步骤6：商品名称[BrotherHAK180烫金机]成功存入Milvus集合[kb_item_names]，数据：['file_title', 'item_name', 'dense_vector', 'sparse_vector']
+2026-07-28 21:59:33.184 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:373  - 开始执行步骤6：将商品名称[BrotherHAK180烫金机]保存到Milvus集合[kb_item_names]
+2026-07-28 21:59:33.408 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:459  - Milvus幂等性处理完成，已删除集合中[BrotherHAK180烫金机]的历史数据
+2026-07-28 21:59:33.832 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:477  - 步骤6：商品名称[BrotherHAK180烫金机]成功存入Milvus集合[kb_item_names]，数据：['file_title', 'item_name', 'dense_vector', 'sparse_vector']
+2026-07-28 21:59:57.626 | INFO     | milvus_client.py    :get_milvus_client:31   - Milvus客户端连接成功
+2026-07-28 22:04:44.251 | INFO     | milvus_client.py    :get_milvus_client:33   - Milvus客户端连接成功，当前数据库：zhiku
+2026-07-28 22:05:03.519 | WARNING  | node_item_name_recognition.py:step_1_get_inputs:134  - state中无有效file_title，已从第一个切片中提取兜底标题
+2026-07-28 22:05:04.563 | INFO     | node_item_name_recognition.py:step_1_get_inputs:145  - 步骤1：输入校验完成，获取到6个有效文本切片
+2026-07-28 22:05:04.586 | WARNING  | node_item_name_recognition.py:step_1_get_inputs:142  - state中chunks为空或非列表类型，无法进行商品名称识别
+2026-07-28 22:05:04.608 | INFO     | node_item_name_recognition.py:step_2_build_context:201  - 上下文总字符数即将超限（2500），已停止拼接后续切片
+2026-07-28 22:05:04.629 | INFO     | node_item_name_recognition.py:step_2_build_context:208  - 步骤2：上下文构建完成，最终长度2500字符
+2026-07-28 22:05:04.652 | INFO     | node_item_name_recognition.py:step_2_build_context:208  - 步骤2：上下文构建完成，最终长度58字符
+2026-07-28 22:05:04.680 | INFO     | node_item_name_recognition.py:step_3_call_llm:229  - 开始执行步骤3：调用大模型识别商品名称
+2026-07-28 22:05:04.702 | INFO     | node_item_name_recognition.py:step_3_call_llm:267  - 步骤3：大模型识别商品名称成功，结果为：HAK180烫金机
+2026-07-28 22:05:04.727 | INFO     | node_item_name_recognition.py:step_3_call_llm:229  - 开始执行步骤3：调用大模型识别商品名称
+2026-07-28 22:05:04.748 | WARNING  | node_item_name_recognition.py:step_3_call_llm:264  - 大模型返回空内容，使用文件标题作为商品名称兜底
+2026-07-28 22:05:04.768 | INFO     | node_item_name_recognition.py:step_3_call_llm:229  - 开始执行步骤3：调用大模型识别商品名称
+2026-07-28 22:05:04.790 | ERROR    | node_item_name_recognition.py:step_3_call_llm:271  - 步骤3：大模型调用失败，原因：LLM unavailable
+2026-07-28 22:05:04.811 | INFO     | node_item_name_recognition.py:step_3_call_llm:229  - 开始执行步骤3：调用大模型识别商品名称
+2026-07-28 22:05:04.831 | WARNING  | node_item_name_recognition.py:step_3_call_llm:233  - 上下文为空，跳过大模型调用，直接使用文件标题作为商品名称
+2026-07-28 22:05:04.848 | INFO     | node_item_name_recognition.py:step_4_update_chunks:296  - 步骤4：商品名称回填完成，共为6个切片添加item_name字段，值为：HAK180烫金机
+2026-07-28 22:05:04.869 | INFO     | node_item_name_recognition.py:step_5_generate_vectors:311  - 开始执行步骤5：为商品名称[HAK180烫金机]生成BGE-M3双向量
+2026-07-28 22:05:04.896 | INFO     | node_item_name_recognition.py:step_5_generate_vectors:328  - 步骤5：BGE-M3稠密+稀疏向量生成成功
+2026-07-28 22:05:04.922 | INFO     | node_item_name_recognition.py:step_5_generate_vectors:311  - 开始执行步骤5：为商品名称[]生成BGE-M3双向量
+2026-07-28 22:05:04.952 | WARNING  | node_item_name_recognition.py:step_5_generate_vectors:315  - 商品名称为空，跳过向量生成，返回空向量
+2026-07-28 22:05:04.976 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:373  - 开始执行步骤6：将商品名称[HAK180烫金机]保存到Milvus集合[item_names]
+2026-07-28 22:05:04.996 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:459  - Milvus幂等性处理完成，已删除集合中[HAK180烫金机]的历史数据
+2026-07-28 22:05:05.012 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:477  - 步骤6：商品名称[HAK180烫金机]成功存入Milvus集合[item_names]，数据：['file_title', 'item_name', 'dense_vector', 'sparse_vector']
+2026-07-28 22:05:05.042 | INFO     | node_item_name_recognition.py:step_1_get_inputs:145  - 步骤1：输入校验完成，获取到6个有效文本切片
+2026-07-28 22:05:05.066 | INFO     | node_item_name_recognition.py:step_2_build_context:201  - 上下文总字符数即将超限（2500），已停止拼接后续切片
+2026-07-28 22:05:05.085 | INFO     | node_item_name_recognition.py:step_2_build_context:208  - 步骤2：上下文构建完成，最终长度2500字符
+2026-07-28 22:05:05.115 | INFO     | node_item_name_recognition.py:step_4_update_chunks:296  - 步骤4：商品名称回填完成，共为6个切片添加item_name字段，值为：HAK180烫金机
+2026-07-28 22:05:05.138 | INFO     | node_item_name_recognition.py:process        :91   - >>> 核心节点执行完成：【商品名称识别】node_item_name_recognition，识别结果：HAK180烫金机，已存入Milvus
+2026-07-28 22:05:05.170 | INFO     | node_item_name_recognition.py:step_1_get_inputs:145  - 步骤1：输入校验完成，获取到6个有效文本切片
+2026-07-28 22:05:05.189 | INFO     | node_item_name_recognition.py:step_2_build_context:201  - 上下文总字符数即将超限（2500），已停止拼接后续切片
+2026-07-28 22:05:05.206 | INFO     | node_item_name_recognition.py:step_2_build_context:208  - 步骤2：上下文构建完成，最终长度2500字符
+2026-07-28 22:05:05.222 | ERROR    | node_item_name_recognition.py:process        :103  - >>> 核心节点执行失败：【商品名称识别】node_item_name_recognition，错误信息：unexpected
+2026-07-28 22:05:44.592 | INFO     | node_item_name_recognition.py:step_5_generate_vectors:311  - 开始执行步骤5：为商品名称[BrotherHAK180烫金机]生成BGE-M3双向量
+2026-07-28 22:05:44.596 | INFO     | embedding_utils.py  :generate_embedding:66   - 开始为1条文本生成混合向量嵌入
+2026-07-28 22:05:45.762 | INFO     | embedding_utils.py  :get_bge_m3_ef  :29   - 开始初始化BGE-M3模型
+2026-07-28 22:05:48.785 | SUCCESS  | embedding_utils.py  :get_bge_m3_ef  :47   - BGE-M3模型初始化成功，已开启原生L2归一化
+2026-07-28 22:05:49.603 | SUCCESS  | embedding_utils.py  :generate_embedding:113  - 1条文本向量生成完成，格式已适配工业级使用
+2026-07-28 22:05:49.605 | INFO     | node_item_name_recognition.py:step_5_generate_vectors:328  - 步骤5：BGE-M3稠密+稀疏向量生成成功
+2026-07-28 22:05:49.607 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:373  - 开始执行步骤6：将商品名称[BrotherHAK180烫金机]保存到Milvus集合[kb_item_names]
+2026-07-28 22:05:49.638 | INFO     | milvus_client.py    :get_milvus_client:33   - Milvus客户端连接成功，当前数据库：zhiku
+2026-07-28 22:05:49.650 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:384  - Milvus集合[kb_item_names]不存在，开始创建Schema和索引
+2026-07-28 22:05:52.055 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:448  - Milvus集合[kb_item_names]创建成功，包含Schema和向量索引
+2026-07-28 22:05:52.158 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:459  - Milvus幂等性处理完成，已删除集合中[BrotherHAK180烫金机]的历史数据
+2026-07-28 22:05:52.538 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:477  - 步骤6：商品名称[BrotherHAK180烫金机]成功存入Milvus集合[kb_item_names]，数据：['file_title', 'item_name', 'dense_vector', 'sparse_vector']
+2026-07-28 22:08:03.823 | WARNING  | node_item_name_recognition.py:step_1_get_inputs:134  - state中无有效file_title，已从第一个切片中提取兜底标题
+2026-07-28 22:08:05.044 | INFO     | node_item_name_recognition.py:step_1_get_inputs:145  - 步骤1：输入校验完成，获取到6个有效文本切片
+2026-07-28 22:08:05.063 | WARNING  | node_item_name_recognition.py:step_1_get_inputs:142  - state中chunks为空或非列表类型，无法进行商品名称识别
+2026-07-28 22:08:05.082 | INFO     | node_item_name_recognition.py:step_2_build_context:201  - 上下文总字符数即将超限（2500），已停止拼接后续切片
+2026-07-28 22:08:05.098 | INFO     | node_item_name_recognition.py:step_2_build_context:208  - 步骤2：上下文构建完成，最终长度2500字符
+2026-07-28 22:08:05.116 | INFO     | node_item_name_recognition.py:step_2_build_context:208  - 步骤2：上下文构建完成，最终长度58字符
+2026-07-28 22:08:05.136 | INFO     | node_item_name_recognition.py:step_3_call_llm:229  - 开始执行步骤3：调用大模型识别商品名称
+2026-07-28 22:08:05.156 | INFO     | node_item_name_recognition.py:step_3_call_llm:267  - 步骤3：大模型识别商品名称成功，结果为：HAK180烫金机
+2026-07-28 22:08:05.181 | INFO     | node_item_name_recognition.py:step_3_call_llm:229  - 开始执行步骤3：调用大模型识别商品名称
+2026-07-28 22:08:05.197 | WARNING  | node_item_name_recognition.py:step_3_call_llm:264  - 大模型返回空内容，使用文件标题作为商品名称兜底
+2026-07-28 22:08:05.214 | INFO     | node_item_name_recognition.py:step_3_call_llm:229  - 开始执行步骤3：调用大模型识别商品名称
+2026-07-28 22:08:05.234 | ERROR    | node_item_name_recognition.py:step_3_call_llm:271  - 步骤3：大模型调用失败，原因：LLM unavailable
+2026-07-28 22:08:05.252 | INFO     | node_item_name_recognition.py:step_3_call_llm:229  - 开始执行步骤3：调用大模型识别商品名称
+2026-07-28 22:08:05.270 | WARNING  | node_item_name_recognition.py:step_3_call_llm:233  - 上下文为空，跳过大模型调用，直接使用文件标题作为商品名称
+2026-07-28 22:08:05.294 | INFO     | node_item_name_recognition.py:step_4_update_chunks:296  - 步骤4：商品名称回填完成，共为6个切片添加item_name字段，值为：HAK180烫金机
+2026-07-28 22:08:05.314 | INFO     | node_item_name_recognition.py:step_5_generate_vectors:311  - 开始执行步骤5：为商品名称[HAK180烫金机]生成BGE-M3双向量
+2026-07-28 22:08:05.331 | INFO     | node_item_name_recognition.py:step_5_generate_vectors:328  - 步骤5：BGE-M3稠密+稀疏向量生成成功
+2026-07-28 22:08:05.353 | INFO     | node_item_name_recognition.py:step_5_generate_vectors:311  - 开始执行步骤5：为商品名称[]生成BGE-M3双向量
+2026-07-28 22:08:05.371 | WARNING  | node_item_name_recognition.py:step_5_generate_vectors:315  - 商品名称为空，跳过向量生成，返回空向量
+2026-07-28 22:08:05.391 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:373  - 开始执行步骤6：将商品名称[HAK180烫金机]保存到Milvus集合[item_names]
+2026-07-28 22:08:05.408 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:459  - Milvus幂等性处理完成，已删除集合中[HAK180烫金机]的历史数据
+2026-07-28 22:08:05.428 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:477  - 步骤6：商品名称[HAK180烫金机]成功存入Milvus集合[item_names]，数据：['file_title', 'item_name', 'dense_vector', 'sparse_vector']
+2026-07-28 22:08:05.451 | INFO     | node_item_name_recognition.py:step_1_get_inputs:145  - 步骤1：输入校验完成，获取到6个有效文本切片
+2026-07-28 22:08:05.470 | INFO     | node_item_name_recognition.py:step_2_build_context:201  - 上下文总字符数即将超限（2500），已停止拼接后续切片
+2026-07-28 22:08:05.487 | INFO     | node_item_name_recognition.py:step_2_build_context:208  - 步骤2：上下文构建完成，最终长度2500字符
+2026-07-28 22:08:05.501 | INFO     | node_item_name_recognition.py:step_4_update_chunks:296  - 步骤4：商品名称回填完成，共为6个切片添加item_name字段，值为：HAK180烫金机
+2026-07-28 22:08:05.518 | INFO     | node_item_name_recognition.py:process        :91   - >>> 核心节点执行完成：【商品名称识别】node_item_name_recognition，识别结果：HAK180烫金机，已存入Milvus
+2026-07-28 22:08:05.545 | INFO     | node_item_name_recognition.py:step_1_get_inputs:145  - 步骤1：输入校验完成，获取到6个有效文本切片
+2026-07-28 22:08:05.566 | INFO     | node_item_name_recognition.py:step_2_build_context:201  - 上下文总字符数即将超限（2500），已停止拼接后续切片
+2026-07-28 22:08:05.586 | INFO     | node_item_name_recognition.py:step_2_build_context:208  - 步骤2：上下文构建完成，最终长度2500字符
+2026-07-28 22:08:05.604 | ERROR    | node_item_name_recognition.py:process        :103  - >>> 核心节点执行失败：【商品名称识别】node_item_name_recognition，错误信息：unexpected
+2026-07-28 22:17:55.813 | INFO     | milvus_client.py    :get_milvus_client:33   - Milvus客户端连接成功，当前数据库：zhiku
+2026-07-28 23:09:52.672 | WARNING  | node_item_name_recognition.py:step_1_get_inputs:134  - state中无有效file_title，已从第一个切片中提取兜底标题
+2026-07-28 23:09:53.978 | INFO     | node_item_name_recognition.py:step_1_get_inputs:145  - 步骤1：输入校验完成，获取到6个有效文本切片
+2026-07-28 23:09:54.005 | WARNING  | node_item_name_recognition.py:step_1_get_inputs:142  - state中chunks为空或非列表类型，无法进行商品名称识别
+2026-07-28 23:09:54.041 | INFO     | node_item_name_recognition.py:step_2_build_context:201  - 上下文总字符数即将超限（2500），已停止拼接后续切片
+2026-07-28 23:09:54.075 | INFO     | node_item_name_recognition.py:step_2_build_context:208  - 步骤2：上下文构建完成，最终长度2500字符
+2026-07-28 23:09:54.120 | INFO     | node_item_name_recognition.py:step_2_build_context:208  - 步骤2：上下文构建完成，最终长度58字符
+2026-07-28 23:09:54.171 | INFO     | node_item_name_recognition.py:step_3_call_llm:229  - 开始执行步骤3：调用大模型识别商品名称
+2026-07-28 23:09:54.207 | INFO     | node_item_name_recognition.py:step_3_call_llm:267  - 步骤3：大模型识别商品名称成功，结果为：HAK180烫金机
+2026-07-28 23:09:54.246 | INFO     | node_item_name_recognition.py:step_3_call_llm:229  - 开始执行步骤3：调用大模型识别商品名称
+2026-07-28 23:09:54.282 | WARNING  | node_item_name_recognition.py:step_3_call_llm:264  - 大模型返回空内容，使用文件标题作为商品名称兜底
+2026-07-28 23:09:54.319 | INFO     | node_item_name_recognition.py:step_3_call_llm:229  - 开始执行步骤3：调用大模型识别商品名称
+2026-07-28 23:09:54.355 | ERROR    | node_item_name_recognition.py:step_3_call_llm:271  - 步骤3：大模型调用失败，原因：LLM unavailable
+2026-07-28 23:09:54.392 | INFO     | node_item_name_recognition.py:step_3_call_llm:229  - 开始执行步骤3：调用大模型识别商品名称
+2026-07-28 23:09:54.430 | WARNING  | node_item_name_recognition.py:step_3_call_llm:233  - 上下文为空，跳过大模型调用，直接使用文件标题作为商品名称
+2026-07-28 23:09:54.475 | INFO     | node_item_name_recognition.py:step_4_update_chunks:296  - 步骤4：商品名称回填完成，共为6个切片添加item_name字段，值为：HAK180烫金机
+2026-07-28 23:09:54.511 | INFO     | node_item_name_recognition.py:step_5_generate_vectors:311  - 开始执行步骤5：为商品名称[HAK180烫金机]生成BGE-M3双向量
+2026-07-28 23:09:54.545 | INFO     | node_item_name_recognition.py:step_5_generate_vectors:328  - 步骤5：BGE-M3稠密+稀疏向量生成成功
+2026-07-28 23:09:54.582 | INFO     | node_item_name_recognition.py:step_5_generate_vectors:311  - 开始执行步骤5：为商品名称[]生成BGE-M3双向量
+2026-07-28 23:09:54.618 | WARNING  | node_item_name_recognition.py:step_5_generate_vectors:315  - 商品名称为空，跳过向量生成，返回空向量
+2026-07-28 23:09:54.652 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:373  - 开始执行步骤6：将商品名称[HAK180烫金机]保存到Milvus集合[item_names]
+2026-07-28 23:09:54.686 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:459  - Milvus幂等性处理完成，已删除集合中[HAK180烫金机]的历史数据
+2026-07-28 23:09:54.721 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:477  - 步骤6：商品名称[HAK180烫金机]成功存入Milvus集合[item_names]，数据：['file_title', 'item_name', 'dense_vector', 'sparse_vector']
+2026-07-28 23:09:54.762 | INFO     | node_item_name_recognition.py:step_1_get_inputs:145  - 步骤1：输入校验完成，获取到6个有效文本切片
+2026-07-28 23:09:54.790 | INFO     | node_item_name_recognition.py:step_2_build_context:201  - 上下文总字符数即将超限（2500），已停止拼接后续切片
+2026-07-28 23:09:54.811 | INFO     | node_item_name_recognition.py:step_2_build_context:208  - 步骤2：上下文构建完成，最终长度2500字符
+2026-07-28 23:09:54.833 | INFO     | node_item_name_recognition.py:step_4_update_chunks:296  - 步骤4：商品名称回填完成，共为6个切片添加item_name字段，值为：HAK180烫金机
+2026-07-28 23:09:54.868 | INFO     | node_item_name_recognition.py:process        :91   - >>> 核心节点执行完成：【商品名称识别】node_item_name_recognition，识别结果：HAK180烫金机，已存入Milvus
+2026-07-28 23:09:54.902 | INFO     | node_item_name_recognition.py:step_1_get_inputs:145  - 步骤1：输入校验完成，获取到6个有效文本切片
+2026-07-28 23:09:54.928 | INFO     | node_item_name_recognition.py:step_2_build_context:201  - 上下文总字符数即将超限（2500），已停止拼接后续切片
+2026-07-28 23:09:54.958 | INFO     | node_item_name_recognition.py:step_2_build_context:208  - 步骤2：上下文构建完成，最终长度2500字符
+2026-07-28 23:09:54.990 | ERROR    | node_item_name_recognition.py:process        :103  - >>> 核心节点执行失败：【商品名称识别】node_item_name_recognition，错误信息：unexpected
+2026-07-28 23:10:23.123 | INFO     | milvus_client.py    :get_milvus_client:33   - Milvus客户端连接成功，当前数据库：zhiku
+2026-07-28 23:10:32.436 | INFO     | milvus_client.py    :get_milvus_client:33   - Milvus客户端连接成功，当前数据库：zhiku
