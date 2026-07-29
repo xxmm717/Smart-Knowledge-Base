@@ -94,7 +94,8 @@ if __name__ == "__main__":
 #     # 测试1: 不支持的TXT文件
 #     test_state1 = create_default_state(
 #         task_id="test_entry_task_001",
-#         local_file_path="联想海豚用户手册.txt"
+#         import_file_path="联想海豚用户手册.txt",
+#         local_dir="output",
 #     )
 #     node_entry1 = NodeEntry()
 #     node_entry1(test_state1)
@@ -102,7 +103,8 @@ if __name__ == "__main__":
 #     # 测试2: MD文件
 #     test_state2 = create_default_state(
 #         task_id="test_entry_task_002",
-#         local_file_path="小米用户手册.md"
+#         import_file_path="小米用户手册.md",
+#         local_dir="output",
 #     )
 #     node_entry2 = NodeEntry()
 #     node_entry2(test_state2)
@@ -110,7 +112,8 @@ if __name__ == "__main__":
 #     # 测试3: PDF文件
 #     test_state3 = create_default_state(
 #         task_id="test_entry_task_003",
-#         local_file_path="万用表的使用.pdf"
+#         import_file_path="万用表的使用.pdf",
+#         local_dir="output",
 #     )
 #     node_entry3 = NodeEntry()
 #     node_entry3(test_state3)

@@ -193,6 +193,10 @@ def step_4_insert_data(client, chunks_json_data: List[Dict[str, Any]]) -> List[D
         item_copy = item.copy()
         if isinstance(item_copy, dict) and "chunk_id" in item_copy:
             item_copy.pop("chunk_id",None)
+        # part 表示二次切分序号。未触发二次切分的 Chunk 没有该字段，
+        # 但 Milvus Schema 将其定义为非空 INT8，因此统一以 0 作为默认分片号。
+        if item_copy.get("part") is None:
+            item_copy["part"] = 0
         data_to_insert.append(item_copy)
 
     logger.info(f"Milvus数据插入：准备{len(data_to_insert)}条切片数据，开始批量插入")

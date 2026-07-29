@@ -101,7 +101,11 @@ def create_default_state(**overrides) -> ImportGraphState:
         新的状态实例
 
     Examples:
-        >>> state = create_default_state(task_id="task_001", local_file_path="doc.pdf")
+        >>> state = create_default_state(
+        ...     task_id="task_001",
+        ...     import_file_path="doc.pdf",
+        ...     local_dir="output",
+        ... )
     """
     state = copy.deepcopy(GRAPH_DEFAULT_STATE)
     state.update(overrides)

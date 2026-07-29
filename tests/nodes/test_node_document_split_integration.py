@@ -64,7 +64,6 @@ def hl3040_pipeline_result():
         task_id="integration_hl3040_rag_1_3",
         import_file_path=str(PDF_PATH),
         pdf_path=str(PDF_PATH),
-        file_path=str(OUTPUT_ROOT),
         local_dir=str(OUTPUT_ROOT),
         file_title=PDF_PATH.stem,
     )

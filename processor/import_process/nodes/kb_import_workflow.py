@@ -5,7 +5,7 @@ from langgraph.constants import END
 from langgraph.graph import StateGraph
 from minio.datatypes import Object
 
-from processor.import_process import logger
+from processor.common.logger import logger
 from processor.import_process.nodes.node_bge_embedding import NodeBgeEmbedding
 from processor.import_process.nodes.node_document_split import NodeDocumentSplit
 from processor.import_process.nodes.node_entry import NodeEntry
@@ -120,7 +120,8 @@ if __name__ == "__main__":
     # 定义初始状态
     init_state = create_default_state(
         task_id="task_demo",
-        local_file_path="万用表的使用.pdf"
+        import_file_path="doc/万用表RS-12的使用.pdf",
+        local_dir="output",
     )
 
     # 用法1：标准类用法（推荐，支持多实例）

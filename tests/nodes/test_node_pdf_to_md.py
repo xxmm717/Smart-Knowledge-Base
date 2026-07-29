@@ -32,22 +32,22 @@ class TestStep1ValidatePath:
     def test_missing_pdf_path_raises_value_error(self, node, tmp_path):
         """缺少 pdf_path -> ValueError"""
         state = create_default_state()
-        state["file_path"] = str(tmp_path)
+        state["local_dir"] = str(tmp_path)
         with pytest.raises(ValueError, match="pdf_path"):
             node._step_1_validate_path(state)
 
-    def test_missing_file_path_raises_value_error(self, node, real_pdf):
-        """缺少 file_path -> ValueError"""
+    def test_missing_local_dir_raises_value_error(self, node, real_pdf):
+        """缺少 local_dir -> ValueError"""
         state = create_default_state(pdf_path=str(real_pdf))
-        state["file_path"] = ""
-        with pytest.raises(ValueError, match="file_path"):
+        state["local_dir"] = ""
+        with pytest.raises(ValueError, match="local_dir"):
             node._step_1_validate_path(state)
 
     def test_pdf_not_exist_raises_file_not_found(self, node, tmp_path):
         """PDF 文件不存在 -> FileNotFoundError"""
         state = create_default_state()
         state["pdf_path"] = str(tmp_path / "non_existent.pdf")
-        state["file_path"] = str(tmp_path)
+        state["local_dir"] = str(tmp_path)
         with pytest.raises(FileNotFoundError):
             node._step_1_validate_path(state)
 
@@ -56,7 +56,7 @@ class TestStep1ValidatePath:
         output_dir = tmp_path / "nested" / "output"
         assert not output_dir.exists()
         state = create_default_state(pdf_path=str(real_pdf))
-        state["file_path"] = str(output_dir)
+        state["local_dir"] = str(output_dir)
         _, dir_obj = node._step_1_validate_path(state)
         assert dir_obj.exists()
         assert dir_obj.is_dir()
@@ -64,7 +64,7 @@ class TestStep1ValidatePath:
     def test_valid_paths_returns_paths(self, node, real_pdf, tmp_path):
         """正常路径 -> 返回 (Path, Path)"""
         state = create_default_state(pdf_path=str(real_pdf))
-        state["file_path"] = str(tmp_path)
+        state["local_dir"] = str(tmp_path)
         pdf_obj, dir_obj = node._step_1_validate_path(state)
         assert isinstance(pdf_obj, Path)
         assert isinstance(dir_obj, Path)
@@ -234,7 +234,7 @@ class TestProcess:
         """mock _step_2 和 _step_3 后验证 state 正确更新"""
         mock_md_content = "# 测试 Markdown\n\nPDF-to-MD 结果。"
         state = create_default_state(pdf_path=str(real_pdf))
-        state["file_path"] = str(tmp_path)
+        state["local_dir"] = str(tmp_path)
         with (
             patch.object(node, "_step_2_upload_and_poll", return_value="https://fake.zip"),
             patch.object(node, "_step_3_download_and_extract", return_value="fake.md"),
@@ -248,15 +248,15 @@ class TestProcess:
     def test_process_propagates_exception(self, node, real_pdf, tmp_path):
         """_step_2 异常透传"""
         state = create_default_state(pdf_path=str(real_pdf))
-        state["file_path"] = str(tmp_path)
+        state["local_dir"] = str(tmp_path)
         with patch.object(node, "_step_2_upload_and_poll", side_effect=RuntimeError("API unavailable")):
             with pytest.raises(RuntimeError, match="API unavailable"):
                 node.process(state)
         assert state.get("md_path", "") == ""
 
-    def test_process_missing_file_path_raises_value_error(self, node, real_pdf, tmp_path):
-        """缺失 file_path -> ValueError"""
+    def test_process_missing_local_dir_raises_value_error(self, node, real_pdf, tmp_path):
+        """缺失 local_dir -> ValueError"""
         state = create_default_state(pdf_path=str(real_pdf))
-        state["file_path"] = ""
-        with pytest.raises(ValueError, match="file_path"):
+        state["local_dir"] = ""
+        with pytest.raises(ValueError, match="local_dir"):
             node.process(state)

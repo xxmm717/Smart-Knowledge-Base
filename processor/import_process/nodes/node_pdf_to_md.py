@@ -57,26 +57,26 @@ class NodePdfToMd(BaseNode):
         """
         # 1.参数非空校验
         pdf_path = state.get("pdf_path","").strip()
-        file_path = state.get("file_path","").strip()
+        local_dir = state.get("local_dir","").strip()
         if not pdf_path:
             raise ValueError("缺失参数：pdf_path")
-        if not file_path:
-            raise ValueError("缺失参数：file_path")
+        if not local_dir:
+            raise ValueError("缺失参数：local_dir")
 
         # 2.转换为path对象统一处理路径
         pdf_path_ojb = Path(pdf_path)
-        file_path_ojb = Path(file_path)
+        local_dir_obj = Path(local_dir)
 
         # 3.PDF文件有效性校验
         if not pdf_path_ojb.exists():
             raise FileNotFoundError(f"PDF文件不存在，绝对路径：{pdf_path_ojb.absolute()}")
 
         # 4.确保输出目录存在，不存在则递归创建
-        if not file_path_ojb.exists():
-            self.logger.info(f"输出目录不存在，自动创建{file_path_ojb.absolute()}")
-            file_path_ojb.mkdir(parents=True, exist_ok=True)
+        if not local_dir_obj.exists():
+            self.logger.info(f"输出目录不存在，自动创建{local_dir_obj.absolute()}")
+            local_dir_obj.mkdir(parents=True, exist_ok=True)
 
-        return pdf_path_ojb, file_path_ojb
+        return pdf_path_ojb, local_dir_obj
 
     # 上传pdf到MinerU并轮询解析结果
     def _step_2_upload_and_poll(self,pdf_path_obj: Path):
