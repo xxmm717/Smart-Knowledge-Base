@@ -29,3 +29,14 @@
 2026-07-29 09:53:18.995 | INFO     | node_item_name_recognition.py:step_2_build_context:201  - 上下文总字符数即将超限（2500），已停止拼接后续切片
 2026-07-29 09:53:19.014 | INFO     | node_item_name_recognition.py:step_2_build_context:208  - 步骤2：上下文构建完成，最终长度2500字符
 2026-07-29 09:53:19.036 | ERROR    | node_item_name_recognition.py:process        :103  - >>> 核心节点执行失败：【商品名称识别】node_item_name_recognition，错误信息：unexpected
+2026-07-29 16:41:44.347 | INFO     | node_bge_embedding.py:step_1_validate_input:102  - 向量化输入校验通过，待处理文本切片数量：6
+2026-07-29 16:41:44.352 | INFO     | embedding_utils.py  :get_bge_m3_ef  :29   - 开始初始化BGE-M3模型
+2026-07-29 16:41:49.459 | SUCCESS  | embedding_utils.py  :get_bge_m3_ef  :47   - BGE-M3模型初始化成功，已开启原生L2归一化
+2026-07-29 16:41:49.461 | INFO     | node_bge_embedding.py:step_2_init_model:123  - BGE-M3模型实例初始化成功（单例模式）
+2026-07-29 16:41:49.462 | INFO     | embedding_utils.py  :generate_embedding:66   - 开始为5条文本生成混合向量嵌入
+2026-07-29 16:41:50.276 | SUCCESS  | embedding_utils.py  :generate_embedding:113  - 5条文本向量生成完成，格式已适配工业级使用
+2026-07-29 16:41:50.278 | INFO     | node_bge_embedding.py:step_3_generate_embeddings:193  - 第1-5条切片：双向量生成成功
+2026-07-29 16:41:50.280 | INFO     | embedding_utils.py  :generate_embedding:66   - 开始为1条文本生成混合向量嵌入
+2026-07-29 16:41:50.394 | SUCCESS  | embedding_utils.py  :generate_embedding:113  - 1条文本向量生成完成，格式已适配工业级使用
+2026-07-29 16:41:50.395 | INFO     | node_bge_embedding.py:step_3_generate_embeddings:193  - 第6-6条切片：双向量生成成功
+2026-07-29 16:41:50.397 | INFO     | node_bge_embedding.py:process        :72   - --- BGE-M3 向量化处理完成，共处理 6 条文本切片 ---
