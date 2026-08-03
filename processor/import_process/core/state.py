@@ -1,122 +1,101 @@
-"""
-
-导入流程状态类型定义
-
-
-
-定义完整的状态结构和辅助函数
-
-"""
-
-from typing import TypedDict, List
-
+from typing import TypedDict
 import copy
 
+from processor.common.logger import logger
 
-class ImportGraphState(TypedDict, total=False):
 
-
+class ImportGraphState(TypedDict):
     """
-
-    导入流程图状态
-
-
-
-    包含整个导入流程中传递的所有数据
-
+    图的状态定义，包含所有节点产生和消费的数据字段。
+    TypedDict 让我们在代码中能有自动补全和类型检查。
+    使用字典式访问（如state["session_id"]、state.get("embedding_chunks")）
     """
+    task_id: str          # 任务唯一ID，用于追踪日志
 
-    # ==================== 任务标识 ====================
-
-    task_id: str  # 任务 ID，用于任务追踪(web交互的时候用到，实时看到节点的处理日志)
-
-    # ==================== 控制标志 ====================
-
-    is_md_read_enabled: bool  # 是否启用 MD 读取
-
-    is_pdf_read_enabled: bool  # 是否启用 PDF 读取
-
-    # ==================== 路径信息 ====================
-
-    import_file_path: str  # 导入文件路径
-
-    local_dir: str  # 导入(出)文件目录
-
-    pdf_path: str  # PDF 文件路径
-
-    md_path: str  # 转换后Markdown 文件路径
-
-    # ==================== 文件信息 ====================
-
-    file_title: str  # 文件标题（不含扩展名）
-
-    item_name: str  # 识别出的商品/产品名称(方便程序员用)
-
-    # ==================== 处理中间数据 ====================
-
-    md_content: str  # Markdown 文档内容
-
-    chunks: List  # 文档切片列表
-
-    # ==================== 默认状态 ====================
+    # --- 流程控制标记 ---
+    is_md_read_enabled: bool   # 是否启用 Markdown 读取路径
+    is_pdf_read_enabled: bool  # 是否启用 PDF 读取路径
 
 
+    # --- 切块相关 ---
+    is_normal_split_enabled: bool
+    is_silicon_flow_api_enabled: bool
+    is_advanced_split_enabled: bool
+    is_vllm_enabled: bool
+
+    # --- 路径相关 ---
+    local_dir: str        # 当前工作目录或输出目录
+    local_file_path: str  # 原始输入文件路径
+    file_title: str       # 文件标题（文件名去后缀）
+    pdf_path: str         # PDF 文件路径 (如果输入是PDF)
+    md_path: str          # Markdown 文件路径 (转换后或直接输入的)
+    split_path: str       # 分块后的文件路径
+    embeddings_path: str  # 向量数据库文件路径
+
+    # --- 内容数据 ---
+    md_content: str       # Markdown 的全文内容
+    chunks: list          # 切片后的文本列表，包含 metadata
+    item_name: str        # 识别出的主体名称 (如: "万用表")，用于增强检索
+
+    # --- 数据库相关 ---
+    embeddings_content: list # 包含向量数据的列表，准备写入 Milvus
 
 
-GRAPH_DEFAULT_STATE: ImportGraphState = {
-
-    "task_id": "",
-
+# 建议定一个初始化对象，方便后续使用
+# 定义图状态的默认初始值
+graph_default_state: ImportGraphState = {
+    "task_id":"",
     "is_pdf_read_enabled": False,
-
     "is_md_read_enabled": False,
-
+    "is_normal_split_enabled": True,
+    "is_silicon_flow_api_enabled": True,
+    "is_advanced_split_enabled": False,
+    "is_vllm_enabled": False,
     "local_dir": "",
-
-    "import_file_path": "",
-
+    "local_file_path": "",
     "pdf_path": "",
-
     "md_path": "",
-
     "file_title": "",
-
+    "split_path": "",
+    "embeddings_path": "",
     "md_content": "",
-
     "chunks": [],
-
     "item_name": "",
-
+    "embeddings_content": []
 }
-
 
 def create_default_state(**overrides) -> ImportGraphState:
     """
     创建默认状态，支持覆盖
 
     Args:
-        **overrides: 要覆盖的字段
+        **overrides: 要覆盖的字段（关键字参数解包）
 
     Returns:
         新的状态实例
 
     Examples:
-        >>> state = create_default_state(
-        ...     task_id="task_001",
-        ...     import_file_path="doc.pdf",
-        ...     local_dir="output",
-        ... )
+        state = create_default_state(task_id="task_001", local_file_path="doc.pdf")
     """
-    state = copy.deepcopy(GRAPH_DEFAULT_STATE)
-    state.update(overrides)
-    return state
 
+    # 默认状态
+    state = copy.deepcopy(graph_default_state)
+    # 用 overrides 覆盖默认值
+    state.update(overrides)
+    # 返回创建好的状态字典实例
+    return state
 
 def get_default_state() -> ImportGraphState:
     """
-    获取默认状态副本
-
-    Returns:
-        状态副本（避免全局污染）
+    返回一个新的状态实例，避免全局变量污染
     """
-    return copy.deepcopy(GRAPH_DEFAULT_STATE)
+    return copy.deepcopy(graph_default_state)
+
+
+if __name__ == "__main__":
+    """
+    测试
+    """
+    # 创建默认状态
+    state = create_default_state(local_file_path="万用表RS-12的使用.pdf")
+    logger.info(state)

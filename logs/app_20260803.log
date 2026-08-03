@@ -1,0 +1,283 @@
+2026-08-03 22:14:16.972 | WARNING  | node_item_name_recognition.py:step_1_get_inputs:132  - state中无有效file_title，已从第一个切片中提取兜底标题
+2026-08-03 22:14:18.169 | INFO     | node_item_name_recognition.py:step_1_get_inputs:143  - 步骤1：输入校验完成，获取到6个有效文本切片
+2026-08-03 22:14:18.202 | WARNING  | node_item_name_recognition.py:step_1_get_inputs:140  - state中chunks为空或非列表类型，无法进行商品名称识别
+2026-08-03 22:14:18.235 | INFO     | node_item_name_recognition.py:step_2_build_context:199  - 上下文总字符数即将超限（2500），已停止拼接后续切片
+2026-08-03 22:14:18.262 | INFO     | node_item_name_recognition.py:step_2_build_context:206  - 步骤2：上下文构建完成，最终长度2500字符
+2026-08-03 22:14:18.295 | INFO     | node_item_name_recognition.py:step_2_build_context:206  - 步骤2：上下文构建完成，最终长度58字符
+2026-08-03 22:14:18.321 | INFO     | node_item_name_recognition.py:step_3_call_llm:227  - 开始执行步骤3：调用大模型识别商品名称
+2026-08-03 22:14:18.354 | INFO     | node_item_name_recognition.py:step_3_call_llm:265  - 步骤3：大模型识别商品名称成功，结果为：HAK180烫金机
+2026-08-03 22:14:18.396 | INFO     | node_item_name_recognition.py:step_3_call_llm:227  - 开始执行步骤3：调用大模型识别商品名称
+2026-08-03 22:14:18.430 | WARNING  | node_item_name_recognition.py:step_3_call_llm:262  - 大模型返回空内容，使用文件标题作为商品名称兜底
+2026-08-03 22:14:18.466 | INFO     | node_item_name_recognition.py:step_3_call_llm:227  - 开始执行步骤3：调用大模型识别商品名称
+2026-08-03 22:14:18.501 | ERROR    | node_item_name_recognition.py:step_3_call_llm:269  - 步骤3：大模型调用失败，原因：LLM unavailable
+2026-08-03 22:14:18.541 | INFO     | node_item_name_recognition.py:step_3_call_llm:227  - 开始执行步骤3：调用大模型识别商品名称
+2026-08-03 22:14:18.578 | WARNING  | node_item_name_recognition.py:step_3_call_llm:231  - 上下文为空，跳过大模型调用，直接使用文件标题作为商品名称
+2026-08-03 22:14:18.612 | INFO     | node_item_name_recognition.py:step_4_update_chunks:294  - 步骤4：商品名称回填完成，共为6个切片添加item_name字段，值为：HAK180烫金机
+2026-08-03 22:14:18.640 | INFO     | node_item_name_recognition.py:step_5_generate_vectors:309  - 开始执行步骤5：为商品名称[HAK180烫金机]生成BGE-M3双向量
+2026-08-03 22:14:18.668 | INFO     | node_item_name_recognition.py:step_5_generate_vectors:326  - 步骤5：BGE-M3稠密+稀疏向量生成成功
+2026-08-03 22:14:18.703 | INFO     | node_item_name_recognition.py:step_5_generate_vectors:309  - 开始执行步骤5：为商品名称[]生成BGE-M3双向量
+2026-08-03 22:14:18.731 | WARNING  | node_item_name_recognition.py:step_5_generate_vectors:313  - 商品名称为空，跳过向量生成，返回空向量
+2026-08-03 22:14:18.763 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:371  - 开始执行步骤6：将商品名称[HAK180烫金机]保存到Milvus集合[item_names]
+2026-08-03 22:14:18.788 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:457  - Milvus幂等性处理完成，已删除集合中[HAK180烫金机]的历史数据
+2026-08-03 22:14:18.815 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:475  - 步骤6：商品名称[HAK180烫金机]成功存入Milvus集合[item_names]，数据：['file_title', 'item_name', 'dense_vector', 'sparse_vector']
+2026-08-03 22:14:19.097 | INFO     | node_item_name_recognition.py:step_1_get_inputs:143  - 步骤1：输入校验完成，获取到6个有效文本切片
+2026-08-03 22:14:19.125 | INFO     | node_item_name_recognition.py:step_2_build_context:199  - 上下文总字符数即将超限（2500），已停止拼接后续切片
+2026-08-03 22:14:19.148 | INFO     | node_item_name_recognition.py:step_2_build_context:206  - 步骤2：上下文构建完成，最终长度2500字符
+2026-08-03 22:14:19.177 | INFO     | node_item_name_recognition.py:step_4_update_chunks:294  - 步骤4：商品名称回填完成，共为6个切片添加item_name字段，值为：HAK180烫金机
+2026-08-03 22:14:19.207 | INFO     | node_item_name_recognition.py:node_item_name_recognition:89   - >>> 核心节点执行完成：【商品名称识别】node_item_name_recognition，识别结果：HAK180烫金机，已存入Milvus
+2026-08-03 22:14:19.243 | INFO     | node_item_name_recognition.py:step_1_get_inputs:143  - 步骤1：输入校验完成，获取到6个有效文本切片
+2026-08-03 22:14:19.273 | INFO     | node_item_name_recognition.py:step_2_build_context:199  - 上下文总字符数即将超限（2500），已停止拼接后续切片
+2026-08-03 22:14:19.305 | INFO     | node_item_name_recognition.py:step_2_build_context:206  - 步骤2：上下文构建完成，最终长度2500字符
+2026-08-03 22:14:19.336 | ERROR    | node_item_name_recognition.py:node_item_name_recognition:101  - >>> 核心节点执行失败：【商品名称识别】node_item_name_recognition，错误信息：unexpected
+2026-08-03 22:18:50.207 | INFO     | main_graph.py       :<module>       :89   - ===== main_graph 七节点真实联调开始 =====
+2026-08-03 22:18:51.182 | INFO     | main_graph.py       :<module>       :90   - 输入 PDF：D:\Code Demo\zhanggui_zhiku\doc\hak180产品安全手册.pdf
+2026-08-03 22:18:51.197 | INFO     | main_graph.py       :<module>       :91   - 本地产物目录：D:\Code Demo\zhanggui_zhiku\output
+2026-08-03 22:18:51.253 | INFO     | node_entry.py       :node_entry     :51   - 文件类型校验通过：D:\Code Demo\zhanggui_zhiku\doc\hak180产品安全手册.pdf ->PDF格式，开启PDF解析流程
+2026-08-03 22:18:51.343 | INFO     | node_entry.py       :node_entry     :63   - 文件业务标识提取完成：file_title = hak180产品安全手册
+2026-08-03 22:18:51.370 | INFO     | node_pdf_to_md.py   :_step_2_upload_and_poll:83   - 【配置校验】MinerU配置校验成功，开始处理文件：hak180产品安全手册.pdf
+2026-08-03 22:18:51.390 | INFO     | node_pdf_to_md.py   :_step_2_upload_and_poll:97   - 【获取上传链接】调用接口：https://mineru.net/api/v4/file-urls/batch，请求参数：{'files': [{'name': 'hak180产品安全手册.pdf'}], 'model_version': 'vlm'}
+2026-08-03 22:18:51.962 | INFO     | node_pdf_to_md.py   :_step_2_upload_and_poll:106  - 【获取上传链接】成功：上传链接已生成，batch_id：0579313e-b358-4a0b-b017-daccada08f04
+2026-08-03 22:18:51.986 | INFO     | node_pdf_to_md.py   :_step_2_upload_and_poll:110  - 【文件上传】开始上传PDF文件：hak180产品安全手册.pdf
+2026-08-03 22:18:52.426 | INFO     | node_pdf_to_md.py   :_step_2_upload_and_poll:114  - https://mineru.oss-cn-shanghai.aliyuncs.com/api-upload/extract/2026-08-03/0579313e-b358-4a0b-b017-daccada08f04/feb57db3-ca31-4e36-8f40-019099d044ce.pdf?Expires=1785853130&OSSAccessKeyId=LTAI5t8fSGMgiRhQn4mpp926&Signature=XrS9B%2Bo26iMZ%2Byoacv%2FZZlHa930%3D 文件上传成功
+2026-08-03 22:18:52.453 | INFO     | node_pdf_to_md.py   :_step_2_upload_and_poll:122  - 【任务轮询】开始轮询解析结果，最大超时：600s，batch_id：0579313e-b358-4a0b-b017-daccada08f04
+2026-08-03 22:18:52.641 | INFO     | node_pdf_to_md.py   :_step_2_upload_and_poll:156  - 【任务轮询】处理中... 已耗时0s，状态：waiting-file， batch_id：0579313e-b358-4a0b-b017-daccada08f04
+2026-08-03 22:18:55.885 | INFO     | node_pdf_to_md.py   :_step_2_upload_and_poll:148  - 【任务轮询】解析任务完成！总耗时3s，batch_id：0579313e-b358-4a0b-b017-daccada08f04
+2026-08-03 22:18:55.906 | INFO     | node_pdf_to_md.py   :_step_2_upload_and_poll:150  - 【任务轮询】返回ZIP包下载链接：https://cdn-mineru.openxlab.org.cn/pdf/2026-07-29/cde5185a-1942-4849-a5e3-293fcaea5bfe.zip
+2026-08-03 22:18:55.925 | INFO     | node_pdf_to_md.py   :_step_3_download_and_extract:169  - 【ZIP下载】开始下载ZIP包：https://cdn-mineru.openxlab.org.cn/pdf/2026-07-29/cde5185a-1942-4849-a5e3-293fcaea5bfe.zip ...
+2026-08-03 22:18:56.286 | INFO     | node_pdf_to_md.py   :_step_3_download_and_extract:190  - 【ZIP下载】ZIP包下载成功：保存路径：D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册_result.zip，尝试次数：1
+2026-08-03 22:18:56.314 | INFO     | node_pdf_to_md.py   :_step_3_download_and_extract:209  - 【ZIP解压】已清空旧的解压目录：D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册
+2026-08-03 22:18:56.340 | INFO     | node_pdf_to_md.py   :_step_3_download_and_extract:213  - 【ZIP解压】开始解压ZIP包：D:\Code Demo\zhanggui_zhiku\output ...
+2026-08-03 22:18:56.386 | INFO     | node_pdf_to_md.py   :_step_3_download_and_extract:216  - 【ZIP解压】ZIP解压完成，解压目录：D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册
+2026-08-03 22:18:56.410 | INFO     | node_pdf_to_md.py   :_step_3_download_and_extract:218  - 【MD重命名】找到MinerU生成的full.md文件
+2026-08-03 22:18:56.427 | INFO     | node_pdf_to_md.py   :_step_3_download_and_extract:220  - 【MD重命名】开始将full.md文件进行重命名
+2026-08-03 22:18:56.449 | INFO     | node_pdf_to_md.py   :_step_3_download_and_extract:223  - 【MD重命名】重命名成功，文件名：hak180产品安全手册.md
+2026-08-03 22:18:56.472 | INFO     | node_md_img.py      :_step_1_get_content:96   - 从全局状态获取MD内容完成，内容大小：5786 字符
+2026-08-03 22:18:56.498 | INFO     | node_md_img.py      :_step_2_get_scan_images:127  - 图片加入待处理列表：501bb8d2d681e4502d87badb15a68939eadfa086d309c3599f1c36b0bc559177.jpg
+2026-08-03 22:18:56.523 | INFO     | node_md_img.py      :_step_2_get_scan_images:127  - 图片加入待处理列表：5067b2891ca4f761e2874921e0eb433aa742afbf38ca8dc509afecbf0aa6a6b5.jpg
+2026-08-03 22:18:56.541 | INFO     | node_md_img.py      :_step_2_get_scan_images:127  - 图片加入待处理列表：677a08ee041965bbbdb6b483d6c17d5aaa36a26b6dc96870a2019f0307b8616f.jpg
+2026-08-03 22:18:56.555 | INFO     | node_md_img.py      :_step_2_get_scan_images:127  - 图片加入待处理列表：8e839864036a7326885565163d99117ea943ecd29a656c85e7aa4052a9b9d28d.jpg
+2026-08-03 22:18:56.577 | INFO     | node_md_img.py      :_step_2_get_scan_images:127  - 图片加入待处理列表：c61a7f4e923881679f747508ae309c39dc221685344b068009256b1b3a40cc00.jpg
+2026-08-03 22:18:56.595 | INFO     | node_md_img.py      :_step_2_get_scan_images:127  - 图片加入待处理列表：cc5ee1ac24ebb2707d40dc7a234a8b243f55f5bf08fabc683859be6fdf096ffa.jpg
+2026-08-03 22:18:56.614 | INFO     | node_md_img.py      :_step_2_get_scan_images:123  - 图片未在MD中引用，跳过处理：d11bfff4c4658445e61ac557ef345593f56243b5a7b6956f952909e68eb69fea.jpg
+2026-08-03 22:18:56.637 | INFO     | node_md_img.py      :_step_2_get_scan_images:127  - 图片加入待处理列表：f3349cded08d6686a93d0a81b9a64ec1e50d9a82cbb88541b37027f085813a15.jpg
+2026-08-03 22:18:56.654 | INFO     | node_md_img.py      :_step_2_get_scan_images:128  - 图片扫描完成，共筛选出待处理图片：7 张
+2026-08-03 22:18:56.670 | INFO     | node_md_img.py      :_step_3_generate_summaries:173  - 开始生成图片摘要：D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册\images\501bb8d2d681e4502d87badb15a68939eadfa086d309c3599f1c36b0bc559177.jpg
+2026-08-03 22:18:56.688 | INFO     | llm_client.py       :get_llm_client :45   - [LLM客户端] 开始初始化新实例：模型=qwen3-vl-32b-thinking，JSON模式=False
+2026-08-03 22:18:59.818 | INFO     | llm_client.py       :get_llm_client :72   - [LLM客户端] 实例初始化成功并缓存：模型=qwen3-vl-32b-thinking，JSON模式=False
+2026-08-03 22:19:16.783 | INFO     | node_md_img.py      :_summarize_image:263  - 图片摘要生成成功：D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册\images\501bb8d2d681e4502d87badb15a68939eadfa086d309c3599f1c36b0bc559177.jpg，摘要：设备内部操作示意图，手触碰部件，警示电源安全风险
+2026-08-03 22:19:16.809 | INFO     | node_md_img.py      :_step_3_generate_summaries:173  - 开始生成图片摘要：D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册\images\5067b2891ca4f761e2874921e0eb433aa742afbf38ca8dc509afecbf0aa6a6b5.jpg
+2026-08-03 22:19:23.108 | INFO     | node_md_img.py      :_summarize_image:263  - 图片摘要生成成功：D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册\images\5067b2891ca4f761e2874921e0eb433aa742afbf38ca8dc509afecbf0aa6a6b5.jpg，摘要：禁止将手指放入设备图示区域，避免操作危险。
+2026-08-03 22:19:23.125 | INFO     | node_md_img.py      :_step_3_generate_summaries:173  - 开始生成图片摘要：D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册\images\677a08ee041965bbbdb6b483d6c17d5aaa36a26b6dc96870a2019f0307b8616f.jpg
+2026-08-03 22:19:31.474 | INFO     | node_md_img.py      :_summarize_image:263  - 图片摘要生成成功：D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册\images\677a08ee041965bbbdb6b483d6c17d5aaa36a26b6dc96870a2019f0307b8616f.jpg，摘要：HAK 180烫金机产品安全手册（简体中文）条形码及部分文字信息
+2026-08-03 22:19:31.490 | INFO     | node_md_img.py      :_step_3_generate_summaries:173  - 开始生成图片摘要：D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册\images\8e839864036a7326885565163d99117ea943ecd29a656c85e7aa4052a9b9d28d.jpg
+2026-08-03 22:19:37.190 | INFO     | node_md_img.py      :_summarize_image:263  - 图片摘要生成成功：D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册\images\8e839864036a7326885565163d99117ea943ecd29a656c85e7aa4052a9b9d28d.jpg，摘要：禁止设备置于桌面边缘且出纸盒打开，防止跌落致人身伤害及设备损坏
+2026-08-03 22:19:37.206 | INFO     | node_md_img.py      :_step_3_generate_summaries:173  - 开始生成图片摘要：D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册\images\c61a7f4e923881679f747508ae309c39dc221685344b068009256b1b3a40cc00.jpg
+2026-08-03 22:19:41.763 | INFO     | node_md_img.py      :_summarize_image:263  - 图片摘要生成成功：D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册\images\c61a7f4e923881679f747508ae309c39dc221685344b068009256b1b3a40cc00.jpg，摘要：禁止将手指伸入设备内部指定区域，避免操作时受伤
+2026-08-03 22:19:41.782 | INFO     | node_md_img.py      :_step_3_generate_summaries:173  - 开始生成图片摘要：D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册\images\cc5ee1ac24ebb2707d40dc7a234a8b243f55f5bf08fabc683859be6fdf096ffa.jpg
+2026-08-03 22:19:47.855 | INFO     | node_md_img.py      :_summarize_image:263  - 图片摘要生成成功：D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册\images\cc5ee1ac24ebb2707d40dc7a234a8b243f55f5bf08fabc683859be6fdf096ffa.jpg，摘要：设备搬运需双手抓两侧，勿抓进纸托板/出纸盒（图示正误操作）
+2026-08-03 22:19:47.870 | INFO     | node_md_img.py      :_step_3_generate_summaries:173  - 开始生成图片摘要：D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册\images\f3349cded08d6686a93d0a81b9a64ec1e50d9a82cbb88541b37027f085813a15.jpg
+2026-08-03 22:19:52.983 | INFO     | node_md_img.py      :_summarize_image:263  - 图片摘要生成成功：D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册\images\f3349cded08d6686a93d0a81b9a64ec1e50d9a82cbb88541b37027f085813a15.jpg，摘要：设备内部零件高温，灰色区域勿触，等待冷却后再操作，避免烧伤风险
+2026-08-03 22:19:52.999 | INFO     | node_md_img.py      :_step_3_generate_summaries:175  - 图片摘要批量生成完成，共处理7张图片
+2026-08-03 22:19:53.037 | INFO     | node_md_img.py      :_upload_to_minio:339  - 开始上传图片至MinIO：本地路径=D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册\images\501bb8d2d681e4502d87badb15a68939eadfa086d309c3599f1c36b0bc559177.jpg，MinIO对象名=/upload-images/hak180产品安全手册/501bb8d2d681e4502d87badb15a68939eadfa086d309c3599f1c36b0bc559177.jpg
+2026-08-03 22:19:53.071 | INFO     | node_md_img.py      :_upload_to_minio:361  - 图片上传成功，访问URL：http://192.168.246.128:9010/knowledge-base-files/upload-images/hak180产品安全手册/501bb8d2d681e4502d87badb15a68939eadfa086d309c3599f1c36b0bc559177.jpg
+2026-08-03 22:19:53.093 | INFO     | node_md_img.py      :_upload_to_minio:339  - 开始上传图片至MinIO：本地路径=D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册\images\5067b2891ca4f761e2874921e0eb433aa742afbf38ca8dc509afecbf0aa6a6b5.jpg，MinIO对象名=/upload-images/hak180产品安全手册/5067b2891ca4f761e2874921e0eb433aa742afbf38ca8dc509afecbf0aa6a6b5.jpg
+2026-08-03 22:19:53.118 | INFO     | node_md_img.py      :_upload_to_minio:361  - 图片上传成功，访问URL：http://192.168.246.128:9010/knowledge-base-files/upload-images/hak180产品安全手册/5067b2891ca4f761e2874921e0eb433aa742afbf38ca8dc509afecbf0aa6a6b5.jpg
+2026-08-03 22:19:53.144 | INFO     | node_md_img.py      :_upload_to_minio:339  - 开始上传图片至MinIO：本地路径=D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册\images\677a08ee041965bbbdb6b483d6c17d5aaa36a26b6dc96870a2019f0307b8616f.jpg，MinIO对象名=/upload-images/hak180产品安全手册/677a08ee041965bbbdb6b483d6c17d5aaa36a26b6dc96870a2019f0307b8616f.jpg
+2026-08-03 22:19:53.170 | INFO     | node_md_img.py      :_upload_to_minio:361  - 图片上传成功，访问URL：http://192.168.246.128:9010/knowledge-base-files/upload-images/hak180产品安全手册/677a08ee041965bbbdb6b483d6c17d5aaa36a26b6dc96870a2019f0307b8616f.jpg
+2026-08-03 22:19:53.189 | INFO     | node_md_img.py      :_upload_to_minio:339  - 开始上传图片至MinIO：本地路径=D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册\images\8e839864036a7326885565163d99117ea943ecd29a656c85e7aa4052a9b9d28d.jpg，MinIO对象名=/upload-images/hak180产品安全手册/8e839864036a7326885565163d99117ea943ecd29a656c85e7aa4052a9b9d28d.jpg
+2026-08-03 22:19:53.225 | INFO     | node_md_img.py      :_upload_to_minio:361  - 图片上传成功，访问URL：http://192.168.246.128:9010/knowledge-base-files/upload-images/hak180产品安全手册/8e839864036a7326885565163d99117ea943ecd29a656c85e7aa4052a9b9d28d.jpg
+2026-08-03 22:19:53.252 | INFO     | node_md_img.py      :_upload_to_minio:339  - 开始上传图片至MinIO：本地路径=D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册\images\c61a7f4e923881679f747508ae309c39dc221685344b068009256b1b3a40cc00.jpg，MinIO对象名=/upload-images/hak180产品安全手册/c61a7f4e923881679f747508ae309c39dc221685344b068009256b1b3a40cc00.jpg
+2026-08-03 22:19:53.280 | INFO     | node_md_img.py      :_upload_to_minio:361  - 图片上传成功，访问URL：http://192.168.246.128:9010/knowledge-base-files/upload-images/hak180产品安全手册/c61a7f4e923881679f747508ae309c39dc221685344b068009256b1b3a40cc00.jpg
+2026-08-03 22:19:53.304 | INFO     | node_md_img.py      :_upload_to_minio:339  - 开始上传图片至MinIO：本地路径=D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册\images\cc5ee1ac24ebb2707d40dc7a234a8b243f55f5bf08fabc683859be6fdf096ffa.jpg，MinIO对象名=/upload-images/hak180产品安全手册/cc5ee1ac24ebb2707d40dc7a234a8b243f55f5bf08fabc683859be6fdf096ffa.jpg
+2026-08-03 22:19:53.329 | INFO     | node_md_img.py      :_upload_to_minio:361  - 图片上传成功，访问URL：http://192.168.246.128:9010/knowledge-base-files/upload-images/hak180产品安全手册/cc5ee1ac24ebb2707d40dc7a234a8b243f55f5bf08fabc683859be6fdf096ffa.jpg
+2026-08-03 22:19:53.357 | INFO     | node_md_img.py      :_upload_to_minio:339  - 开始上传图片至MinIO：本地路径=D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册\images\f3349cded08d6686a93d0a81b9a64ec1e50d9a82cbb88541b37027f085813a15.jpg，MinIO对象名=/upload-images/hak180产品安全手册/f3349cded08d6686a93d0a81b9a64ec1e50d9a82cbb88541b37027f085813a15.jpg
+2026-08-03 22:19:53.389 | INFO     | node_md_img.py      :_upload_to_minio:361  - 图片上传成功，访问URL：http://192.168.246.128:9010/knowledge-base-files/upload-images/hak180产品安全手册/f3349cded08d6686a93d0a81b9a64ec1e50d9a82cbb88541b37027f085813a15.jpg
+2026-08-03 22:19:53.416 | INFO     | node_md_img.py      :_upload_images_batch:328  - 图片批量上传完成，成功上传7/7张图片
+2026-08-03 22:19:53.441 | INFO     | node_md_img.py      :_merge_summary_and_url:378  - 图片摘要与URL合并完成，有效图片信息7条
+2026-08-03 22:19:53.467 | INFO     | node_md_img.py      :_process_md_file:401  - MD文件图片引用替换完成，共替换7处图片引用
+2026-08-03 22:19:53.499 | INFO     | node_md_img.py      :_step_5_backup_new_md_file:216  - 处理后MD文件已保存，新文件路径：D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册\hak180产品安全手册_new.md
+2026-08-03 22:19:53.527 | INFO     | node_document_split.py:step_1_get_input:114  - 步骤1：输入数据加载完成，文件标题：hak180产品安全手册，最大Chunk长度：2000
+2026-08-03 22:19:53.549 | INFO     | node_document_split.py:step_2_split_by_titles:177  - 步骤2：MD标题切分完成，识别到13个有效标题，原始文本共182行
+2026-08-03 22:19:53.571 | INFO     | node_document_split.py:step_4_refine_chunks:216  - 步骤4-1：超长章节切分完成，共生成14个初始子Chunk
+2026-08-03 22:19:53.589 | INFO     | node_document_split.py:step_4_refine_chunks:220  - 步骤4-2：过短章节合并完成，最终得到14个Chunk
+2026-08-03 22:19:53.606 | INFO     | node_document_split.py:step_5_print_starts:237  - -------------------------------------------------- 文档切分统计信息 --------------------------------------------------
+2026-08-03 22:19:53.630 | INFO     | node_document_split.py:step_5_print_starts:238  - MD原始文本总行数：182
+2026-08-03 22:19:53.669 | INFO     | node_document_split.py:step_5_print_starts:239  - 最终生成Chunk数量：14
+2026-08-03 22:19:53.703 | INFO     | node_document_split.py:step_5_print_starts:242  - 首个Chunk标题预览：
+2026-08-03 22:19:53.731 | INFO     | node_document_split.py:step_5_print_starts:243  - --------------------------------------------------------------------------------------------------------------
+2026-08-03 22:19:53.755 | INFO     | node_document_split.py:step_6_backup  :286  - 步骤6：Chunk结果备份成功，备份文件路径：D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册\chunks\chunk.json
+2026-08-03 22:19:53.783 | INFO     | node_document_split.py:node_document_split:84   - >>> 核心节点执行完成：【文档切分】node_document_split，已生成14个有效Chunk，结果已写入状态字典
+2026-08-03 22:19:53.807 | INFO     | node_item_name_recognition.py:step_1_get_inputs:143  - 步骤1：输入校验完成，获取到14个有效文本切片
+2026-08-03 22:19:53.829 | INFO     | node_item_name_recognition.py:step_2_build_context:206  - 步骤2：上下文构建完成，最终长度2482字符
+2026-08-03 22:19:53.854 | INFO     | node_item_name_recognition.py:step_3_call_llm:227  - 开始执行步骤3：调用大模型识别商品名称
+2026-08-03 22:19:53.882 | INFO     | llm_client.py       :get_llm_client :45   - [LLM客户端] 开始初始化新实例：模型=qwen3.7-plus，JSON模式=False
+2026-08-03 22:19:53.910 | INFO     | llm_client.py       :get_llm_client :72   - [LLM客户端] 实例初始化成功并缓存：模型=qwen3.7-plus，JSON模式=False
+2026-08-03 22:19:54.844 | INFO     | node_item_name_recognition.py:step_3_call_llm:265  - 步骤3：大模型识别商品名称成功，结果为：兄弟HAK180烫金机
+2026-08-03 22:19:54.863 | INFO     | node_item_name_recognition.py:step_4_update_chunks:294  - 步骤4：商品名称回填完成，共为14个切片添加item_name字段，值为：兄弟HAK180烫金机
+2026-08-03 22:19:54.882 | INFO     | node_item_name_recognition.py:step_5_generate_vectors:309  - 开始执行步骤5：为商品名称[兄弟HAK180烫金机]生成BGE-M3双向量
+2026-08-03 22:19:54.898 | INFO     | embedding_utils.py  :generate_embedding:66   - 开始为1条文本生成混合向量嵌入
+2026-08-03 22:19:54.919 | INFO     | embedding_utils.py  :get_bge_m3_ef  :29   - 开始初始化BGE-M3模型
+2026-08-03 22:19:59.490 | SUCCESS  | embedding_utils.py  :get_bge_m3_ef  :47   - BGE-M3模型初始化成功，已开启原生L2归一化
+2026-08-03 22:20:00.661 | SUCCESS  | embedding_utils.py  :generate_embedding:113  - 1条文本向量生成完成，格式已适配工业级使用
+2026-08-03 22:20:00.682 | INFO     | node_item_name_recognition.py:step_5_generate_vectors:326  - 步骤5：BGE-M3稠密+稀疏向量生成成功
+2026-08-03 22:20:00.699 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:371  - 开始执行步骤6：将商品名称[兄弟HAK180烫金机]保存到Milvus集合[kb_item_names]
+2026-08-03 22:20:01.040 | INFO     | milvus_client.py    :get_milvus_client:33   - Milvus客户端连接成功，当前数据库：zhiku
+2026-08-03 22:20:01.581 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:457  - Milvus幂等性处理完成，已删除集合中[兄弟HAK180烫金机]的历史数据
+2026-08-03 22:20:02.180 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:475  - 步骤6：商品名称[兄弟HAK180烫金机]成功存入Milvus集合[kb_item_names]，数据：['file_title', 'item_name', 'dense_vector', 'sparse_vector']
+2026-08-03 22:20:02.205 | INFO     | node_item_name_recognition.py:node_item_name_recognition:89   - >>> 核心节点执行完成：【商品名称识别】node_item_name_recognition，识别结果：兄弟HAK180烫金机，已存入Milvus
+2026-08-03 22:20:02.229 | INFO     | node_bge_embedding.py:step_1_validate_input:106  - 向量化输入校验通过，待处理文本切片数量：14
+2026-08-03 22:20:02.249 | INFO     | node_bge_embedding.py:step_2_init_model:127  - BGE-M3模型实例初始化成功（单例模式）
+2026-08-03 22:20:02.270 | INFO     | embedding_utils.py  :generate_embedding:66   - 开始为5条文本生成混合向量嵌入
+2026-08-03 22:20:02.549 | SUCCESS  | embedding_utils.py  :generate_embedding:113  - 5条文本向量生成完成，格式已适配工业级使用
+2026-08-03 22:20:02.576 | INFO     | node_bge_embedding.py:step_3_generate_embeddings:197  - 第1-5条切片：双向量生成成功
+2026-08-03 22:20:02.600 | INFO     | embedding_utils.py  :generate_embedding:66   - 开始为5条文本生成混合向量嵌入
+2026-08-03 22:20:02.789 | SUCCESS  | embedding_utils.py  :generate_embedding:113  - 5条文本向量生成完成，格式已适配工业级使用
+2026-08-03 22:20:02.813 | INFO     | node_bge_embedding.py:step_3_generate_embeddings:197  - 第6-10条切片：双向量生成成功
+2026-08-03 22:20:02.829 | INFO     | embedding_utils.py  :generate_embedding:66   - 开始为4条文本生成混合向量嵌入
+2026-08-03 22:20:03.008 | SUCCESS  | embedding_utils.py  :generate_embedding:113  - 4条文本向量生成完成，格式已适配工业级使用
+2026-08-03 22:20:03.030 | INFO     | node_bge_embedding.py:step_3_generate_embeddings:197  - 第11-14条切片：双向量生成成功
+2026-08-03 22:20:03.044 | INFO     | node_bge_embedding.py:node_bge_embedding:76   - --- BGE-M3 向量化处理完成，共处理 14 条文本切片 ---
+2026-08-03 22:20:03.066 | INFO     | node_import_milvus.py:node_import_milvus:53   - --- Milvus切片数据入库流程启动 ---
+2026-08-03 22:20:03.087 | INFO     | node_import_milvus.py:step_1_check_input:112  - Milvus入库校验通过，待入库切片数：14 | 向量维度：1024 | 商品名称：兄弟HAK180烫金机
+2026-08-03 22:20:03.107 | INFO     | node_import_milvus.py:step_2_prepare_collection:130  - 开始准备Milvus环境，目标集合：kb_chunks
+2026-08-03 22:20:03.132 | INFO     | node_import_milvus.py:step_2_prepare_collection:147  - Milvus集合kb_chunks已存在，直接复用
+2026-08-03 22:20:03.157 | INFO     | node_import_milvus.py:_clear_chunks_by_item_name:322  - Milvus幂等性清理：开始删除集合kb_chunks中item_name=兄弟HAK180烫金机的旧数据
+2026-08-03 22:20:04.122 | INFO     | node_import_milvus.py:_clear_chunks_by_item_name:331  - Milvus幂等性清理完成：成功删除item_name=兄弟HAK180烫金机的旧数据
+2026-08-03 22:20:04.138 | INFO     | node_import_milvus.py:step_4_insert_data:208  - Milvus数据插入：准备14条切片数据，开始批量插入
+2026-08-03 22:20:04.417 | INFO     | node_import_milvus.py:step_4_insert_data:213  - Milvus数据插入完成：成功插入14条数据，插入结果：{'insert_count': 14, 'ids': [468101225571156205, 468101225571156206, 468101225571156207, 468101225571156208, 468101225571156209, 468101225571156210, 468101225571156211, 468101225571156212, 468101225571156213, 468101225571156214, 468101225571156215, 468101225571156216, 468101225571156217, 468101225571156218]}
+2026-08-03 22:20:04.434 | INFO     | node_import_milvus.py:step_4_insert_data:219  - Milvus主键回填：开始将14个自增chunk_id回填到切片
+2026-08-03 22:20:04.447 | INFO     | node_import_milvus.py:step_4_insert_data:222  - Milvus主键回填完成：所有切片已绑定chunk_id
+2026-08-03 22:20:16.259 | INFO     | main_graph.py       :<module>       :138  - ===== main_graph 七节点真实联调成功 =====
+2026-08-03 22:20:16.274 | INFO     | main_graph.py       :<module>       :139  - 任务 ID：main_graph_real_0ca5f8a8fde3496f99559b685588f462
+2026-08-03 22:20:16.292 | INFO     | main_graph.py       :<module>       :140  - 识别主体：兄弟HAK180烫金机
+2026-08-03 22:20:16.306 | INFO     | main_graph.py       :<module>       :141  - Markdown：D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册\hak180产品安全手册_new.md
+2026-08-03 22:20:16.323 | INFO     | main_graph.py       :<module>       :142  - Chunk 数量：14
+2026-08-03 22:20:16.346 | INFO     | main_graph.py       :<module>       :143  - Milvus 集合：kb_chunks
+2026-08-03 22:20:16.366 | INFO     | main_graph.py       :<module>       :144  - Milvus 查询数量：14
+2026-08-03 22:51:42.902 | INFO     | node_entry.py       :node_entry     :51   - 文件类型校验通过：doc\Aolynk CB304n Cable网桥 用户手册-5W100-整本手册.pdf ->PDF格式，开启PDF解析流程
+2026-08-03 22:51:43.202 | INFO     | node_entry.py       :node_entry     :63   - 文件业务标识提取完成：file_title = Aolynk CB304n Cable网桥 用户手册-5W100-整本手册
+2026-08-03 22:55:24.983 | INFO     | main_graph.py       :<module>       :89   - ===== main_graph 七节点真实联调开始 =====
+2026-08-03 22:55:26.004 | INFO     | main_graph.py       :<module>       :90   - 输入 PDF：D:\Code Demo\zhanggui_zhiku\doc\hak180产品安全手册.pdf
+2026-08-03 22:55:26.024 | INFO     | main_graph.py       :<module>       :91   - 本地产物目录：D:\Code Demo\zhanggui_zhiku\output
+2026-08-03 22:55:26.053 | INFO     | node_entry.py       :node_entry     :51   - 文件类型校验通过：D:\Code Demo\zhanggui_zhiku\doc\hak180产品安全手册.pdf ->PDF格式，开启PDF解析流程
+2026-08-03 22:55:26.086 | INFO     | node_entry.py       :node_entry     :63   - 文件业务标识提取完成：file_title = hak180产品安全手册
+2026-08-03 22:55:26.114 | INFO     | node_pdf_to_md.py   :_step_2_upload_and_poll:83   - 【配置校验】MinerU配置校验成功，开始处理文件：hak180产品安全手册.pdf
+2026-08-03 22:55:26.144 | INFO     | node_pdf_to_md.py   :_step_2_upload_and_poll:97   - 【获取上传链接】调用接口：https://mineru.net/api/v4/file-urls/batch，请求参数：{'files': [{'name': 'hak180产品安全手册.pdf'}], 'model_version': 'vlm'}
+2026-08-03 22:55:26.379 | INFO     | node_pdf_to_md.py   :_step_2_upload_and_poll:106  - 【获取上传链接】成功：上传链接已生成，batch_id：b5368782-12bc-41d1-bcad-9f4c261b3cbb
+2026-08-03 22:55:26.403 | INFO     | node_pdf_to_md.py   :_step_2_upload_and_poll:110  - 【文件上传】开始上传PDF文件：hak180产品安全手册.pdf
+2026-08-03 22:55:26.839 | INFO     | node_pdf_to_md.py   :_step_2_upload_and_poll:114  - https://mineru.oss-cn-shanghai.aliyuncs.com/api-upload/extract/2026-08-03/b5368782-12bc-41d1-bcad-9f4c261b3cbb/fc37567e-805a-4275-80b5-7f0e8022bdf3.pdf?Expires=1785855325&OSSAccessKeyId=LTAI5t8fSGMgiRhQn4mpp926&Signature=nnZ9TaO%2BHX9vyR13WbI1HwEZFCY%3D 文件上传成功
+2026-08-03 22:55:26.857 | INFO     | node_pdf_to_md.py   :_step_2_upload_and_poll:122  - 【任务轮询】开始轮询解析结果，最大超时：600s，batch_id：b5368782-12bc-41d1-bcad-9f4c261b3cbb
+2026-08-03 22:55:27.071 | INFO     | node_pdf_to_md.py   :_step_2_upload_and_poll:156  - 【任务轮询】处理中... 已耗时0s，状态：waiting-file， batch_id：b5368782-12bc-41d1-bcad-9f4c261b3cbb
+2026-08-03 22:55:30.303 | INFO     | node_pdf_to_md.py   :_step_2_upload_and_poll:148  - 【任务轮询】解析任务完成！总耗时3s，batch_id：b5368782-12bc-41d1-bcad-9f4c261b3cbb
+2026-08-03 22:55:30.321 | INFO     | node_pdf_to_md.py   :_step_2_upload_and_poll:150  - 【任务轮询】返回ZIP包下载链接：https://cdn-mineru.openxlab.org.cn/pdf/2026-07-29/cde5185a-1942-4849-a5e3-293fcaea5bfe.zip
+2026-08-03 22:55:30.352 | INFO     | node_pdf_to_md.py   :_step_3_download_and_extract:169  - 【ZIP下载】开始下载ZIP包：https://cdn-mineru.openxlab.org.cn/pdf/2026-07-29/cde5185a-1942-4849-a5e3-293fcaea5bfe.zip ...
+2026-08-03 22:55:30.518 | INFO     | node_pdf_to_md.py   :_step_3_download_and_extract:190  - 【ZIP下载】ZIP包下载成功：保存路径：D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册_result.zip，尝试次数：1
+2026-08-03 22:55:30.540 | INFO     | node_pdf_to_md.py   :_step_3_download_and_extract:209  - 【ZIP解压】已清空旧的解压目录：D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册
+2026-08-03 22:55:30.574 | INFO     | node_pdf_to_md.py   :_step_3_download_and_extract:213  - 【ZIP解压】开始解压ZIP包：D:\Code Demo\zhanggui_zhiku\output ...
+2026-08-03 22:55:30.621 | INFO     | node_pdf_to_md.py   :_step_3_download_and_extract:216  - 【ZIP解压】ZIP解压完成，解压目录：D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册
+2026-08-03 22:55:30.646 | INFO     | node_pdf_to_md.py   :_step_3_download_and_extract:218  - 【MD重命名】找到MinerU生成的full.md文件
+2026-08-03 22:55:30.674 | INFO     | node_pdf_to_md.py   :_step_3_download_and_extract:220  - 【MD重命名】开始将full.md文件进行重命名
+2026-08-03 22:55:30.703 | INFO     | node_pdf_to_md.py   :_step_3_download_and_extract:223  - 【MD重命名】重命名成功，文件名：hak180产品安全手册.md
+2026-08-03 22:55:30.735 | INFO     | node_md_img.py      :_step_1_get_content:96   - 从全局状态获取MD内容完成，内容大小：5786 字符
+2026-08-03 22:55:30.769 | INFO     | node_md_img.py      :_step_2_get_scan_images:127  - 图片加入待处理列表：501bb8d2d681e4502d87badb15a68939eadfa086d309c3599f1c36b0bc559177.jpg
+2026-08-03 22:55:30.800 | INFO     | node_md_img.py      :_step_2_get_scan_images:127  - 图片加入待处理列表：5067b2891ca4f761e2874921e0eb433aa742afbf38ca8dc509afecbf0aa6a6b5.jpg
+2026-08-03 22:55:30.824 | INFO     | node_md_img.py      :_step_2_get_scan_images:127  - 图片加入待处理列表：677a08ee041965bbbdb6b483d6c17d5aaa36a26b6dc96870a2019f0307b8616f.jpg
+2026-08-03 22:55:30.855 | INFO     | node_md_img.py      :_step_2_get_scan_images:127  - 图片加入待处理列表：8e839864036a7326885565163d99117ea943ecd29a656c85e7aa4052a9b9d28d.jpg
+2026-08-03 22:55:30.881 | INFO     | node_md_img.py      :_step_2_get_scan_images:127  - 图片加入待处理列表：c61a7f4e923881679f747508ae309c39dc221685344b068009256b1b3a40cc00.jpg
+2026-08-03 22:55:30.908 | INFO     | node_md_img.py      :_step_2_get_scan_images:127  - 图片加入待处理列表：cc5ee1ac24ebb2707d40dc7a234a8b243f55f5bf08fabc683859be6fdf096ffa.jpg
+2026-08-03 22:55:30.947 | INFO     | node_md_img.py      :_step_2_get_scan_images:123  - 图片未在MD中引用，跳过处理：d11bfff4c4658445e61ac557ef345593f56243b5a7b6956f952909e68eb69fea.jpg
+2026-08-03 22:55:30.978 | INFO     | node_md_img.py      :_step_2_get_scan_images:127  - 图片加入待处理列表：f3349cded08d6686a93d0a81b9a64ec1e50d9a82cbb88541b37027f085813a15.jpg
+2026-08-03 22:55:31.003 | INFO     | node_md_img.py      :_step_2_get_scan_images:128  - 图片扫描完成，共筛选出待处理图片：7 张
+2026-08-03 22:55:31.037 | INFO     | node_md_img.py      :_step_3_generate_summaries:173  - 开始生成图片摘要：D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册\images\501bb8d2d681e4502d87badb15a68939eadfa086d309c3599f1c36b0bc559177.jpg
+2026-08-03 22:55:31.072 | INFO     | llm_client.py       :get_llm_client :45   - [LLM客户端] 开始初始化新实例：模型=qwen3-vl-32b-thinking，JSON模式=False
+2026-08-03 22:55:32.441 | INFO     | llm_client.py       :get_llm_client :72   - [LLM客户端] 实例初始化成功并缓存：模型=qwen3-vl-32b-thinking，JSON模式=False
+2026-08-03 22:55:41.296 | INFO     | node_md_img.py      :_summarize_image:263  - 图片摘要生成成功：D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册\images\501bb8d2d681e4502d87badb15a68939eadfa086d309c3599f1c36b0bc559177.jpg，摘要：设备电源线安全操作示意图：禁止接直流/逆变器，勿湿手触插头，防火灾触电（32字）
+2026-08-03 22:55:41.333 | INFO     | node_md_img.py      :_step_3_generate_summaries:173  - 开始生成图片摘要：D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册\images\5067b2891ca4f761e2874921e0eb433aa742afbf38ca8dc509afecbf0aa6a6b5.jpg
+2026-08-03 22:55:48.381 | INFO     | node_md_img.py      :_summarize_image:263  - 图片摘要生成成功：D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册\images\5067b2891ca4f761e2874921e0eb433aa742afbf38ca8dc509afecbf0aa6a6b5.jpg，摘要：禁止将手指放入设备图示危险区域，避免夹伤或操作风险。
+2026-08-03 22:55:48.398 | INFO     | node_md_img.py      :_step_3_generate_summaries:173  - 开始生成图片摘要：D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册\images\677a08ee041965bbbdb6b483d6c17d5aaa36a26b6dc96870a2019f0307b8616f.jpg
+2026-08-03 22:55:56.412 | INFO     | node_md_img.py      :_summarize_image:263  - 图片摘要生成成功：D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册\images\677a08ee041965bbbdb6b483d6c17d5aaa36a26b6dc96870a2019f0307b8616f.jpg，摘要：HAK 180烫金机产品安全手册条形码（含D01WD7001-00及SCHN标识）
+2026-08-03 22:55:56.434 | INFO     | node_md_img.py      :_step_3_generate_summaries:173  - 开始生成图片摘要：D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册\images\8e839864036a7326885565163d99117ea943ecd29a656c85e7aa4052a9b9d28d.jpg
+2026-08-03 22:56:02.702 | INFO     | node_md_img.py      :_summarize_image:263  - 图片摘要生成成功：D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册\images\8e839864036a7326885565163d99117ea943ecd29a656c85e7aa4052a9b9d28d.jpg，摘要：禁止设备置于桌面边缘且出纸盒打开，防止跌落致人身伤害及设备损坏
+2026-08-03 22:56:02.733 | INFO     | node_md_img.py      :_step_3_generate_summaries:173  - 开始生成图片摘要：D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册\images\c61a7f4e923881679f747508ae309c39dc221685344b068009256b1b3a40cc00.jpg
+2026-08-03 22:56:07.906 | INFO     | node_md_img.py      :_summarize_image:263  - 图片摘要生成成功：D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册\images\c61a7f4e923881679f747508ae309c39dc221685344b068009256b1b3a40cc00.jpg，摘要：禁止将手指伸入设备内部指定区域，避免操作时受伤。
+2026-08-03 22:56:07.931 | INFO     | node_md_img.py      :_step_3_generate_summaries:173  - 开始生成图片摘要：D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册\images\cc5ee1ac24ebb2707d40dc7a234a8b243f55f5bf08fabc683859be6fdf096ffa.jpg
+2026-08-03 22:56:13.023 | INFO     | node_md_img.py      :_summarize_image:263  - 图片摘要生成成功：D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册\images\cc5ee1ac24ebb2707d40dc7a234a8b243f55f5bf08fabc683859be6fdf096ffa.jpg，摘要：设备搬运需双手抓稳两侧底部，避免抓进纸托板和出纸盒，防止部件掉落。
+2026-08-03 22:56:13.041 | INFO     | node_md_img.py      :_step_3_generate_summaries:173  - 开始生成图片摘要：D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册\images\f3349cded08d6686a93d0a81b9a64ec1e50d9a82cbb88541b37027f085813a15.jpg
+2026-08-03 22:56:20.188 | INFO     | node_md_img.py      :_summarize_image:263  - 图片摘要生成成功：D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册\images\f3349cded08d6686a93d0a81b9a64ec1e50d9a82cbb88541b37027f085813a15.jpg，摘要：设备使用后内部零件高温，勿触灰色区域，需等待冷却，避免烧伤。
+2026-08-03 22:56:20.214 | INFO     | node_md_img.py      :_step_3_generate_summaries:175  - 图片摘要批量生成完成，共处理7张图片
+2026-08-03 22:56:20.254 | INFO     | node_md_img.py      :_upload_to_minio:339  - 开始上传图片至MinIO：本地路径=D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册\images\501bb8d2d681e4502d87badb15a68939eadfa086d309c3599f1c36b0bc559177.jpg，MinIO对象名=/upload-images/hak180产品安全手册/501bb8d2d681e4502d87badb15a68939eadfa086d309c3599f1c36b0bc559177.jpg
+2026-08-03 22:56:20.290 | INFO     | node_md_img.py      :_upload_to_minio:361  - 图片上传成功，访问URL：http://192.168.246.128:9010/knowledge-base-files/upload-images/hak180产品安全手册/501bb8d2d681e4502d87badb15a68939eadfa086d309c3599f1c36b0bc559177.jpg
+2026-08-03 22:56:20.310 | INFO     | node_md_img.py      :_upload_to_minio:339  - 开始上传图片至MinIO：本地路径=D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册\images\5067b2891ca4f761e2874921e0eb433aa742afbf38ca8dc509afecbf0aa6a6b5.jpg，MinIO对象名=/upload-images/hak180产品安全手册/5067b2891ca4f761e2874921e0eb433aa742afbf38ca8dc509afecbf0aa6a6b5.jpg
+2026-08-03 22:56:20.332 | INFO     | node_md_img.py      :_upload_to_minio:361  - 图片上传成功，访问URL：http://192.168.246.128:9010/knowledge-base-files/upload-images/hak180产品安全手册/5067b2891ca4f761e2874921e0eb433aa742afbf38ca8dc509afecbf0aa6a6b5.jpg
+2026-08-03 22:56:20.349 | INFO     | node_md_img.py      :_upload_to_minio:339  - 开始上传图片至MinIO：本地路径=D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册\images\677a08ee041965bbbdb6b483d6c17d5aaa36a26b6dc96870a2019f0307b8616f.jpg，MinIO对象名=/upload-images/hak180产品安全手册/677a08ee041965bbbdb6b483d6c17d5aaa36a26b6dc96870a2019f0307b8616f.jpg
+2026-08-03 22:56:20.371 | INFO     | node_md_img.py      :_upload_to_minio:361  - 图片上传成功，访问URL：http://192.168.246.128:9010/knowledge-base-files/upload-images/hak180产品安全手册/677a08ee041965bbbdb6b483d6c17d5aaa36a26b6dc96870a2019f0307b8616f.jpg
+2026-08-03 22:56:20.389 | INFO     | node_md_img.py      :_upload_to_minio:339  - 开始上传图片至MinIO：本地路径=D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册\images\8e839864036a7326885565163d99117ea943ecd29a656c85e7aa4052a9b9d28d.jpg，MinIO对象名=/upload-images/hak180产品安全手册/8e839864036a7326885565163d99117ea943ecd29a656c85e7aa4052a9b9d28d.jpg
+2026-08-03 22:56:20.411 | INFO     | node_md_img.py      :_upload_to_minio:361  - 图片上传成功，访问URL：http://192.168.246.128:9010/knowledge-base-files/upload-images/hak180产品安全手册/8e839864036a7326885565163d99117ea943ecd29a656c85e7aa4052a9b9d28d.jpg
+2026-08-03 22:56:20.428 | INFO     | node_md_img.py      :_upload_to_minio:339  - 开始上传图片至MinIO：本地路径=D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册\images\c61a7f4e923881679f747508ae309c39dc221685344b068009256b1b3a40cc00.jpg，MinIO对象名=/upload-images/hak180产品安全手册/c61a7f4e923881679f747508ae309c39dc221685344b068009256b1b3a40cc00.jpg
+2026-08-03 22:56:20.454 | INFO     | node_md_img.py      :_upload_to_minio:361  - 图片上传成功，访问URL：http://192.168.246.128:9010/knowledge-base-files/upload-images/hak180产品安全手册/c61a7f4e923881679f747508ae309c39dc221685344b068009256b1b3a40cc00.jpg
+2026-08-03 22:56:20.481 | INFO     | node_md_img.py      :_upload_to_minio:339  - 开始上传图片至MinIO：本地路径=D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册\images\cc5ee1ac24ebb2707d40dc7a234a8b243f55f5bf08fabc683859be6fdf096ffa.jpg，MinIO对象名=/upload-images/hak180产品安全手册/cc5ee1ac24ebb2707d40dc7a234a8b243f55f5bf08fabc683859be6fdf096ffa.jpg
+2026-08-03 22:56:20.510 | INFO     | node_md_img.py      :_upload_to_minio:361  - 图片上传成功，访问URL：http://192.168.246.128:9010/knowledge-base-files/upload-images/hak180产品安全手册/cc5ee1ac24ebb2707d40dc7a234a8b243f55f5bf08fabc683859be6fdf096ffa.jpg
+2026-08-03 22:56:20.527 | INFO     | node_md_img.py      :_upload_to_minio:339  - 开始上传图片至MinIO：本地路径=D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册\images\f3349cded08d6686a93d0a81b9a64ec1e50d9a82cbb88541b37027f085813a15.jpg，MinIO对象名=/upload-images/hak180产品安全手册/f3349cded08d6686a93d0a81b9a64ec1e50d9a82cbb88541b37027f085813a15.jpg
+2026-08-03 22:56:20.560 | INFO     | node_md_img.py      :_upload_to_minio:361  - 图片上传成功，访问URL：http://192.168.246.128:9010/knowledge-base-files/upload-images/hak180产品安全手册/f3349cded08d6686a93d0a81b9a64ec1e50d9a82cbb88541b37027f085813a15.jpg
+2026-08-03 22:56:20.586 | INFO     | node_md_img.py      :_upload_images_batch:328  - 图片批量上传完成，成功上传7/7张图片
+2026-08-03 22:56:20.610 | INFO     | node_md_img.py      :_merge_summary_and_url:378  - 图片摘要与URL合并完成，有效图片信息7条
+2026-08-03 22:56:20.633 | INFO     | node_md_img.py      :_process_md_file:401  - MD文件图片引用替换完成，共替换7处图片引用
+2026-08-03 22:56:20.657 | INFO     | node_md_img.py      :_step_5_backup_new_md_file:216  - 处理后MD文件已保存，新文件路径：D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册\hak180产品安全手册_new.md
+2026-08-03 22:56:20.675 | INFO     | node_document_split.py:step_1_get_input:114  - 步骤1：输入数据加载完成，文件标题：hak180产品安全手册，最大Chunk长度：2000
+2026-08-03 22:56:20.692 | INFO     | node_document_split.py:step_2_split_by_titles:177  - 步骤2：MD标题切分完成，识别到13个有效标题，原始文本共182行
+2026-08-03 22:56:20.713 | INFO     | node_document_split.py:step_4_refine_chunks:216  - 步骤4-1：超长章节切分完成，共生成14个初始子Chunk
+2026-08-03 22:56:20.737 | INFO     | node_document_split.py:step_4_refine_chunks:220  - 步骤4-2：过短章节合并完成，最终得到14个Chunk
+2026-08-03 22:56:20.760 | INFO     | node_document_split.py:step_5_print_starts:237  - -------------------------------------------------- 文档切分统计信息 --------------------------------------------------
+2026-08-03 22:56:20.779 | INFO     | node_document_split.py:step_5_print_starts:238  - MD原始文本总行数：182
+2026-08-03 22:56:20.799 | INFO     | node_document_split.py:step_5_print_starts:239  - 最终生成Chunk数量：14
+2026-08-03 22:56:20.817 | INFO     | node_document_split.py:step_5_print_starts:242  - 首个Chunk标题预览：
+2026-08-03 22:56:20.836 | INFO     | node_document_split.py:step_5_print_starts:243  - --------------------------------------------------------------------------------------------------------------
+2026-08-03 22:56:20.856 | INFO     | node_document_split.py:step_6_backup  :286  - 步骤6：Chunk结果备份成功，备份文件路径：D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册\chunks\chunk.json
+2026-08-03 22:56:20.875 | INFO     | node_document_split.py:node_document_split:84   - >>> 核心节点执行完成：【文档切分】node_document_split，已生成14个有效Chunk，结果已写入状态字典
+2026-08-03 22:56:20.891 | INFO     | node_item_name_recognition.py:step_1_get_inputs:143  - 步骤1：输入校验完成，获取到14个有效文本切片
+2026-08-03 22:56:20.906 | INFO     | node_item_name_recognition.py:step_2_build_context:206  - 步骤2：上下文构建完成，最终长度2491字符
+2026-08-03 22:56:20.919 | INFO     | node_item_name_recognition.py:step_3_call_llm:227  - 开始执行步骤3：调用大模型识别商品名称
+2026-08-03 22:56:20.935 | INFO     | llm_client.py       :get_llm_client :45   - [LLM客户端] 开始初始化新实例：模型=qwen3.7-plus，JSON模式=False
+2026-08-03 22:56:20.951 | INFO     | llm_client.py       :get_llm_client :72   - [LLM客户端] 实例初始化成功并缓存：模型=qwen3.7-plus，JSON模式=False
+2026-08-03 22:56:21.987 | INFO     | node_item_name_recognition.py:step_3_call_llm:265  - 步骤3：大模型识别商品名称成功，结果为：兄弟HAK180烫金机
+2026-08-03 22:56:22.004 | INFO     | node_item_name_recognition.py:step_4_update_chunks:294  - 步骤4：商品名称回填完成，共为14个切片添加item_name字段，值为：兄弟HAK180烫金机
+2026-08-03 22:56:22.018 | INFO     | node_item_name_recognition.py:step_5_generate_vectors:309  - 开始执行步骤5：为商品名称[兄弟HAK180烫金机]生成BGE-M3双向量
+2026-08-03 22:56:22.035 | INFO     | embedding_utils.py  :generate_embedding:66   - 开始为1条文本生成混合向量嵌入
+2026-08-03 22:56:22.048 | INFO     | embedding_utils.py  :get_bge_m3_ef  :29   - 开始初始化BGE-M3模型
+2026-08-03 22:56:25.711 | SUCCESS  | embedding_utils.py  :get_bge_m3_ef  :47   - BGE-M3模型初始化成功，已开启原生L2归一化
+2026-08-03 22:56:26.605 | SUCCESS  | embedding_utils.py  :generate_embedding:113  - 1条文本向量生成完成，格式已适配工业级使用
+2026-08-03 22:56:26.634 | INFO     | node_item_name_recognition.py:step_5_generate_vectors:326  - 步骤5：BGE-M3稠密+稀疏向量生成成功
+2026-08-03 22:56:26.654 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:371  - 开始执行步骤6：将商品名称[兄弟HAK180烫金机]保存到Milvus集合[kb_item_names]
+2026-08-03 22:56:26.695 | INFO     | milvus_client.py    :get_milvus_client:33   - Milvus客户端连接成功，当前数据库：zhiku
+2026-08-03 22:56:27.167 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:457  - Milvus幂等性处理完成，已删除集合中[兄弟HAK180烫金机]的历史数据
+2026-08-03 22:56:27.381 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:475  - 步骤6：商品名称[兄弟HAK180烫金机]成功存入Milvus集合[kb_item_names]，数据：['file_title', 'item_name', 'dense_vector', 'sparse_vector']
+2026-08-03 22:56:27.406 | INFO     | node_item_name_recognition.py:node_item_name_recognition:89   - >>> 核心节点执行完成：【商品名称识别】node_item_name_recognition，识别结果：兄弟HAK180烫金机，已存入Milvus
+2026-08-03 22:56:27.428 | INFO     | node_bge_embedding.py:step_1_validate_input:106  - 向量化输入校验通过，待处理文本切片数量：14
+2026-08-03 22:56:27.447 | INFO     | node_bge_embedding.py:step_2_init_model:127  - BGE-M3模型实例初始化成功（单例模式）
+2026-08-03 22:56:27.468 | INFO     | embedding_utils.py  :generate_embedding:66   - 开始为5条文本生成混合向量嵌入
+2026-08-03 22:56:27.755 | SUCCESS  | embedding_utils.py  :generate_embedding:113  - 5条文本向量生成完成，格式已适配工业级使用
+2026-08-03 22:56:27.784 | INFO     | node_bge_embedding.py:step_3_generate_embeddings:197  - 第1-5条切片：双向量生成成功
+2026-08-03 22:56:27.807 | INFO     | embedding_utils.py  :generate_embedding:66   - 开始为5条文本生成混合向量嵌入
+2026-08-03 22:56:28.019 | SUCCESS  | embedding_utils.py  :generate_embedding:113  - 5条文本向量生成完成，格式已适配工业级使用
+2026-08-03 22:56:28.049 | INFO     | node_bge_embedding.py:step_3_generate_embeddings:197  - 第6-10条切片：双向量生成成功
+2026-08-03 22:56:28.073 | INFO     | embedding_utils.py  :generate_embedding:66   - 开始为4条文本生成混合向量嵌入
+2026-08-03 22:56:28.269 | SUCCESS  | embedding_utils.py  :generate_embedding:113  - 4条文本向量生成完成，格式已适配工业级使用
+2026-08-03 22:56:28.287 | INFO     | node_bge_embedding.py:step_3_generate_embeddings:197  - 第11-14条切片：双向量生成成功
+2026-08-03 22:56:28.306 | INFO     | node_bge_embedding.py:node_bge_embedding:76   - --- BGE-M3 向量化处理完成，共处理 14 条文本切片 ---
+2026-08-03 22:56:28.327 | INFO     | node_import_milvus.py:node_import_milvus:53   - --- Milvus切片数据入库流程启动 ---
+2026-08-03 22:56:28.346 | INFO     | node_import_milvus.py:step_1_check_input:112  - Milvus入库校验通过，待入库切片数：14 | 向量维度：1024 | 商品名称：兄弟HAK180烫金机
+2026-08-03 22:56:28.359 | INFO     | node_import_milvus.py:step_2_prepare_collection:130  - 开始准备Milvus环境，目标集合：kb_chunks
+2026-08-03 22:56:28.378 | INFO     | node_import_milvus.py:step_2_prepare_collection:147  - Milvus集合kb_chunks已存在，直接复用
+2026-08-03 22:56:28.397 | INFO     | node_import_milvus.py:_clear_chunks_by_item_name:322  - Milvus幂等性清理：开始删除集合kb_chunks中item_name=兄弟HAK180烫金机的旧数据
+2026-08-03 22:56:30.480 | INFO     | node_import_milvus.py:_clear_chunks_by_item_name:331  - Milvus幂等性清理完成：成功删除item_name=兄弟HAK180烫金机的旧数据
+2026-08-03 22:56:30.506 | INFO     | node_import_milvus.py:step_4_insert_data:208  - Milvus数据插入：准备14条切片数据，开始批量插入
+2026-08-03 22:56:30.775 | INFO     | node_import_milvus.py:step_4_insert_data:213  - Milvus数据插入完成：成功插入14条数据，插入结果：{'insert_count': 14, 'ids': [468101225571156224, 468101225571156225, 468101225571156226, 468101225571156227, 468101225571156228, 468101225571156229, 468101225571156230, 468101225571156231, 468101225571156232, 468101225571156233, 468101225571156234, 468101225571156235, 468101225571156236, 468101225571156237]}
+2026-08-03 22:56:30.804 | INFO     | node_import_milvus.py:step_4_insert_data:219  - Milvus主键回填：开始将14个自增chunk_id回填到切片
+2026-08-03 22:56:30.830 | INFO     | node_import_milvus.py:step_4_insert_data:222  - Milvus主键回填完成：所有切片已绑定chunk_id
+2026-08-03 22:56:39.595 | INFO     | main_graph.py       :<module>       :138  - ===== main_graph 七节点真实联调成功 =====
+2026-08-03 22:56:39.610 | INFO     | main_graph.py       :<module>       :139  - 任务 ID：main_graph_real_8a8c682647d746c28273171173c66e5c
+2026-08-03 22:56:39.625 | INFO     | main_graph.py       :<module>       :140  - 识别主体：兄弟HAK180烫金机
+2026-08-03 22:56:39.637 | INFO     | main_graph.py       :<module>       :141  - Markdown：D:\Code Demo\zhanggui_zhiku\output\hak180产品安全手册\hak180产品安全手册_new.md
+2026-08-03 22:56:39.649 | INFO     | main_graph.py       :<module>       :142  - Chunk 数量：14
+2026-08-03 22:56:39.665 | INFO     | main_graph.py       :<module>       :143  - Milvus 集合：kb_chunks
+2026-08-03 22:56:39.678 | INFO     | main_graph.py       :<module>       :144  - Milvus 查询数量：14

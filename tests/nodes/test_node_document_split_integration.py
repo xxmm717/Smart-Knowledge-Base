@@ -62,7 +62,7 @@ def hl3040_pipeline_result():
 
     state = create_default_state(
         task_id="integration_hl3040_rag_1_3",
-        import_file_path=str(PDF_PATH),
+        local_file_path=str(PDF_PATH),
         pdf_path=str(PDF_PATH),
         local_dir=str(OUTPUT_ROOT),
         file_title=PDF_PATH.stem,

@@ -40,3 +40,192 @@
 2026-07-29 16:41:50.394 | SUCCESS  | embedding_utils.py  :generate_embedding:113  - 1条文本向量生成完成，格式已适配工业级使用
 2026-07-29 16:41:50.395 | INFO     | node_bge_embedding.py:step_3_generate_embeddings:193  - 第6-6条切片：双向量生成成功
 2026-07-29 16:41:50.397 | INFO     | node_bge_embedding.py:process        :72   - --- BGE-M3 向量化处理完成，共处理 6 条文本切片 ---
+2026-07-29 22:10:54.744 | INFO     | node_bge_embedding.py:step_1_validate_input:102  - 向量化输入校验通过，待处理文本切片数量：6
+2026-07-29 22:10:54.750 | INFO     | embedding_utils.py  :get_bge_m3_ef  :29   - 开始初始化BGE-M3模型
+2026-07-29 22:11:01.532 | SUCCESS  | embedding_utils.py  :get_bge_m3_ef  :47   - BGE-M3模型初始化成功，已开启原生L2归一化
+2026-07-29 22:11:01.534 | INFO     | node_bge_embedding.py:step_2_init_model:123  - BGE-M3模型实例初始化成功（单例模式）
+2026-07-29 22:11:01.536 | INFO     | embedding_utils.py  :generate_embedding:66   - 开始为5条文本生成混合向量嵌入
+2026-07-29 22:11:02.552 | SUCCESS  | embedding_utils.py  :generate_embedding:113  - 5条文本向量生成完成，格式已适配工业级使用
+2026-07-29 22:11:02.553 | INFO     | node_bge_embedding.py:step_3_generate_embeddings:193  - 第1-5条切片：双向量生成成功
+2026-07-29 22:11:02.555 | INFO     | embedding_utils.py  :generate_embedding:66   - 开始为1条文本生成混合向量嵌入
+2026-07-29 22:11:02.660 | SUCCESS  | embedding_utils.py  :generate_embedding:113  - 1条文本向量生成完成，格式已适配工业级使用
+2026-07-29 22:11:02.662 | INFO     | node_bge_embedding.py:step_3_generate_embeddings:193  - 第6-6条切片：双向量生成成功
+2026-07-29 22:11:02.663 | INFO     | node_bge_embedding.py:process        :72   - --- BGE-M3 向量化处理完成，共处理 6 条文本切片 ---
+2026-07-29 22:11:02.665 | INFO     | node_import_milvus.py:process        :47   - --- Milvus切片数据入库流程启动 ---
+2026-07-29 22:11:02.667 | INFO     | node_import_milvus.py:step_1_check_input:106  - Milvus入库校验通过，待入库切片数：6 | 向量维度：1024 | 商品名称：BrotherHAK180烫金机
+2026-07-29 22:11:02.668 | INFO     | node_import_milvus.py:step_2_prepare_collection:124  - 开始准备Milvus环境，目标集合：kb_chunks
+2026-07-29 22:11:02.690 | INFO     | milvus_client.py    :get_milvus_client:33   - Milvus客户端连接成功，当前数据库：zhiku
+2026-07-29 22:11:02.696 | INFO     | node_import_milvus.py:step_2_prepare_collection:141  - Milvus集合kb_chunks已存在，直接复用
+2026-07-29 22:11:02.699 | INFO     | node_import_milvus.py:_clear_chunks_by_item_name:312  - Milvus幂等性清理：开始删除集合kb_chunks中item_name=BrotherHAK180烫金机的旧数据
+2026-07-29 22:11:03.537 | INFO     | node_import_milvus.py:_clear_chunks_by_item_name:321  - Milvus幂等性清理完成：成功删除item_name=BrotherHAK180烫金机的旧数据
+2026-07-29 22:11:03.539 | INFO     | node_import_milvus.py:step_4_insert_data:198  - Milvus数据插入：准备6条切片数据，开始批量插入
+2026-07-29 22:11:03.832 | INFO     | node_import_milvus.py:step_4_insert_data:203  - Milvus数据插入完成：成功插入6条数据，插入结果：{'insert_count': 6, 'ids': [467989507432544662, 467989507432544663, 467989507432544664, 467989507432544665, 467989507432544666, 467989507432544667]}
+2026-07-29 22:11:03.834 | INFO     | node_import_milvus.py:step_4_insert_data:209  - Milvus主键回填：开始将6个自增chunk_id回填到切片
+2026-07-29 22:11:03.835 | INFO     | node_import_milvus.py:step_4_insert_data:212  - Milvus主键回填完成：所有切片已绑定chunk_id
+2026-07-29 22:23:03.356 | INFO     | node_bge_embedding.py:step_1_validate_input:102  - 向量化输入校验通过，待处理文本切片数量：6
+2026-07-29 22:23:03.934 | INFO     | embedding_utils.py  :get_bge_m3_ef  :29   - 开始初始化BGE-M3模型
+2026-07-29 22:23:09.028 | SUCCESS  | embedding_utils.py  :get_bge_m3_ef  :47   - BGE-M3模型初始化成功，已开启原生L2归一化
+2026-07-29 22:23:09.535 | INFO     | node_bge_embedding.py:step_2_init_model:123  - BGE-M3模型实例初始化成功（单例模式）
+2026-07-29 22:23:09.551 | INFO     | embedding_utils.py  :generate_embedding:66   - 开始为5条文本生成混合向量嵌入
+2026-07-29 22:23:10.495 | SUCCESS  | embedding_utils.py  :generate_embedding:113  - 5条文本向量生成完成，格式已适配工业级使用
+2026-07-29 22:23:10.521 | INFO     | node_bge_embedding.py:step_3_generate_embeddings:193  - 第1-5条切片：双向量生成成功
+2026-07-29 22:23:10.535 | INFO     | embedding_utils.py  :generate_embedding:66   - 开始为1条文本生成混合向量嵌入
+2026-07-29 22:23:10.673 | SUCCESS  | embedding_utils.py  :generate_embedding:113  - 1条文本向量生成完成，格式已适配工业级使用
+2026-07-29 22:23:10.689 | INFO     | node_bge_embedding.py:step_3_generate_embeddings:193  - 第6-6条切片：双向量生成成功
+2026-07-29 22:23:10.702 | INFO     | node_bge_embedding.py:process        :72   - --- BGE-M3 向量化处理完成，共处理 6 条文本切片 ---
+2026-07-29 22:23:10.738 | INFO     | milvus_client.py    :get_milvus_client:33   - Milvus客户端连接成功，当前数据库：zhiku
+2026-07-29 22:23:10.763 | INFO     | node_import_milvus.py:process        :47   - --- Milvus切片数据入库流程启动 ---
+2026-07-29 22:23:10.780 | INFO     | node_import_milvus.py:step_1_check_input:106  - Milvus入库校验通过，待入库切片数：6 | 向量维度：1024 | 商品名称：__test_hak180_import_4f99dd8efe9340a5b705c5accede1219
+2026-07-29 22:23:10.800 | INFO     | node_import_milvus.py:step_2_prepare_collection:124  - 开始准备Milvus环境，目标集合：kb_chunks
+2026-07-29 22:23:10.820 | INFO     | node_import_milvus.py:step_2_prepare_collection:141  - Milvus集合kb_chunks已存在，直接复用
+2026-07-29 22:23:10.840 | INFO     | node_import_milvus.py:_clear_chunks_by_item_name:312  - Milvus幂等性清理：开始删除集合kb_chunks中item_name=__test_hak180_import_4f99dd8efe9340a5b705c5accede1219的旧数据
+2026-07-29 22:23:11.733 | INFO     | node_import_milvus.py:_clear_chunks_by_item_name:321  - Milvus幂等性清理完成：成功删除item_name=__test_hak180_import_4f99dd8efe9340a5b705c5accede1219的旧数据
+2026-07-29 22:23:11.749 | INFO     | node_import_milvus.py:step_4_insert_data:198  - Milvus数据插入：准备6条切片数据，开始批量插入
+2026-07-29 22:23:12.030 | INFO     | node_import_milvus.py:step_4_insert_data:203  - Milvus数据插入完成：成功插入6条数据，插入结果：{'insert_count': 6, 'ids': [467989507432544669, 467989507432544670, 467989507432544671, 467989507432544672, 467989507432544673, 467989507432544674]}
+2026-07-29 22:23:12.045 | INFO     | node_import_milvus.py:step_4_insert_data:209  - Milvus主键回填：开始将6个自增chunk_id回填到切片
+2026-07-29 22:23:12.058 | INFO     | node_import_milvus.py:step_4_insert_data:212  - Milvus主键回填完成：所有切片已绑定chunk_id
+2026-07-29 22:33:02.416 | INFO     | main_graph.py       :<module>       :101  - ===== main_graph 七节点真实联调开始 =====
+2026-07-29 22:33:03.444 | INFO     | main_graph.py       :<module>       :102  - 输入 PDF：D:\Code Demo\zhanggui_zhiku\doc\H3C LA2608室内无线网关 用户手册-6W100-整本手册.pdf
+2026-07-29 22:33:03.458 | INFO     | main_graph.py       :<module>       :103  - 本地产物目录：D:\Code Demo\zhanggui_zhiku\output
+2026-07-29 22:33:03.514 | INFO     | node_entry.py       :process        :51   - 文件类型校验通过：D:\Code Demo\zhanggui_zhiku\doc\H3C LA2608室内无线网关 用户手册-6W100-整本手册.pdf ->PDF格式，开启PDF解析流程
+2026-07-29 22:33:07.947 | INFO     | llm_client.py       :get_llm_client :45   - [LLM客户端] 开始初始化新实例：模型=qwen3-vl-32b-thinking，JSON模式=False
+2026-07-29 22:33:10.717 | INFO     | llm_client.py       :get_llm_client :72   - [LLM客户端] 实例初始化成功并缓存：模型=qwen3-vl-32b-thinking，JSON模式=False
+2026-07-29 22:33:27.747 | INFO     | node_md_img.py      :_summarize_image:310  - 图片摘要生成成功：D:\Code Demo\zhanggui_zhiku\output\H3C LA2608室内无线网关 用户手册-6W100-整本手册\images\07fea08cbbaabc67a8c8bfd387b0227b4bc42ca9724093405002e1d987af7a8f.jpg，摘要：H3C LA2608配置运营商无线控制器IP地址及业务VLAN参考步骤
+2026-07-29 22:33:36.895 | INFO     | node_md_img.py      :_summarize_image:310  - 图片摘要生成成功：D:\Code Demo\zhanggui_zhiku\output\H3C LA2608室内无线网关 用户手册-6W100-整本手册\images\a3c1d4270ae83e2b66a11618bfd75c086e672776e489c94fb5ccacc7fa10069c.jpg，摘要：H3C LA2608 DCC拨号配置：拨号控制列表及拨号串设置（需运营商提供）
+2026-07-29 22:33:43.996 | INFO     | node_md_img.py      :_summarize_image:310  - 图片摘要生成成功：D:\Code Demo\zhanggui_zhiku\output\H3C LA2608室内无线网关 用户手册-6W100-整本手册\images\afb51b65a297a9e57d800efeecc46d72840ae5f0b9c2dc62f843b163efb45ec0.jpg，摘要：LA2608通过3G/4G连接无线控制器AC，为Host A/B/C提供WiFi服务拓扑图
+2026-07-29 22:33:52.831 | INFO     | node_md_img.py      :_summarize_image:310  - 图片摘要生成成功：D:\Code Demo\zhanggui_zhiku\output\H3C LA2608室内无线网关 用户手册-6W100-整本手册\images\c34cba3ee9e2d6950206b64a058b6a9d1ad7ee4514f7a4195c562d62d941d71f.jpg，摘要：LA2608通过3G/4G及SIM卡配置与无线控制器互通（50字内）
+2026-07-29 22:33:52.871 | INFO     | node_md_img.py      :_upload_to_minio:392  - 开始上传图片至MinIO：本地路径=D:\Code Demo\zhanggui_zhiku\output\H3C LA2608室内无线网关 用户手册-6W100-整本手册\images\07fea08cbbaabc67a8c8bfd387b0227b4bc42ca9724093405002e1d987af7a8f.jpg，MinIO对象名=/upload-images/H3CLA2608室内无线网关用户手册-6W100-整本手册/07fea08cbbaabc67a8c8bfd387b0227b4bc42ca9724093405002e1d987af7a8f.jpg
+2026-07-29 22:33:52.926 | INFO     | node_md_img.py      :_upload_to_minio:415  - 图片上传成功，访问URL：http://192.168.246.128:9010/knowledge-base-files/upload-images/H3CLA2608室内无线网关用户手册-6W100-整本手册/07fea08cbbaabc67a8c8bfd387b0227b4bc42ca9724093405002e1d987af7a8f.jpg
+2026-07-29 22:33:52.959 | INFO     | node_md_img.py      :_upload_to_minio:392  - 开始上传图片至MinIO：本地路径=D:\Code Demo\zhanggui_zhiku\output\H3C LA2608室内无线网关 用户手册-6W100-整本手册\images\a3c1d4270ae83e2b66a11618bfd75c086e672776e489c94fb5ccacc7fa10069c.jpg，MinIO对象名=/upload-images/H3CLA2608室内无线网关用户手册-6W100-整本手册/a3c1d4270ae83e2b66a11618bfd75c086e672776e489c94fb5ccacc7fa10069c.jpg
+2026-07-29 22:33:52.999 | INFO     | node_md_img.py      :_upload_to_minio:415  - 图片上传成功，访问URL：http://192.168.246.128:9010/knowledge-base-files/upload-images/H3CLA2608室内无线网关用户手册-6W100-整本手册/a3c1d4270ae83e2b66a11618bfd75c086e672776e489c94fb5ccacc7fa10069c.jpg
+2026-07-29 22:33:53.028 | INFO     | node_md_img.py      :_upload_to_minio:392  - 开始上传图片至MinIO：本地路径=D:\Code Demo\zhanggui_zhiku\output\H3C LA2608室内无线网关 用户手册-6W100-整本手册\images\afb51b65a297a9e57d800efeecc46d72840ae5f0b9c2dc62f843b163efb45ec0.jpg，MinIO对象名=/upload-images/H3CLA2608室内无线网关用户手册-6W100-整本手册/afb51b65a297a9e57d800efeecc46d72840ae5f0b9c2dc62f843b163efb45ec0.jpg
+2026-07-29 22:33:53.057 | INFO     | node_md_img.py      :_upload_to_minio:415  - 图片上传成功，访问URL：http://192.168.246.128:9010/knowledge-base-files/upload-images/H3CLA2608室内无线网关用户手册-6W100-整本手册/afb51b65a297a9e57d800efeecc46d72840ae5f0b9c2dc62f843b163efb45ec0.jpg
+2026-07-29 22:33:53.077 | INFO     | node_md_img.py      :_upload_to_minio:392  - 开始上传图片至MinIO：本地路径=D:\Code Demo\zhanggui_zhiku\output\H3C LA2608室内无线网关 用户手册-6W100-整本手册\images\c34cba3ee9e2d6950206b64a058b6a9d1ad7ee4514f7a4195c562d62d941d71f.jpg，MinIO对象名=/upload-images/H3CLA2608室内无线网关用户手册-6W100-整本手册/c34cba3ee9e2d6950206b64a058b6a9d1ad7ee4514f7a4195c562d62d941d71f.jpg
+2026-07-29 22:33:53.109 | INFO     | node_md_img.py      :_upload_to_minio:415  - 图片上传成功，访问URL：http://192.168.246.128:9010/knowledge-base-files/upload-images/H3CLA2608室内无线网关用户手册-6W100-整本手册/c34cba3ee9e2d6950206b64a058b6a9d1ad7ee4514f7a4195c562d62d941d71f.jpg
+2026-07-29 22:33:53.142 | INFO     | node_md_img.py      :_upload_images_batch:380  - 图片批量上传完成，成功上传4/4张图片
+2026-07-29 22:33:53.177 | INFO     | node_md_img.py      :_merge_summary_and_url:433  - 图片摘要与URL合并完成，有效图片信息4条
+2026-07-29 22:33:53.210 | INFO     | node_md_img.py      :_process_md_file:458  - MD文件图片引用替换完成，共替换4处图片引用
+2026-07-29 22:33:53.243 | INFO     | node_md_img.py      :_step_5_backup_new_md_file:258  - 处理后MD文件已保存，新文件路径：D:\Code Demo\zhanggui_zhiku\output\H3C LA2608室内无线网关 用户手册-6W100-整本手册\H3C LA2608室内无线网关 用户手册-6W100-整本手册_new.md
+2026-07-29 22:33:53.265 | INFO     | node_document_split.py:step_1_get_input:112  - 步骤1：输入数据加载完成，文件标题：H3C LA2608室内无线网关 用户手册-6W100-整本手册，最大Chunk长度：2000
+2026-07-29 22:33:53.296 | INFO     | node_document_split.py:step_2_split_by_titles:175  - 步骤2：MD标题切分完成，识别到10个有效标题，原始文本共152行
+2026-07-29 22:33:53.334 | INFO     | node_document_split.py:step_4_refine_chunks:214  - 步骤4-1：超长章节切分完成，共生成10个初始子Chunk
+2026-07-29 22:33:53.367 | INFO     | node_document_split.py:step_4_refine_chunks:218  - 步骤4-2：过短章节合并完成，最终得到10个Chunk
+2026-07-29 22:33:53.397 | INFO     | node_document_split.py:step_5_print_starts:235  - -------------------------------------------------- 文档切分统计信息 --------------------------------------------------
+2026-07-29 22:33:53.426 | INFO     | node_document_split.py:step_5_print_starts:236  - MD原始文本总行数：152
+2026-07-29 22:33:53.448 | INFO     | node_document_split.py:step_5_print_starts:237  - 最终生成Chunk数量：10
+2026-07-29 22:33:53.465 | INFO     | node_document_split.py:step_5_print_starts:240  - 首个Chunk标题预览：# H3C LA2608 室内无线网关
+2026-07-29 22:33:53.483 | INFO     | node_document_split.py:step_5_print_starts:241  - --------------------------------------------------------------------------------------------------------------
+2026-07-29 22:33:53.511 | INFO     | node_document_split.py:step_6_backup  :284  - 步骤6：Chunk结果备份成功，备份文件路径：D:\Code Demo\zhanggui_zhiku\output\H3C LA2608室内无线网关 用户手册-6W100-整本手册\chunks\chunk.json
+2026-07-29 22:33:53.537 | INFO     | node_document_split.py:process        :82   - >>> 核心节点执行完成：【文档切分】node_document_split，已生成10个有效Chunk，结果已写入状态字典
+2026-07-29 22:33:53.556 | INFO     | node_item_name_recognition.py:step_1_get_inputs:145  - 步骤1：输入校验完成，获取到10个有效文本切片
+2026-07-29 22:33:53.587 | INFO     | node_item_name_recognition.py:step_2_build_context:208  - 步骤2：上下文构建完成，最终长度1572字符
+2026-07-29 22:33:53.614 | INFO     | node_item_name_recognition.py:step_3_call_llm:229  - 开始执行步骤3：调用大模型识别商品名称
+2026-07-29 22:33:53.632 | INFO     | llm_client.py       :get_llm_client :45   - [LLM客户端] 开始初始化新实例：模型=qwen3.7-plus，JSON模式=False
+2026-07-29 22:33:53.650 | INFO     | llm_client.py       :get_llm_client :72   - [LLM客户端] 实例初始化成功并缓存：模型=qwen3.7-plus，JSON模式=False
+2026-07-29 22:33:54.363 | INFO     | node_item_name_recognition.py:step_3_call_llm:267  - 步骤3：大模型识别商品名称成功，结果为：H3CLA2608室内无线网关
+2026-07-29 22:33:54.386 | INFO     | node_item_name_recognition.py:step_4_update_chunks:296  - 步骤4：商品名称回填完成，共为10个切片添加item_name字段，值为：H3CLA2608室内无线网关
+2026-07-29 22:33:54.403 | INFO     | node_item_name_recognition.py:step_5_generate_vectors:311  - 开始执行步骤5：为商品名称[H3CLA2608室内无线网关]生成BGE-M3双向量
+2026-07-29 22:33:54.425 | INFO     | embedding_utils.py  :generate_embedding:66   - 开始为1条文本生成混合向量嵌入
+2026-07-29 22:33:54.443 | INFO     | embedding_utils.py  :get_bge_m3_ef  :29   - 开始初始化BGE-M3模型
+2026-07-29 22:33:57.765 | SUCCESS  | embedding_utils.py  :get_bge_m3_ef  :47   - BGE-M3模型初始化成功，已开启原生L2归一化
+2026-07-29 22:33:58.711 | SUCCESS  | embedding_utils.py  :generate_embedding:113  - 1条文本向量生成完成，格式已适配工业级使用
+2026-07-29 22:33:58.740 | INFO     | node_item_name_recognition.py:step_5_generate_vectors:328  - 步骤5：BGE-M3稠密+稀疏向量生成成功
+2026-07-29 22:33:58.761 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:373  - 开始执行步骤6：将商品名称[H3CLA2608室内无线网关]保存到Milvus集合[kb_item_names]
+2026-07-29 22:33:58.818 | INFO     | milvus_client.py    :get_milvus_client:33   - Milvus客户端连接成功，当前数据库：zhiku
+2026-07-29 22:33:58.923 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:459  - Milvus幂等性处理完成，已删除集合中[H3CLA2608室内无线网关]的历史数据
+2026-07-29 22:33:59.440 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:477  - 步骤6：商品名称[H3CLA2608室内无线网关]成功存入Milvus集合[kb_item_names]，数据：['file_title', 'item_name', 'dense_vector', 'sparse_vector']
+2026-07-29 22:33:59.477 | INFO     | node_item_name_recognition.py:process        :91   - >>> 核心节点执行完成：【商品名称识别】node_item_name_recognition，识别结果：H3CLA2608室内无线网关，已存入Milvus
+2026-07-29 22:33:59.512 | INFO     | node_bge_embedding.py:step_1_validate_input:102  - 向量化输入校验通过，待处理文本切片数量：10
+2026-07-29 22:33:59.533 | INFO     | node_bge_embedding.py:step_2_init_model:123  - BGE-M3模型实例初始化成功（单例模式）
+2026-07-29 22:33:59.556 | INFO     | embedding_utils.py  :generate_embedding:66   - 开始为5条文本生成混合向量嵌入
+2026-07-29 22:33:59.785 | SUCCESS  | embedding_utils.py  :generate_embedding:113  - 5条文本向量生成完成，格式已适配工业级使用
+2026-07-29 22:33:59.827 | INFO     | node_bge_embedding.py:step_3_generate_embeddings:193  - 第1-5条切片：双向量生成成功
+2026-07-29 22:33:59.867 | INFO     | embedding_utils.py  :generate_embedding:66   - 开始为5条文本生成混合向量嵌入
+2026-07-29 22:34:00.110 | SUCCESS  | embedding_utils.py  :generate_embedding:113  - 5条文本向量生成完成，格式已适配工业级使用
+2026-07-29 22:34:00.135 | INFO     | node_bge_embedding.py:step_3_generate_embeddings:193  - 第6-10条切片：双向量生成成功
+2026-07-29 22:34:00.166 | INFO     | node_bge_embedding.py:process        :72   - --- BGE-M3 向量化处理完成，共处理 10 条文本切片 ---
+2026-07-29 22:34:00.198 | INFO     | node_import_milvus.py:process        :47   - --- Milvus切片数据入库流程启动 ---
+2026-07-29 22:34:00.223 | INFO     | node_import_milvus.py:step_1_check_input:106  - Milvus入库校验通过，待入库切片数：10 | 向量维度：1024 | 商品名称：H3CLA2608室内无线网关
+2026-07-29 22:34:00.242 | INFO     | node_import_milvus.py:step_2_prepare_collection:124  - 开始准备Milvus环境，目标集合：kb_chunks
+2026-07-29 22:34:00.271 | INFO     | node_import_milvus.py:step_2_prepare_collection:141  - Milvus集合kb_chunks已存在，直接复用
+2026-07-29 22:34:00.293 | INFO     | node_import_milvus.py:_clear_chunks_by_item_name:312  - Milvus幂等性清理：开始删除集合kb_chunks中item_name=H3CLA2608室内无线网关的旧数据
+2026-07-29 22:34:01.289 | INFO     | node_import_milvus.py:_clear_chunks_by_item_name:321  - Milvus幂等性清理完成：成功删除item_name=H3CLA2608室内无线网关的旧数据
+2026-07-29 22:34:01.317 | INFO     | node_import_milvus.py:step_4_insert_data:198  - Milvus数据插入：准备10条切片数据，开始批量插入
+2026-07-29 22:34:01.382 | ERROR    | node_import_milvus.py:process        :66   - Milvus切片数据入库节点执行失败：<DataNotMatchException: (code=1, message=Insert missed an field `part` to collection without set nullable==true or set default_value)>
+2026-07-29 22:34:56.994 | INFO     | main_graph.py       :<module>       :101  - ===== main_graph 七节点真实联调开始 =====
+2026-07-29 22:34:58.202 | INFO     | main_graph.py       :<module>       :102  - 输入 PDF：D:\Code Demo\zhanggui_zhiku\doc\H3C LA2608室内无线网关 用户手册-6W100-整本手册.pdf
+2026-07-29 22:34:58.228 | INFO     | main_graph.py       :<module>       :103  - 本地产物目录：D:\Code Demo\zhanggui_zhiku\output
+2026-07-29 22:34:58.259 | INFO     | node_entry.py       :process        :51   - 文件类型校验通过：D:\Code Demo\zhanggui_zhiku\doc\H3C LA2608室内无线网关 用户手册-6W100-整本手册.pdf ->PDF格式，开启PDF解析流程
+2026-07-29 22:35:02.492 | INFO     | llm_client.py       :get_llm_client :45   - [LLM客户端] 开始初始化新实例：模型=qwen3-vl-32b-thinking，JSON模式=False
+2026-07-29 22:35:03.801 | INFO     | llm_client.py       :get_llm_client :72   - [LLM客户端] 实例初始化成功并缓存：模型=qwen3-vl-32b-thinking，JSON模式=False
+2026-07-29 22:35:12.917 | INFO     | node_md_img.py      :_summarize_image:310  - 图片摘要生成成功：D:\Code Demo\zhanggui_zhiku\output\H3C LA2608室内无线网关 用户手册-6W100-整本手册\images\07fea08cbbaabc67a8c8bfd387b0227b4bc42ca9724093405002e1d987af7a8f.jpg，摘要：H3C LA2608配置运营商无线控制器：指定IP地址、创建业务VLAN等操作步骤
+2026-07-29 22:35:19.598 | INFO     | node_md_img.py      :_summarize_image:310  - 图片摘要生成成功：D:\Code Demo\zhanggui_zhiku\output\H3C LA2608室内无线网关 用户手册-6W100-整本手册\images\a3c1d4270ae83e2b66a11618bfd75c086e672776e489c94fb5ccacc7fa10069c.jpg，摘要：H3C LA2608 DCC拨号配置：拨号控制列表及拨号串设置步骤
+2026-07-29 22:35:28.258 | INFO     | node_md_img.py      :_summarize_image:310  - 图片摘要生成成功：D:\Code Demo\zhanggui_zhiku\output\H3C LA2608室内无线网关 用户手册-6W100-整本手册\images\afb51b65a297a9e57d800efeecc46d72840ae5f0b9c2dc62f843b163efb45ec0.jpg，摘要：LA2608通过3G/4G连接无线控制器AC，为Host A/B/C提供WIFI服务（36字）
+2026-07-29 22:35:37.162 | INFO     | node_md_img.py      :_summarize_image:310  - 图片摘要生成成功：D:\Code Demo\zhanggui_zhiku\output\H3C LA2608室内无线网关 用户手册-6W100-整本手册\images\c34cba3ee9e2d6950206b64a058b6a9d1ad7ee4514f7a4195c562d62d941d71f.jpg，摘要：LA2608通过SIM卡3G/4G连接H3C无线控制器配置互通说明
+2026-07-29 22:35:37.188 | INFO     | node_md_img.py      :_upload_to_minio:392  - 开始上传图片至MinIO：本地路径=D:\Code Demo\zhanggui_zhiku\output\H3C LA2608室内无线网关 用户手册-6W100-整本手册\images\07fea08cbbaabc67a8c8bfd387b0227b4bc42ca9724093405002e1d987af7a8f.jpg，MinIO对象名=/upload-images/H3CLA2608室内无线网关用户手册-6W100-整本手册/07fea08cbbaabc67a8c8bfd387b0227b4bc42ca9724093405002e1d987af7a8f.jpg
+2026-07-29 22:35:37.219 | INFO     | node_md_img.py      :_upload_to_minio:415  - 图片上传成功，访问URL：http://192.168.246.128:9010/knowledge-base-files/upload-images/H3CLA2608室内无线网关用户手册-6W100-整本手册/07fea08cbbaabc67a8c8bfd387b0227b4bc42ca9724093405002e1d987af7a8f.jpg
+2026-07-29 22:35:37.242 | INFO     | node_md_img.py      :_upload_to_minio:392  - 开始上传图片至MinIO：本地路径=D:\Code Demo\zhanggui_zhiku\output\H3C LA2608室内无线网关 用户手册-6W100-整本手册\images\a3c1d4270ae83e2b66a11618bfd75c086e672776e489c94fb5ccacc7fa10069c.jpg，MinIO对象名=/upload-images/H3CLA2608室内无线网关用户手册-6W100-整本手册/a3c1d4270ae83e2b66a11618bfd75c086e672776e489c94fb5ccacc7fa10069c.jpg
+2026-07-29 22:35:37.278 | INFO     | node_md_img.py      :_upload_to_minio:415  - 图片上传成功，访问URL：http://192.168.246.128:9010/knowledge-base-files/upload-images/H3CLA2608室内无线网关用户手册-6W100-整本手册/a3c1d4270ae83e2b66a11618bfd75c086e672776e489c94fb5ccacc7fa10069c.jpg
+2026-07-29 22:35:37.300 | INFO     | node_md_img.py      :_upload_to_minio:392  - 开始上传图片至MinIO：本地路径=D:\Code Demo\zhanggui_zhiku\output\H3C LA2608室内无线网关 用户手册-6W100-整本手册\images\afb51b65a297a9e57d800efeecc46d72840ae5f0b9c2dc62f843b163efb45ec0.jpg，MinIO对象名=/upload-images/H3CLA2608室内无线网关用户手册-6W100-整本手册/afb51b65a297a9e57d800efeecc46d72840ae5f0b9c2dc62f843b163efb45ec0.jpg
+2026-07-29 22:35:37.334 | INFO     | node_md_img.py      :_upload_to_minio:415  - 图片上传成功，访问URL：http://192.168.246.128:9010/knowledge-base-files/upload-images/H3CLA2608室内无线网关用户手册-6W100-整本手册/afb51b65a297a9e57d800efeecc46d72840ae5f0b9c2dc62f843b163efb45ec0.jpg
+2026-07-29 22:35:37.356 | INFO     | node_md_img.py      :_upload_to_minio:392  - 开始上传图片至MinIO：本地路径=D:\Code Demo\zhanggui_zhiku\output\H3C LA2608室内无线网关 用户手册-6W100-整本手册\images\c34cba3ee9e2d6950206b64a058b6a9d1ad7ee4514f7a4195c562d62d941d71f.jpg，MinIO对象名=/upload-images/H3CLA2608室内无线网关用户手册-6W100-整本手册/c34cba3ee9e2d6950206b64a058b6a9d1ad7ee4514f7a4195c562d62d941d71f.jpg
+2026-07-29 22:35:37.387 | INFO     | node_md_img.py      :_upload_to_minio:415  - 图片上传成功，访问URL：http://192.168.246.128:9010/knowledge-base-files/upload-images/H3CLA2608室内无线网关用户手册-6W100-整本手册/c34cba3ee9e2d6950206b64a058b6a9d1ad7ee4514f7a4195c562d62d941d71f.jpg
+2026-07-29 22:35:37.412 | INFO     | node_md_img.py      :_upload_images_batch:380  - 图片批量上传完成，成功上传4/4张图片
+2026-07-29 22:35:37.430 | INFO     | node_md_img.py      :_merge_summary_and_url:433  - 图片摘要与URL合并完成，有效图片信息4条
+2026-07-29 22:35:37.462 | INFO     | node_md_img.py      :_process_md_file:458  - MD文件图片引用替换完成，共替换4处图片引用
+2026-07-29 22:35:37.497 | INFO     | node_md_img.py      :_step_5_backup_new_md_file:258  - 处理后MD文件已保存，新文件路径：D:\Code Demo\zhanggui_zhiku\output\H3C LA2608室内无线网关 用户手册-6W100-整本手册\H3C LA2608室内无线网关 用户手册-6W100-整本手册_new.md
+2026-07-29 22:35:37.528 | INFO     | node_document_split.py:step_1_get_input:112  - 步骤1：输入数据加载完成，文件标题：H3C LA2608室内无线网关 用户手册-6W100-整本手册，最大Chunk长度：2000
+2026-07-29 22:35:37.563 | INFO     | node_document_split.py:step_2_split_by_titles:175  - 步骤2：MD标题切分完成，识别到10个有效标题，原始文本共152行
+2026-07-29 22:35:37.595 | INFO     | node_document_split.py:step_4_refine_chunks:214  - 步骤4-1：超长章节切分完成，共生成10个初始子Chunk
+2026-07-29 22:35:37.629 | INFO     | node_document_split.py:step_4_refine_chunks:218  - 步骤4-2：过短章节合并完成，最终得到10个Chunk
+2026-07-29 22:35:37.658 | INFO     | node_document_split.py:step_5_print_starts:235  - -------------------------------------------------- 文档切分统计信息 --------------------------------------------------
+2026-07-29 22:35:37.692 | INFO     | node_document_split.py:step_5_print_starts:236  - MD原始文本总行数：152
+2026-07-29 22:35:37.723 | INFO     | node_document_split.py:step_5_print_starts:237  - 最终生成Chunk数量：10
+2026-07-29 22:35:37.754 | INFO     | node_document_split.py:step_5_print_starts:240  - 首个Chunk标题预览：# H3C LA2608 室内无线网关
+2026-07-29 22:35:37.777 | INFO     | node_document_split.py:step_5_print_starts:241  - --------------------------------------------------------------------------------------------------------------
+2026-07-29 22:35:37.801 | INFO     | node_document_split.py:step_6_backup  :284  - 步骤6：Chunk结果备份成功，备份文件路径：D:\Code Demo\zhanggui_zhiku\output\H3C LA2608室内无线网关 用户手册-6W100-整本手册\chunks\chunk.json
+2026-07-29 22:35:37.831 | INFO     | node_document_split.py:process        :82   - >>> 核心节点执行完成：【文档切分】node_document_split，已生成10个有效Chunk，结果已写入状态字典
+2026-07-29 22:35:37.851 | INFO     | node_item_name_recognition.py:step_1_get_inputs:145  - 步骤1：输入校验完成，获取到10个有效文本切片
+2026-07-29 22:35:37.882 | INFO     | node_item_name_recognition.py:step_2_build_context:208  - 步骤2：上下文构建完成，最终长度1573字符
+2026-07-29 22:35:37.907 | INFO     | node_item_name_recognition.py:step_3_call_llm:229  - 开始执行步骤3：调用大模型识别商品名称
+2026-07-29 22:35:37.934 | INFO     | llm_client.py       :get_llm_client :45   - [LLM客户端] 开始初始化新实例：模型=qwen3.7-plus，JSON模式=False
+2026-07-29 22:35:37.966 | INFO     | llm_client.py       :get_llm_client :72   - [LLM客户端] 实例初始化成功并缓存：模型=qwen3.7-plus，JSON模式=False
+2026-07-29 22:35:39.038 | INFO     | node_item_name_recognition.py:step_3_call_llm:267  - 步骤3：大模型识别商品名称成功，结果为：H3CLA2608室内无线网关
+2026-07-29 22:35:39.056 | INFO     | node_item_name_recognition.py:step_4_update_chunks:296  - 步骤4：商品名称回填完成，共为10个切片添加item_name字段，值为：H3CLA2608室内无线网关
+2026-07-29 22:35:39.076 | INFO     | node_item_name_recognition.py:step_5_generate_vectors:311  - 开始执行步骤5：为商品名称[H3CLA2608室内无线网关]生成BGE-M3双向量
+2026-07-29 22:35:39.092 | INFO     | embedding_utils.py  :generate_embedding:66   - 开始为1条文本生成混合向量嵌入
+2026-07-29 22:35:39.107 | INFO     | embedding_utils.py  :get_bge_m3_ef  :29   - 开始初始化BGE-M3模型
+2026-07-29 22:35:42.278 | SUCCESS  | embedding_utils.py  :get_bge_m3_ef  :47   - BGE-M3模型初始化成功，已开启原生L2归一化
+2026-07-29 22:35:43.107 | SUCCESS  | embedding_utils.py  :generate_embedding:113  - 1条文本向量生成完成，格式已适配工业级使用
+2026-07-29 22:35:43.143 | INFO     | node_item_name_recognition.py:step_5_generate_vectors:328  - 步骤5：BGE-M3稠密+稀疏向量生成成功
+2026-07-29 22:35:43.182 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:373  - 开始执行步骤6：将商品名称[H3CLA2608室内无线网关]保存到Milvus集合[kb_item_names]
+2026-07-29 22:35:43.257 | INFO     | milvus_client.py    :get_milvus_client:33   - Milvus客户端连接成功，当前数据库：zhiku
+2026-07-29 22:35:43.677 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:459  - Milvus幂等性处理完成，已删除集合中[H3CLA2608室内无线网关]的历史数据
+2026-07-29 22:35:43.894 | INFO     | node_item_name_recognition.py:step_6_save_to_milvus:477  - 步骤6：商品名称[H3CLA2608室内无线网关]成功存入Milvus集合[kb_item_names]，数据：['file_title', 'item_name', 'dense_vector', 'sparse_vector']
+2026-07-29 22:35:43.929 | INFO     | node_item_name_recognition.py:process        :91   - >>> 核心节点执行完成：【商品名称识别】node_item_name_recognition，识别结果：H3CLA2608室内无线网关，已存入Milvus
+2026-07-29 22:35:43.962 | INFO     | node_bge_embedding.py:step_1_validate_input:102  - 向量化输入校验通过，待处理文本切片数量：10
+2026-07-29 22:35:43.997 | INFO     | node_bge_embedding.py:step_2_init_model:123  - BGE-M3模型实例初始化成功（单例模式）
+2026-07-29 22:35:44.033 | INFO     | embedding_utils.py  :generate_embedding:66   - 开始为5条文本生成混合向量嵌入
+2026-07-29 22:35:44.279 | SUCCESS  | embedding_utils.py  :generate_embedding:113  - 5条文本向量生成完成，格式已适配工业级使用
+2026-07-29 22:35:44.308 | INFO     | node_bge_embedding.py:step_3_generate_embeddings:193  - 第1-5条切片：双向量生成成功
+2026-07-29 22:35:44.339 | INFO     | embedding_utils.py  :generate_embedding:66   - 开始为5条文本生成混合向量嵌入
+2026-07-29 22:35:44.594 | SUCCESS  | embedding_utils.py  :generate_embedding:113  - 5条文本向量生成完成，格式已适配工业级使用
+2026-07-29 22:35:44.623 | INFO     | node_bge_embedding.py:step_3_generate_embeddings:193  - 第6-10条切片：双向量生成成功
+2026-07-29 22:35:44.648 | INFO     | node_bge_embedding.py:process        :72   - --- BGE-M3 向量化处理完成，共处理 10 条文本切片 ---
+2026-07-29 22:35:44.675 | INFO     | node_import_milvus.py:process        :47   - --- Milvus切片数据入库流程启动 ---
+2026-07-29 22:35:44.702 | INFO     | node_import_milvus.py:step_1_check_input:106  - Milvus入库校验通过，待入库切片数：10 | 向量维度：1024 | 商品名称：H3CLA2608室内无线网关
+2026-07-29 22:35:44.727 | INFO     | node_import_milvus.py:step_2_prepare_collection:124  - 开始准备Milvus环境，目标集合：kb_chunks
+2026-07-29 22:35:44.760 | INFO     | node_import_milvus.py:step_2_prepare_collection:141  - Milvus集合kb_chunks已存在，直接复用
+2026-07-29 22:35:44.795 | INFO     | node_import_milvus.py:_clear_chunks_by_item_name:316  - Milvus幂等性清理：开始删除集合kb_chunks中item_name=H3CLA2608室内无线网关的旧数据
+2026-07-29 22:35:45.587 | INFO     | node_import_milvus.py:_clear_chunks_by_item_name:325  - Milvus幂等性清理完成：成功删除item_name=H3CLA2608室内无线网关的旧数据
+2026-07-29 22:35:45.603 | INFO     | node_import_milvus.py:step_4_insert_data:202  - Milvus数据插入：准备10条切片数据，开始批量插入
+2026-07-29 22:35:45.885 | INFO     | node_import_milvus.py:step_4_insert_data:207  - Milvus数据插入完成：成功插入10条数据，插入结果：{'insert_count': 10, 'ids': [467989507432544684, 467989507432544685, 467989507432544686, 467989507432544687, 467989507432544688, 467989507432544689, 467989507432544690, 467989507432544691, 467989507432544692, 467989507432544693]}
+2026-07-29 22:35:45.905 | INFO     | node_import_milvus.py:step_4_insert_data:213  - Milvus主键回填：开始将10个自增chunk_id回填到切片
+2026-07-29 22:35:45.928 | INFO     | node_import_milvus.py:step_4_insert_data:216  - Milvus主键回填完成：所有切片已绑定chunk_id
+2026-07-29 22:35:57.599 | INFO     | main_graph.py       :<module>       :150  - ===== main_graph 七节点真实联调成功 =====
+2026-07-29 22:35:57.613 | INFO     | main_graph.py       :<module>       :151  - 任务 ID：main_graph_real_9772a96b1b5449d8ad34939f7c388e84
+2026-07-29 22:35:57.626 | INFO     | main_graph.py       :<module>       :152  - 识别主体：H3CLA2608室内无线网关
+2026-07-29 22:35:57.640 | INFO     | main_graph.py       :<module>       :153  - Markdown：D:\Code Demo\zhanggui_zhiku\output\H3C LA2608室内无线网关 用户手册-6W100-整本手册\H3C LA2608室内无线网关 用户手册-6W100-整本手册_new.md
+2026-07-29 22:35:57.660 | INFO     | main_graph.py       :<module>       :154  - Chunk 数量：10
+2026-07-29 22:35:57.675 | INFO     | main_graph.py       :<module>       :155  - Milvus 集合：kb_chunks
+2026-07-29 22:35:57.692 | INFO     | main_graph.py       :<module>       :156  - Milvus 查询数量：10

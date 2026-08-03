@@ -82,7 +82,7 @@ if __name__ == "__main__":
 
     init_state = create_default_state(
         task_id=f"main_graph_real_{uuid4().hex}",
-        import_file_path=str(pdf_path),
+        local_file_path=str(pdf_path),
         local_dir=str(output_dir),
     )
 
