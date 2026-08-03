@@ -1,4 +1,4 @@
-﻿"""
+"""
 node_md_img 真实 API 集成测试
 
 使用 output/test/ 下的 MinerU 转换产物进行真实 API 测试。
@@ -15,7 +15,7 @@ import pytest
 
 # ── 模块导入 ──
 try:
-    from processor.import_process.nodes.node_md_img import NodeMdImg
+    import processor.import_process.nodes.node_md_img as node_md_img
     from processor.import_process.core.state import create_default_state
     from processor.utils.client.minio_client import minio_client
     from processor.config.llm_config import llm_config
@@ -44,7 +44,7 @@ HAS_VLM = bool(getattr(llm_config, "lv_model", None))
 
 @pytest.fixture
 def node():
-    return NodeMdImg()
+    return node_md_img
 
 
 @pytest.fixture
@@ -162,7 +162,6 @@ class TestStep4UploadAndReplace:
         from processor.utils.client.minio_client import minio_client
         content, _, img_dir = node._step_1_get_content(md_state)
         targets = node._step_2_get_scan_images(content, img_dir)
-        from processor.import_process.nodes.node_md_img import NodeMdImg
         summaries = {f: "摘要" for f, _, _ in targets}
         new_content = node._step_4_upload_and_replace(minio_client, TEST_MD.stem, targets, summaries, content)
         assert "http" in new_content, "替换后应包含 MinIO URL"
@@ -173,7 +172,7 @@ class TestFullPipeline:
     """完整 process() 端到端"""
 
     def test_full_process(self, node, md_state):
-        result = node.process(md_state)
+        result = node.node_md_img(md_state)
         assert "md_path" in result
         assert "md_content" in result
         new_md = Path(result["md_path"])

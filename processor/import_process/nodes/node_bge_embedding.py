@@ -1,11 +1,12 @@
 import json
+import sys
 from pathlib import Path
 from typing import List, Dict, Any
 
 from processor.common.logger import logger
-from processor.import_process.core import state
-from processor.import_process.core.base import BaseNode
 from processor.import_process.core.state import ImportGraphState, create_default_state
+from processor.utils.core.task_utils import add_running_task
+from processor.utils.format_utils import format_state
 from processor.utils.lm.embedding_utils import get_bge_m3_ef, generate_embedding
 
 
@@ -33,31 +34,34 @@ from processor.utils.lm.embedding_utils import get_bge_m3_ef, generate_embedding
 # #   - 文本增强：拼接商品名+切片内容，强化核心特征，提升检索准确性
 # # ==========================================
 
-class NodeBgeEmbedding(BaseNode):
+def node_bge_embedding(state: ImportGraphState) -> ImportGraphState:
     """
     节点: 向量化
     使用 BGE-M3 模型将文本转换为向量。
+
+    LangGraph核心节点：BGE-M3文本向量化处理
+    主流程（串行执行，全流程异常隔离）：
+        1. 输入校验：验证chunks有效性，核心数据缺失则终止当前节点
+        2. 模型初始化：获取BGE-M3单例模型实例，避免重复加载
+        3. 批量向量化：分批拼接文本、生成双向量，为切片绑定向量字段
+        4. 状态更新：将带向量的chunks更新回全局状态，供下游Milvus入库节点使用
+    参数：
+        state: ImportGraphState - 流程全局状态对象，包含上游传入的chunks、task_id等数据
+    返回：
+        ImportGraphState - 更新后的状态对象，chunks字段新增dense_vector/sparse_vector
+    异常处理：
+        节点内所有异常均捕获，不终止整体LangGraph流程，仅记录错误日志
     """
+    # 动态获取函数名避免硬编码
+    name = sys._getframe().f_code.co_name
 
-    # 覆盖基类的 name 属性，标识节点名称
-    name: str = "node_bge_embedding"
+    # 节点启动日志，打印当前工作流状态
+    logger.debug(f"【{name}】节点启动，\n当前工作流状态：{format_state(state)}")
 
-    def process(self, state: ImportGraphState) -> ImportGraphState:
-        """
-        LangGraph核心节点：BGE-M3文本向量化处理
-        主流程（串行执行，全流程异常隔离）：
-            1. 输入校验：验证chunks有效性，核心数据缺失则终止当前节点
-            2. 模型初始化：获取BGE-M3单例模型实例，避免重复加载
-            3. 批量向量化：分批拼接文本、生成双向量，为切片绑定向量字段
-            4. 状态更新：将带向量的chunks更新回全局状态，供下游Milvus入库节点使用
-        参数：
-            state: ImportGraphState - 流程全局状态对象，包含上游传入的chunks、task_id等数据
-        返回：
-            ImportGraphState - 更新后的状态对象，chunks字段新增dense_vector/sparse_vector
-        异常处理：
-            节点内所有异常均捕获，不终止整体LangGraph流程，仅记录错误日志
-        """
-        try:
+    # 开始：记录节点运行状态
+    add_running_task(state["task_id"], name)
+
+    try:
             # 步骤1：输入数据校验，核心chunks无效则抛出异常
             text_to_embedding = step_1_validate_input(state)
 
@@ -71,12 +75,12 @@ class NodeBgeEmbedding(BaseNode):
             state['chunks'] = output_data
             logger.info(f"--- BGE-M3 向量化处理完成，共处理 {len(output_data)} 条文本切片 ---")
 
-        except Exception as e:
+    except Exception as e:
             # 捕获节点所有异常，记录错误堆栈，不中断整体流程
             logger.error(f"BGE-M3向量化节点执行失败：{str(e)}", exc_info=True)
 
         # 返回更新后的状态对象，传递至下游节点
-        return state
+    return state
 
 def step_1_validate_input(state:ImportGraphState)->List[Dict[str, Any]]:
     """
@@ -230,7 +234,7 @@ def run_hak180_debug() -> ImportGraphState:
         item_name=item_name,
         chunks=chunks,
     )
-    final_state = NodeBgeEmbedding()(initial_state)
+    final_state = node_bge_embedding(initial_state)
     output_chunks = final_state.get("chunks", [])
 
     print("\n===== HAK180 BGE-M3 调试结果 =====")

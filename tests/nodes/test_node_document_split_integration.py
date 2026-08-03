@@ -25,10 +25,10 @@ from processor.config.minio_config import minio_config
 from processor.import_process.core.state import create_default_state
 from processor.import_process.nodes.node_document_split import (
     DEFAULT_MAX_CONTENT_LENGTH,
-    NodeDocumentSplit,
+    node_document_split,
 )
-from processor.import_process.nodes.node_md_img import NodeMdImg
-from processor.import_process.nodes.node_pdf_to_md import NodePdfToMd
+from processor.import_process.nodes import node_md_img as md_img_node
+from processor.import_process.nodes.node_pdf_to_md import node_pdf_to_md
 from processor.utils.client.minio_client import minio_client
 
 
@@ -69,7 +69,7 @@ def hl3040_pipeline_result():
     )
 
     # 节点1：真实上传PDF到MinerU，轮询、下载并解压Markdown和图片。
-    state = NodePdfToMd().process(state)
+    state = node_pdf_to_md(state)
     original_md_path = Path(state["md_path"])
     assert original_md_path.exists()
     assert isinstance(state["md_content"], str)
@@ -79,7 +79,6 @@ def hl3040_pipeline_result():
     images_dir = original_md_path.parent / "images"
 
     # 节点2：真实调用VLM生成摘要，上传MinIO，并生成同目录下的*_new.md。
-    md_img_node = NodeMdImg()
     all_targets = md_img_node._step_2_get_scan_images(original_md_content, images_dir)
     selected_targets = all_targets[:REAL_IMAGE_LIMIT]
     selected_image_names = [image_file for image_file, _, _ in selected_targets]
@@ -91,13 +90,13 @@ def hl3040_pipeline_result():
         return original_scan(md_content, scan_images_dir)[:REAL_IMAGE_LIMIT]
 
     with patch.object(md_img_node, "_step_2_get_scan_images", side_effect=scan_limited_images):
-        state = md_img_node.process(state)
+        state = md_img_node.node_md_img(state)
     processed_md_path = Path(state["md_path"])
     assert processed_md_path.exists()
     assert processed_md_path.name == f"{PDF_PATH.stem}_new.md"
 
     # 节点3：执行标题初切、超长切分、短块合并并备份chunk.json。
-    state = NodeDocumentSplit().process(state)
+    state = node_document_split(state)
     chunk_json_path = processed_md_path.parent / "chunks" / "chunk.json"
 
     return {

@@ -1,4 +1,5 @@
 import os
+import sys
 from typing import List, Tuple, Dict, Any
 
 from langchain_core.messages import SystemMessage, HumanMessage
@@ -6,11 +7,12 @@ from pyexpat.errors import messages
 from pymilvus import MilvusClient, DataType
 
 from processor.common.logger import logger
-from processor.import_process.core.base import BaseNode
 from processor.import_process.core.state import ImportGraphState
 from processor.import_process.nodes.node_document_split import step_1_get_input
 from processor.utils.client.milvus_client import get_milvus_client
 from processor.utils.escape_milvus_string_utils import escape_milvus_string
+from processor.utils.core.task_utils import add_running_task
+from processor.utils.format_utils import format_state
 from processor.utils.lm.embedding_utils import generate_embedding
 from processor.utils.lm.llm_client import get_llm_client
 from processor.utils.prompt.load_prompt import load_prompt
@@ -23,7 +25,7 @@ SINGLE_CHUNK_CONTENT_MAX_LEN = 800
 # 大模型上下文总字符数上限：适配主流大模型输入限制，默认2500
 CONTEXT_TOTAL_MAX_CHARS = 2500
 
-class NodeItemNameRecognition(BaseNode):
+def node_item_name_recognition(state: ImportGraphState) -> ImportGraphState:
     """
     【核心节点】商品主体名称识别（node_item_name_recognition）
     整体流程：提取输入→构建上下文→大模型识别→回填数据→生成向量→存入Milvus
@@ -33,26 +35,22 @@ class NodeItemNameRecognition(BaseNode):
     :return: 更新后的状态字典，新增item_name键，且chunks列表中每个元素新增item_name字段
     """
 
-    # 覆盖基类的 name 属性，标识节点名称
-    name: str = "node_item_name_recognition"
+    # 动态获取函数名避免硬编码
+    name = sys._getframe().f_code.co_name
 
-    def process(self, state: ImportGraphState) -> ImportGraphState:
-        """
-        【核心节点】商品主体名称识别（node_item_name_recognition）
-        整体流程：提取输入→构建上下文→大模型识别→回填数据→生成向量→存入Milvus
-        核心目的：利用大模型从文档切片中精准识别商品/主体名称，并生成双路向量（稠密+稀疏）存入数据库
-        后续扩展点：支持多主体识别、增加商品属性提取、对接其他向量库等
-        :param state: 项目状态字典（ImportGraphState），必须包含chunks/file_title/task_id
-        :return: 更新后的状态字典，新增item_name键，且chunks列表中每个元素新增item_name字段
-        """
+    # 节点启动日志，打印当前工作流状态
+    logger.debug(f"【{name}】节点启动，\n当前工作流状态：{format_state(state)}")
 
-        try:
+    # 开始：记录节点运行状态
+    add_running_task(state["task_id"], name)
+
+    try:
             # ===================================== 步骤1：提取并校验输入数据 =====================================
             # 作用：从状态字典提取文件标题和切片列表
             # 输出：文件标题、切片列表；若无切片则抛出异常
             file_title, chunks = step_1_get_inputs(state)
             if not chunks:
-                logger.warning(f">>> 节点执行警告：{self.name}（无有效切片数据），跳过识别")
+                logger.warning(f">>> 节点执行警告：{name}（无有效切片数据），跳过识别")
                 return state
 
             # ===================================== 步骤2：构建大模型识别上下文 =====================================
@@ -89,23 +87,23 @@ class NodeItemNameRecognition(BaseNode):
             # 根据真实保存结果记录日志，避免 Milvus 保存失败时仍提示“已存入”。
             if saved_to_milvus:
                 logger.info(
-                    f">>> 核心节点执行完成：【商品名称识别】{self.name}，"
+                    f">>> 核心节点执行完成：【商品名称识别】{name}，"
                     f"识别结果：{item_name}，已存入Milvus"
                 )
             else:
                 logger.warning(
-                    f">>> 核心节点执行完成：【商品名称识别】{self.name}，"
+                    f">>> 核心节点执行完成：【商品名称识别】{name}，"
                     f"识别结果：{item_name}，但未存入Milvus"
                 )
 
-        except Exception as e:
+    except Exception as e:
             # 全局异常捕获：保证节点执行失败不崩溃整个流程，记录详细错误日志便于排查
-            logger.error(f">>> 核心节点执行失败：【商品名称识别】{self.name}，错误信息：{str(e)}", exc_info=True)
+            logger.error(f">>> 核心节点执行失败：【商品名称识别】{name}，错误信息：{str(e)}", exc_info=True)
             # 可选：失败时设置默认值或标记状态
             state["item_name"] = "未知商品"
 
         # 返回更新后的状态（供下游节点使用）
-        return state
+    return state
 
 def step_1_get_inputs(state:ImportGraphState)->Tuple[str, List[Dict]]:
     """

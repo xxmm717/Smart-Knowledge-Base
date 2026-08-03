@@ -6,13 +6,13 @@ from langgraph.graph import StateGraph
 
 from processor.common.logger import logger
 from processor.config.milvus_config import milvus_config
-from processor.import_process.nodes.node_bge_embedding import NodeBgeEmbedding
-from processor.import_process.nodes.node_document_split import NodeDocumentSplit
-from processor.import_process.nodes.node_entry import NodeEntry
-from processor.import_process.nodes.node_import_milvus import NodeImportMilvus
-from processor.import_process.nodes.node_item_name_recognition import NodeItemNameRecognition
-from processor.import_process.nodes.node_md_img import NodeMdImg
-from processor.import_process.nodes.node_pdf_to_md import NodePdfToMd
+from processor.import_process.nodes.node_bge_embedding import node_bge_embedding
+from processor.import_process.nodes.node_document_split import node_document_split
+from processor.import_process.nodes.node_entry import node_entry
+from processor.import_process.nodes.node_import_milvus import node_import_milvus
+from processor.import_process.nodes.node_item_name_recognition import node_item_name_recognition
+from processor.import_process.nodes.node_md_img import node_md_img
+from processor.import_process.nodes.node_pdf_to_md import node_pdf_to_md
 from processor.import_process.core.state import ImportGraphState,create_default_state
 from processor.utils.client.milvus_client import get_milvus_client
 from processor.utils.escape_milvus_string_utils import escape_milvus_string
@@ -21,16 +21,7 @@ from processor.utils.escape_milvus_string_utils import escape_milvus_string
 workflow = StateGraph(ImportGraphState)
 
 # 2.注册所有节点
-# 2.1 创建节点
-node_entry = NodeEntry()
-node_pdf_to_md = NodePdfToMd()
-node_md_img = NodeMdImg()
-node_document_split = NodeDocumentSplit()
-node_item_name_recognition = NodeItemNameRecognition()
-node_bge_embedding = NodeBgeEmbedding()
-node_import_milvus = NodeImportMilvus()
-
-# 2.2 注册节点
+# 2.1 注册节点
 workflow.add_node("node_entry", node_entry)
 workflow.add_node("node_pdf_to_md", node_pdf_to_md)
 workflow.add_node("node_md_img", node_md_img)
@@ -81,7 +72,7 @@ if __name__ == "__main__":
     pdf_path = (
         project_root
         / "doc"
-        / "H3C LA2608室内无线网关 用户手册-6W100-整本手册.pdf"
+        / "hak180产品安全手册.pdf"
     )
     output_dir = project_root / "output"
 
@@ -151,4 +142,3 @@ if __name__ == "__main__":
     logger.info(f"Chunk 数量：{len(chunks)}")
     logger.info(f"Milvus 集合：{collection_name}")
     logger.info(f"Milvus 查询数量：{len(persisted_rows)}")
-

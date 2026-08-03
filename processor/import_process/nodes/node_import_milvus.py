@@ -1,52 +1,58 @@
+import sys
 from typing import Dict, Any, List
 
 from pymilvus import DataType
 
 from processor.common.logger import logger
 from processor.config.milvus_config import milvus_config
-from processor.import_process.core.base import BaseNode
 from processor.import_process.core.state import ImportGraphState
 from processor.utils.client.milvus_client import get_milvus_client
+from processor.utils.core.task_utils import add_running_task
 from processor.utils.escape_milvus_string_utils import escape_milvus_string
+from processor.utils.format_utils import format_state
 
 # 从配置文件读取切片集合名称，与配置解耦，便于环境切换
 CHUNKS_COLLECTION_NAME = milvus_config.chunks_collection
 
-class NodeImportMilvus(BaseNode):
-    # ==========================================
-    # Milvus切片数据入库核心节点
-    # 核心能力：将上游向量化后的文本切片批量存入Milvus，实现幂等性写入
-    # 核心设计：
-    #   1. 幂等性：插入前删除同item_name旧数据，避免重复存储
-    #   2. 自动建表：集合不存在时自动创建Schema和向量索引，无需手动初始化
-    #   3. 数据校验：前置校验切片有效性、向量字段完整性，避免脏数据入库
-    #   4. 主键回填：将Milvus自增的chunk_id回填到切片，供下游业务使用
-    # 依赖上游：BGE-M3向量化节点（提供dense_vector/sparse_vector字段）
-    # ==========================================
+# ==========================================
+# Milvus切片数据入库核心节点
+# 核心能力：将上游向量化后的文本切片批量存入Milvus，实现幂等性写入
+# 核心设计：
+#   1. 幂等性：插入前删除同item_name旧数据，避免重复存储
+#   2. 自动建表：集合不存在时自动创建Schema和向量索引，无需手动初始化
+#   3. 数据校验：前置校验切片有效性、向量字段完整性，避免脏数据入库
+#   4. 主键回填：将Milvus自增的chunk_id回填到切片，供下游业务使用
+# 依赖上游：BGE-M3向量化节点（提供dense_vector/sparse_vector字段）
+# ==========================================
 
-    # 覆盖基类的 name 属性，标识节点名称
-    name: str = "node_import_milvus"
+def node_import_milvus(state: ImportGraphState) -> ImportGraphState:
+    """
+    LangGraph核心节点：Milvus切片数据入库主流程
+    执行流程（串行执行，一步一校验，保证数据一致性）：
+        1. 输入校验：验证切片有效性、向量字段完整性，提取向量维度
+        2. 环境准备：连接Milvus，集合不存在则自动创建Schema+索引
+        3. 幂等清理：删除同item_name旧数据，避免重复存储
+        4. 批量插入：预处理数据后批量入库，回填Milvus自增chunk_id
+        5. 状态更新：将回填了chunk_id的切片更新回全局状态，供下游使用
+    参数：
+        state: Dict[str, Any] - 流程全局状态对象，包含chunks、task_id等数据
+    返回：
+        Dict[str, Any] - 更新后的状态对象，chunks字段回填chunk_id
+    异常处理：
+        任一步骤失败抛出ValueError，终止节点执行，保证数据不脏写
+    """
+    # 动态获取函数名避免硬编码
+    name = sys._getframe().f_code.co_name
 
-    def process(self, state: ImportGraphState) -> ImportGraphState:
-        """
-        LangGraph核心节点：Milvus切片数据入库主流程
-        执行流程（串行执行，一步一校验，保证数据一致性）：
-            1. 输入校验：验证切片有效性、向量字段完整性，提取向量维度
-            2. 环境准备：连接Milvus，集合不存在则自动创建Schema+索引
-            3. 幂等清理：删除同item_name旧数据，避免重复存储
-            4. 批量插入：预处理数据后批量入库，回填Milvus自增chunk_id
-            5. 状态更新：将回填了chunk_id的切片更新回全局状态，供下游使用
-        参数：
-            state: Dict[str, Any] - 流程全局状态对象，包含chunks、task_id等数据
-        返回：
-            Dict[str, Any] - 更新后的状态对象，chunks字段回填chunk_id
-        异常处理：
-            任一步骤失败抛出ValueError，终止节点执行，保证数据不脏写
-        """
+    # 节点启动日志，打印当前工作流状态
+    logger.debug(f"【{name}】节点启动，\n当前工作流状态：{format_state(state)}")
 
-        logger.info("--- Milvus切片数据入库流程启动 ---")
+    # 开始：记录节点运行状态
+    add_running_task(state["task_id"], name)
 
-        try:
+    logger.info("--- Milvus切片数据入库流程启动 ---")
+
+    try:
             # 步骤1：输入数据有效性检验
             chunks_json_data,vector_dimension = step_1_check_input(state)
 
@@ -62,11 +68,11 @@ class NodeImportMilvus(BaseNode):
             # 步骤5：更新全局状态，将回填的切片回传下游
             state["chunks"] = updated_chunks
 
-        except Exception as e:
+    except Exception as e:
             logger.error(f"Milvus切片数据入库节点执行失败：{str(e)}", exc_info=True)
             raise ValueError(f"Milvus 导入过程中发生错误: {e}")
 
-        return state
+    return state
 
 def step_1_check_input(state: Dict[str, Any])-> tuple[List[Dict[str, Any]], int]:
     """

@@ -6,7 +6,7 @@ from pathlib import Path
 from uuid import uuid4
 
 from processor.config.milvus_config import milvus_config
-from processor.import_process.nodes.node_import_milvus import NodeImportMilvus
+from processor.import_process.nodes.node_import_milvus import node_import_milvus
 from processor.utils.client.milvus_client import get_milvus_client
 from processor.utils.escape_milvus_string_utils import escape_milvus_string
 
@@ -62,7 +62,7 @@ def test_node_import_milvus_with_real_hak180_and_real_milvus():
     filter_expr = f'item_name == "{escape_milvus_string(test_item_name)}"'
 
     try:
-        result = NodeImportMilvus().process(state)
+        result = node_import_milvus(state)
         output_chunks = result["chunks"]
 
         assert client.has_collection(collection_name=collection_name)

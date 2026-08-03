@@ -238,7 +238,7 @@ def test_process_uses_real_hak180_chunks_without_external_calls(hak180_chunks):
             return_value=True,
         ) as save_to_milvus,
     ):
-        result = target.NodeItemNameRecognition().process(state)
+        result = target.node_item_name_recognition(state)
 
     assert result is state
     assert result["item_name"] == "HAK180烫金机"
@@ -259,6 +259,7 @@ def test_process_uses_real_hak180_chunks_without_external_calls(hak180_chunks):
 def test_process_does_not_report_milvus_success_when_save_fails(hak180_chunks):
     """Milvus保存失败时应保留识别结果，但不能记录虚假的入库成功日志。"""
     state = {
+        "task_id": "unit_hak180_item_name_fail",
         "file_title": "hak180产品安全手册",
         "chunks": hak180_chunks,
     }
@@ -269,7 +270,7 @@ def test_process_does_not_report_milvus_success_when_save_fails(hak180_chunks):
         patch.object(target, "step_6_save_to_milvus", return_value=False),
         patch.object(target, "logger") as mocked_logger,
     ):
-        result = target.NodeItemNameRecognition().process(state)
+        result = target.node_item_name_recognition(state)
 
     assert result["item_name"] == "HAK180烫金机"
     info_messages = [str(call.args[0]) for call in mocked_logger.info.call_args_list]
@@ -283,6 +284,7 @@ def test_process_does_not_report_milvus_success_when_save_fails(hak180_chunks):
 def test_process_sets_default_entity_when_unexpected_error_occurs(hak180_chunks):
     """未预期异常不应中断工作流，并应写入默认实体名称。"""
     state = {
+        "task_id": "unit_hak180_item_name_error",
         "file_title": "hak180产品安全手册",
         "chunks": hak180_chunks,
     }
@@ -292,6 +294,6 @@ def test_process_sets_default_entity_when_unexpected_error_occurs(hak180_chunks)
         "step_3_call_llm",
         side_effect=RuntimeError("unexpected"),
     ):
-        result = target.NodeItemNameRecognition().process(state)
+        result = target.node_item_name_recognition(state)
 
     assert result["item_name"] == "未知商品"

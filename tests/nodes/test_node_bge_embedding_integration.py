@@ -8,7 +8,7 @@ from pathlib import Path
 import pytest
 
 from processor.import_process.core.state import create_default_state
-from processor.import_process.nodes.node_bge_embedding import NodeBgeEmbedding
+from processor.import_process.nodes.node_bge_embedding import node_bge_embedding
 
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
@@ -48,7 +48,7 @@ def test_node_bge_embedding_with_real_hak180_and_real_model(
     """真实 BGE-M3 应为全部 HAK180 切片生成可供 Milvus 使用的双向量。"""
     original_chunks = copy.deepcopy(hak180_embedding_state["chunks"])
 
-    result = NodeBgeEmbedding().process(hak180_embedding_state)
+    result = node_bge_embedding(hak180_embedding_state)
 
     assert result is hak180_embedding_state
     output_chunks = result["chunks"]

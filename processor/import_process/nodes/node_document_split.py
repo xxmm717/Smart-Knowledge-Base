@@ -1,15 +1,14 @@
-﻿import json
+import json
 import os
 import sys
-from os import name
-from sys import prefix
 from typing import Tuple, Any, Dict, List
 
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 from processor.common.logger import logger
-from processor.import_process.core.base import BaseNode
 from processor.import_process.core.state import ImportGraphState
+from processor.utils.core.task_utils import add_running_task
+from processor.utils.format_utils import format_state
 import re
 
 # --- 配置参数 (Configuration) ---
@@ -18,32 +17,35 @@ DEFAULT_MAX_CONTENT_LENGTH = 2000
 # 短Chunk合并阈值：同父标题的短Chunk会被合并，减少碎片化
 MIN_CONTENT_LENGTH = 500
 
-class NodeDocumentSplit(BaseNode):
+def node_document_split(state: ImportGraphState) -> ImportGraphState:
     """
     节点: 文档切分
     将长文档切分成小的 Chunks (切片) 以便检索。
+
+    【核心节点】文档切分主节点（node_document_split）
+    整体流程：加载输入→按MD标题初切→无标题兜底→长切短合→统计输出→结果备份
+    核心目的：将长MD文档切分为长度适中的Chunk，适配大模型上下文窗口和向量检索
+    后续扩展点：可在各步骤间新增Chunk元信息补充、自定义切分规则、向量入库前置处理等
+    :param state: 项目状态字典（ImportGraphState），必须包含md_content/task_id；可选local_dir/max_content_length/file_title
+    :return: 更新后的状态字典，新增chunks键（存储最终处理后的Chunk列表，每个Chunk为含title/content/parent_title的字典）
     """
+    # 动态获取函数名避免硬编码
+    name = sys._getframe().f_code.co_name
 
-    # 覆盖基类的 name 属性，标识节点名称
-    name: str = "node_document_split"
+    # 节点启动日志，打印当前工作流状态
+    logger.debug(f"【{name}】节点启动，\n当前工作流状态：{format_state(state)}")
 
-    def process(self, state: ImportGraphState) -> ImportGraphState:
-        """
-        【核心节点】文档切分主节点（node_document_split）
-        整体流程：加载输入→按MD标题初切→无标题兜底→长切短合→统计输出→结果备份
-        核心目的：将长MD文档切分为长度适中的Chunk，适配大模型上下文窗口和向量检索
-        后续扩展点：可在各步骤间新增Chunk元信息补充、自定义切分规则、向量入库前置处理等
-        :param state: 项目状态字典（ImportGraphState），必须包含md_content/task_id；可选local_dir/max_content_length/file_title
-        :return: 更新后的状态字典，新增chunks键（存储最终处理后的Chunk列表，每个Chunk为含title/content/parent_title的字典）
-        """
-        try:
+    # 开始：记录节点运行状态
+    add_running_task(state["task_id"], name)
+
+    try:
             # ============1.加载并标准化输入数据================
             # 作用：从状态字典提取md内容/文件标题/chunk最大长度，统一换行消除系统差异，做空值兜底
             # 输出：标准化后的md_content、文件标题、单个chunk最大长度，有无效md内容直接终止节点执行
 
             content,file_title,max_len = step_1_get_input(state)
             if content is None:
-                logger.info(f">>>节点执行终止：{self.name}（无有效MD内容）")
+                logger.info(f">>>节点执行终止：{name}（无有效MD内容）")
                 return state
 
             # ============2.按md文件标题做初次切割==============
@@ -80,13 +82,13 @@ class NodeDocumentSplit(BaseNode):
 
             # 节点执行完成日志
             logger.info(
-                f">>> 核心节点执行完成：【文档切分】{self.name}，已生成{len(sections)}个有效Chunk，结果已写入状态字典")
+                f">>> 核心节点执行完成：【文档切分】{name}，已生成{len(sections)}个有效Chunk，结果已写入状态字典")
 
-        except Exception as e:
+    except Exception as e:
             # 全局异常捕获，保证节点执行失败不崩溃整个流程，记录错误日志便于排查
-            logger.error(f">>>核心节点执行失败：【文档切分】{self.name}，错误信息：{str(e)}",exc_info=True)
+            logger.error(f">>>核心节点执行失败：【文档切分】{name}，错误信息：{str(e)}",exc_info=True)
 
-        return state
+    return state
 
 def step_1_get_input(state:ImportGraphState)->Tuple[Any, str, int]:
     """

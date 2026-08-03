@@ -37,6 +37,6 @@ def real_pdf(doc_dir: Path) -> Path:
 
 @pytest.fixture
 def node():
-    """每个测试获得一个新的 NodePdfToMd 实例"""
-    from processor.import_process.nodes.node_pdf_to_md import NodePdfToMd
-    return NodePdfToMd()
+    """每个测试直接使用 node_pdf_to_md 函数"""
+    from processor.import_process.nodes.node_pdf_to_md import node_pdf_to_md
+    return node_pdf_to_md

@@ -1,11 +1,11 @@
-﻿import requests
+import requests
 from pathlib import Path
 
 from dotenv import load_dotenv
 load_dotenv()
 
 from processor.config.config import get_config
-from processor.import_process.nodes.node_pdf_to_md import NodePdfToMd
+from processor.import_process.nodes.node_pdf_to_md import node_pdf_to_md
 
 import pytest
 
@@ -19,7 +19,7 @@ HEADERS = {"Content-Type": "application/json", "Authorization": f"Bearer {cfg.mi
 
 @pytest.fixture
 def node():
-    return NodePdfToMd()
+    return node_pdf_to_md
 
 
 class TestRealMinerUIntegration:
@@ -36,7 +36,7 @@ class TestRealMinerUIntegration:
 
     def test_step2_real_upload(self, node, real_pdf):
         """真实上传 + 轮询，验证拿到 ZIP 下载链接"""
-        zip_url = node._step_2_upload_and_poll(real_pdf)
+        zip_url = _step_2_upload_and_poll(real_pdf)
         assert zip_url
         print(f"  ZIP URL 获取成功 ({zip_url[:60]}...)")
 
@@ -44,8 +44,8 @@ class TestRealMinerUIntegration:
         """完整管道：上传 → 轮询 → 下载 → 解压 → 验证 MD 内容"""
         out = tmp_path / "mineru_out"
         out.mkdir(parents=True, exist_ok=True)
-        zip_url = node._step_2_upload_and_poll(real_pdf)
-        md_str = node._step_3_download_and_extract(zip_url, out, real_pdf.stem)
+        zip_url = _step_2_upload_and_poll(real_pdf)
+        md_str = _step_3_download_and_extract(zip_url, out, real_pdf.stem)
         md_file = Path(md_str)
         assert md_file.exists()
         content = md_file.read_text(encoding="utf-8")
